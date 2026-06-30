@@ -158,34 +158,102 @@
 //let discounter = discountcalculator(10);
 //console.log(discounter(200));
 
-function counter() {
-    let count = 0;
-    return function() {
-        count++;
-        return count;
-    };
+//function counter() {
+    //let count = 0;
+    //return function() {
+        //count++;
+        //return count;
+   // };
+//}
+
+//let c = counter();
+//console.log(c());
+//console.log(c());
+//console.log(c());
+
+//function double(val) {
+    //return val * 2;
+//}
+
+//console.log(double(50));
+
+
+//(function() {
+    //const password = "secret password";
+    //console.log("password");
+//})();
+
+//console.log(password);
+
+//let arr = [11, 62, 3, 4, 25];
+//let sr = arr.sort(function(a, b) {
+    //return a - b;
+//});
+
+//let arr  = [11, 62, 3, 4, 25];
+//arr.forEach(function(val) {
+    //console.log(val + 5);
+//});
+
+//let arr = [1,2,3,4,5];
+
+//let ans = arr.reduce(function(acc, val) {
+    //return acc = val;
+// }, 0);
+
+//let arr2 = [1,2,3,4,5];
+//let any = arr2.some(function(val) {
+    //return val > 3;
+//});
+
+//let arr3 = [10,20,30,40,50];
+//let eve = arr3.every(function(val) {
+    //return val > 15;
+//});
+
+//let arr4 = [1,2,3,4,5];
+//let arr5 = [...arr]; 
+
+//let arr = [5,12,8,20,3];
+//let newarr = arr.filter((val) => {
+    //return val > 10;
+//});
+
+let obj = {
+    name: "John",
+    age: 30,
+    khaana: "Pizza",
+};
+
+let aa = "name";
+
+const user = {
+    name: "John",
+    address: {
+        city: "New York",
+        pin: 10001,
+        location: {
+            lat: 40.7128,
+            lng: -74.0060
+        },
+    },
+
+};
+
+let {lat,lng} = user.address.location;
+
+let obj = {
+    name: "John",
+    age: 30,
+    email: "test@test.com",
+};
+
+for (let key in obj) {
+    console.log(key, obj[key]);
 }
 
-let c = counter();
-console.log(c());
-console.log(c());
-console.log(c());
-
-function double(val) {
-    return val * 2;
-}
-
-console.log(double(50));
 
 
-(function() {
-    const password = "secret password";
-    console.log("password");
-})();
 
-console.log(password);
 
-let arr = [11, 62, 3, 4, 25];
-let sr = arr.sort(function(a, b) {
-    return a - b;
-});
+
