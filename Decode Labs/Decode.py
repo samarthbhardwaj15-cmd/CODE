@@ -27,6 +27,3 @@ while True:
     
     else:
         print("bot: sorry, I didn't understand that.")
-        
-        
-        
