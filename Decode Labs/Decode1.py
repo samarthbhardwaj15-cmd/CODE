@@ -1,6 +1,8 @@
 # ==============================================
 #project 1: Rule-Based AI Chatbot
 #Internship: Artifical Intelligence
+# Organization: DecodeLabs
+# Author: Samarth Bhardwaj
 # ==============================================
 
 print("AI Chatbot Startted!")
