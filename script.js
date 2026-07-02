@@ -242,16 +242,17 @@ const user = {
 
 let {lat,lng} = user.address.location;
 
-let obj = {
+let oj = {
     name: "John",
     age: 30,
     email: "test@test.com",
 };
 
-for (let key in obj) {
-    console.log(key, obj[key]);
-}
+//for (let key in oj) {
+    //console.log(key, oj[key]);
+//}
 
+let oj2 = Object.assign({ price: Infinity}, oj);
 
 
 
