@@ -135,7 +135,7 @@ switch(day){
     break
 
     default:console.log("invalid");
-     }
+}
 
 
 
