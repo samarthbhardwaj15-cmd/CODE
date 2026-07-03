@@ -137,5 +137,79 @@ switch(day){
     default:console.log("invalid");
 }
 
+let ay = 3;
+
+switch (ay) {
+    case 1:
+    case 2:
+    case 3:
+        console.log("tuesday");
+
+        break
+
+    default: console.log("invalid");
+        
+}
+
+
+
+  switch (day) {
+    case 19>13:
+        console.log("tuesday");
+        break
+    case 10 > 9:
+        console.log("day");
+        break
+
+    default: console.log("invalid");
+        
+}
+
+let gun = 0.1 + 0.2
+
+switch(num){
+    case 0.3: console.log("heloo");
+    break
+
+    case 0.5: console.log("hey");
+    break
+
+    default: console.log("namaste");
+}
+
+var i = 1
+for(; i<=10; i++){
+    console.log(i);
+}
+console.log(i+" fail");
+
+
+//var pr = prompt("kaha tak add karwaaoge ?");
+var n = number(prompt("kaha tak add karwaaoge ?"));
+
+//if(pr === null){console.log)("cancelled")};
+
+//else{var n = number(pr);}
+if(isNaN(n)){
+    console.log("Invalid input");
+}
+else{
+    if(n>0){
+        var sum = 0;
+        for(var i = 1; i<=n; i++){
+            sum = sum + i;
+        }
+        //var(fact = 1;) for(var i = 1; i<=n; i++){fact = fact * i;}
+        console.log(sum);
+        
+    }
+    else{
+        console.log("should be +ve and more than 0");
+    }
+}
+
+
+
+
 
 
