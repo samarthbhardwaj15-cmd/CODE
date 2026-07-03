@@ -30,8 +30,36 @@ console.log(h4);
 let lis = document.querySelectorAll("li");
 lis.forEach(function (val) {
     //for (let i = 0; i < lis.length; i++)
-    console.log(val.textContent); //lis[i]
+    console.log(val.textContent); //lis[i] 
 });
+
+let p = document.querySelector("p");
+p.innerHTML = "<b>Update</b> by JavaScript";
+console.dir(p);
+
+//let btn = document.querySelector("button");
+//btn.removeAttribute("disabled");
+
+//document.querySelector("div").removeChild(elmentNode)
+
+let ul = document.querySelector("ul");
+let li = document.createElement("li");
+
+li.textContent = "New Task";
+
+ul.appendChild(li);
+
+let ig = document.createElement("ig")
+ig.setAttribute(
+    "src","https://tse2.mm.bing.net/th/id/OIP.5oI9D1_s93ryQFNbqZ1u4wHaHa?pid=Api&h=220&P=0"
+)
+
+
+document.querySelector("div").prepend(ig);
+
+
+
+
 
 
 
