@@ -1,35 +1,37 @@
-# =============================================
-#Project 3: AI Recommendition System 
-# Internship: Artifical Intelligence
-#organisation: DecodeLabs
-#Author: Samarth Bhardwaj
-#=============================================
+# ==========================================
+# Project 3: AI Recommendation System
+# Internship: Artificial Intelligence
+# Organization: DecodeLabs
+# Author: Samarth Bhardwaj
+# ==========================================
 
-#Recommendation Data
-recommendation = {
+# Recommendation Data
+recommendations = {
     "python": [
-        "Python Crash Course"
-        "Auto the Boring Stuff",
-        "Python for Everyday"
+        "Python Crash Course",
+        "Automate the Boring Stuff",
+        "Python for Everybody"
     ],
-    
+
     "ai": [
-        "Machihne Learning with Python",
+        "Machine Learning with Python",
         "Deep Learning Basics",
-        "Artifical Intelligence: A Modern Approach"
+        "Artificial Intelligence: A Modern Approach"
     ],
-    
+
     "web development": [
-        "Html & CSS",
+        "HTML & CSS",
         "JavaScript Guide",
         "React.js"
     ],
+
     "data science": [
         "Pandas",
-        "Numpy",
+        "NumPy",
         "Data Visualization with Matplotlib"
     ],
-    "cyber security":[
+
+    "cyber security": [
         "Ethical Hacking",
         "Network Security",
         "Kali Linux Basics"
@@ -37,20 +39,20 @@ recommendation = {
 }
 
 print("=" * 50)
-print(" AI RECOMMENDATION SYSTEM")
+print("        AI RECOMMENDATION SYSTEM")
 print("=" * 50)
 
-print("\nAvailable interests:")
-for topic in recommendation:
+print("\nAvailable Interests:")
+for topic in recommendations:
     print("-", topic.title())
-    
+
 choice = input("\nEnter your interest: ").lower().strip()
 
-if choice in recommendation:
-    print("\nRecommended resources:\n")
-    
-    for item in recommendation[choice]:
-        print("~", item)
-        
+if choice in recommendations:
+    print("\nRecommended Resources:\n")
+
+    for item in recommendations[choice]:
+        print("✔", item)
+
 else:
-    print("\nSorry! No recommendations available") 
+    print("\nSorry! No recommendations available.")
