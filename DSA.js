@@ -320,14 +320,19 @@
 //     }
 // }
 
+let a = "hello";
+console.log(a);
+
 let prompt = require('prompt-sync') ();
-let n =Number(prompt("Enter a number "))
-for(let i=1; i<=n; i++){
-    for (let j = 1; j<=n; j++){
-        process.stdout.write("* ")
+let n = Number(prompt("Enter a number "))
+for(let i=1;i<=n;i++){
+    for(let j =1;j<=n;j++){
+        Process.stdout.write("*")
     }
     console.log();
+    
 }
+
 
 
 
