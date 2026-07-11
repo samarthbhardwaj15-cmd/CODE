@@ -320,20 +320,47 @@
 //     }
 // }
 
-let a = "hello";
-console.log(a);
+// let a = "hello";
+// console.log(a);
 
-let prompt = require('prompt-sync') ();
-let n = Number(prompt("Enter a number "))
+// let prompt = require('prompt-sync') ();
+// let n = Number(prompt("Enter a number "))
+// for(let i=1;i<=n;i++){
+//     for(let j =1;j<=n;j++){
+//         Process.stdout.write("*")
+//     }
+//     console.log();
+    
+// }
+
+
+// let n = Number(prompt("Enter a number "))
+// for(let i=1;i<=n;i++){
+//     let ascii = 65;
+//     for(let j=1;j<=i;j++){
+//         process.stdout.write(j+" ") //(j+" ") (String.fromCharCode(ascii)+" ") 
+//         //ascii++
+//     }
+//     console.log();
+// }
+
+// let n = Number(prompt("Enter a Number"))
+// for(let i=1;i<=n;i++){
+//     for(let j=1;j<=n-i+1;j++){
+//         process.stdout.write("* ")
+//     }
+//     console.log();
+
+let n = Number(prompt("Enter a Number"))
 for(let i=1;i<=n;i++){
-    for(let j =1;j<=n;j++){
-        Process.stdout.write("*")
+    for(let j=1;j<=n-i+1;j++){
+        process.stdout.write("_ ")
+    }
+    for(let j=1;j<=i;j++){
+        process.stdout.write("* ")
     }
     console.log();
-    
 }
-
-
 
 
 
