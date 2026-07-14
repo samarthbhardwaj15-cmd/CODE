@@ -351,20 +351,74 @@
 //     }
 //     console.log();
 
-let n = Number(prompt("Enter a Number"))
-for(let i=1;i<=n;i++){
-    for(let j=1;j<=n-i+1;j++){
-        process.stdout.write("_ ")
-    }
-    for(let j=1;j<=i;j++){
-        process.stdout.write("* ")
-    }
-    console.log();
-}
+// let n = Number(prompt("Enter a Number"))
+// for(let i=1;i<=n;i++){
+//     for(let j=1;j<=n-i+1;j++){
+//         process.stdout.write("_ ")
+//     }
+//     for(let j=1;j<=i;j++){
+//         process.stdout.write("* ")
+//     }
+//     console.log();
+// }
 
+// function twosum(nums, target) {
+//     let map = {};
+    
+//     for (let i=0; i < nums.length; i++) {
+//         let diff = target - nums[i];
+        
+//         if (map[diff] !== undefined) {
+//             return [map[diff], i];
+//         }
+        
+//         map[nums[i]] = i;
+//     }
+// }
 
+// console.log(twosum([2,7,11,15],9));
 
+// function maxSubArray(arr) {
+//     let maxSum = arr[0];
+//     let current = arr[0];
+    
+//     for (let i = 1; i < arr.length; i++) {
+//         current = Math.max(arr[i], current + arr[i]);
+//         maxSum = Math.max(maxSum, current);
+//     }
+//     return maxSum;
+// }
 
+// console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
 
+// function merge(arr1, arr2) {
+//     let result = [];
+//     let i = 0, j = 0;
+    
+    
+//     while (i < arr1.length && j < arr2.length) {
+//         if (arr1[i] < arr2[j])
+//             result.push(arr1[i++]);
+//         else 
+//             result.push(arr2[j++]);
+//     }
+    
+//     return result.concat(arr1.slice(i)).concat(arr2.slice(j));
+// }
+// console.log(merge([1,3,5],[2,4,6]));
+
+// function maxProfit(prices) {
+//     let min = prices[0];
+//     let profit = 0;
+    
+//     for (let price of prices) {
+//         if (price < min)
+//             min = price;
+//         else
+//             profit = Math.max(profit, price-min);
+//     }
+//     return profit;
+// }
+// console.log(maxProfit([7,1,5,3,6,4]));
 
 
