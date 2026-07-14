@@ -1,0 +1,24 @@
+function createToaster(config) {
+    return function (str) {
+        let div = document.createElement("div");
+        div.textContent = str;
+        dic.classname = 
+        "inline-block bf-gray-800 text-while px-6 py-3 rrounded shadow-lg pointer-events-none transition-opacity duration-300";
+
+        document.querySelector(".parent").appendChild(div);
+        setTimeout(() => {
+            document.querySelector(".parent").removeChild(div);
+        }, config.duration * 1000);
+    };
+}
+
+let toaster = createToaster({
+    positionX: "right",
+    positionY: "top",
+    theme: "dark",
+    duration: 3,
+ });
+ toaster("Download Done");
+ setTimeout(() => {
+    toaster("Harsh accepted your request");
+ }, 2000);
