@@ -407,65 +407,65 @@
 // }
 // console.log(merge([1,3,5],[2,4,6]));
 
-// function maxProfit(prices) {
-//     let min = prices[0];
-//     let profit = 0;
+function maxProfit(prices) {
+    let min = prices[0];
+    let profit = 0;
     
-//     for (let price of prices) {
-//         if (price < min)
-//             min = price;
-//         else
-//             profit = Math.max(profit, price-min);
-//     }
-//     return profit;
-// }
-// console.log(maxProfit([7,1,5,3,6,4]));
+    for (let price of prices) {
+        if (price < min)
+            min = price;
+        else
+            profit = Math.max(profit, price-min);
+    }
+    return profit;
+}
+console.log(maxProfit([7,1,5,3,6,4]));
 
-// function merge(arr1, arr2){
-//     let result = [];
-//     let i=0, j=0;
+function merge(arr1, arr2){
+    let result = [];
+    let i=0, j=0;
 
-//     while(i < arr1.length && j < arr2.length) {
-//         if (arr[i] < arr[j])
-//             result.push(arr1[i++]);
-//         else
-//             result.push(arr2[j++]);
-//     }
-//     return result.concat(arr1.slice(i).concat(arr2.slice(j)));
-// }
+    while(i < arr1.length && j < arr2.length) {
+        if (arr[i] < arr[j])
+            result.push(arr1[i++]);
+        else
+            result.push(arr2[j++]);
+    }
+    return result.concat(arr1.slice(i).concat(arr2.slice(j)));
+}
 
-// console.log(merge([1,3,5],[2,4,6]));
+console.log(merge([1,3,5],[2,4,6]));
 
-// function maxSubArray(arr) {
-//     let maxSum = arr[0];
-//     let currnet = arr[0];
+function maxSubArray(arr) {
+    let maxSum = arr[0];
+    let currnet = arr[0];
 
-//     for(let i =1; i<arr.length; i++) {
-//         currnet = Math.max(arr[i], currnet + arr[i]);
-//         maxSum =  Math.max(maxSum, currnet);
-//     }
-//     return maxSum;
-// } 
-// console.log(maxSubArray([-2,1-3,4,-1,2,1,-5,4]));
+    for(let i =1; i<arr.length; i++) {
+        currnet = Math.max(arr[i], currnet + arr[i]);
+        maxSum =  Math.max(maxSum, currnet);
+    }
+    return maxSum;
+} 
+console.log(maxSubArray([-2,1-3,4,-1,2,1,-5,4]));
 
-// function reverseString(str) {
-//     return str.split("").reverse().join("");
-// }
-// console.log(reverseString("hello"));
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+console.log(reverseString("hello"));
 
-// function isPalindrome(str) {
-//     return str === str.split("").reverse().join("");
-// }
-// console.log(isPalindrome("madam"));
+function isPalindrome(str) {
+    return str === str.split("").reverse().join("");
+}
+console.log(isPalindrome("madam"));
 
-// function countVowels(str) {
-//     let count = 0;
-//     const vowels = "aeiouAEIOU";
+function countVowels(str) {
+    let count = 0;
+    const vowels = "aeiouAEIOU";
     
-//     for (let ch of str) {
-//         if (vowels.includes(ch)) count++;
-//     }
-//     return count;
-// }
-// console.log(countVowels("JavaScript"));
+    for (let ch of str) {
+        if (vowels.includes(ch)) count++;
+    }
+    return count;
+}
+console.log(countVowels("JavaScript"));
 
