@@ -61,4 +61,36 @@
 // }
 
 // let fnc = abcd.bind(obj, 1, 2, 3);
-// fnc();
+// fnc();'
+
+
+class CreatePencil {
+// function CreatePencil(name, price, color, company) {
+    constructor(name, price, color, company){
+        this.name = name;
+        this.price = price;
+        this.color = color;
+        this.company = company;
+}
+
+erase() {
+    document.body.querySelectorAll("h1").forEach((elem) => {
+        if (elem.style.color === this.color) {
+            elem.remove();
+        }
+    });
+}
+
+write(text) {
+// CreatePencil.prototype.write = function (text) {
+    let  h1 = document.createElement("h1");
+    h1.textContent = text;
+    h1.style.color = this.color;
+    console.log(h1);
+    document.body.append(h1);
+    // };
+    };
+}
+
+let p1 = new CreatePencil("Nataraj", 10, "black", "nataraj");
+let p2 = new CreatePencil("Doms", 10 ,"red", "doms");

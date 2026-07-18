@@ -57,27 +57,31 @@
 #         print("Congratulations! you guessed the number in", attempts, "attempts.")
 #         break
 
-Blog
-from flask import Flask, render_template, request, redirect
-app = Flask(__name__)
-posts = []
-@app.route("/")
-def home():
-    return render_template("index.html", posts=posts)
+# Blog
+# from flask import Flask, render_template, request, redirect
+# app = Flask(__name__)
+# posts = []
+# @app.route("/")
+# def home():
+#     return render_template("index.html", posts=posts)
 
-@app.route("/add", methods=["GET","POST"])
-def add_post():
-    if request.method == "POSt":
-        title = request.from["title"]
-        content = request.from["content"]
+# @app.route("/add", methods=["GET","POST"])
+# def add_post():
+#     if request.method == "POSt":
+#         title = request.form["title"]
+#         content = request.form["content"]
         
-        posts.append({
-            "title": title,
-            "content": content
-        })
+#         posts.append({
+#             "title": title,
+#             "content": content
+#         })
         
-        return redirect("/")
-    return render_template("add_post.html")
+#         return redirect("/")
+#     return render_template("add_post.html")
 
-if __name__ == "__main__":
-    a
+# if __name__ == "__main__":
+#     app.run(debug=True)]
+
+                      
+    
+    
