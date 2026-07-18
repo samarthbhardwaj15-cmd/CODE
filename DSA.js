@@ -538,17 +538,146 @@
 //     }
 // }
 
-let arr = [10, 5, 12, 1 ,3];
-let n = arr.length;
-for (let i=0; i<n-1;i++){
-    let minIndex = i;
-    for(let j = i+1;j<n; j++){
-        if(arr[minIndex]>arr[i]) minIndex = j;
+// let arr = [10, 5, 12, 1 ,3];
+// let n = arr.length;
+// for (let i=0; i<n-1;i++){
+//     let minIndex = i;
+//     for(let j = i+1;j<n; j++){
+//         if(arr[minIndex]>arr[i]) minIndex = j;
+// }
+// if(miinIndex != i){
+//     let temp = arr[minIndex];
+//     arr[minIndex] = arr[i]
+//     arr[i] = temp
+//    }
+// }
+// console.log(arr);
+
+function isAnagram(a, b) {
+    return a.split("").sort().join("") ===
+           b.split("").sort().join("");
 }
-if(miinIndex != i){
-    let temp = arr[minIndex];
-    arr[minIndex] = arr[i]
-    arr[i] = temp
-   }
+console.log(isAnagram("listen", "silent"));
+ // function isAnagram(a, b) {
+
+
+// function longestWord(sentence) {
+//     let words =  sentence.split(" ");
+//     let longest = "";
+    
+//     for (let word of words) {
+//         if (words.length > longest.length)
+//             longest = word;
+//     }
+//     return longest;
+// }
+// console.log(longestWord("I love Javascript programming"));
+// let n = 5;
+// for(let i=0; i<n; i++) {
+//     for(let j=i; j<n; j++) {
+//         console.log(i, j);
+//     }
+// }
+
+// let n =5;
+// for (let i=0; i<n; i++) {
+//     console.log(i);
+// }
+// for(let j=0; j<n; j++) {
+//     console.log(j)
+// }
+
+// let n = 5;    
+// function fun(n){
+//     if(n <= 1) return;
+//     fun(n-1);
+//     fun(n-1);
+//     console.log(n)
+// }    
+
+// function bubbleSort(arr) {
+//     let n = arr.length;
+    
+//     for (let i=0; i<n-1; i++){
+//         let swapped = false;
+        
+//         for (let j=0; j<n-i-1; j++){
+//             if (arr[j] > arr[j+1]) {
+//                 [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+//                 swapped = true;
+//             }
+//         }
+//         if(!swapped) break;
+//     }
+//     return arr;
+// }
+// console.log(bubbleSort([5,2,8,1,4]));
+
+// greet()
+// function greet(){
+// console.log("Good morning pineapple");
+//     enjoy()
+// }
+// function enjoy(){
+//     console.log("enjoy ho rha hai...");
+//     temp()
+// }
+// function temp(){
+//     console.log("kuch kr rhe ho"); 
+// }
+
+// function temp(val){
+//     if(val === 0) return
+    
+//     console.log("hello world");
+// } 
+// temp(0)
+
+// function temp(n){
+//     if(n==0) return
+//     console.log("hello world");
+//     temp(--n);   //temp(n-1);
+// }
+// temp(5)
+
+// function temp(n) {
+//     if(n == 0) return;
+//     console.log(n);
+//     temp(n-1);
+// }
+// temp(10)
+
+// function fact(n){
+//     if(n==1) return n;
+//     return n * fact(n-1);
+// }
+// console.log(fact(6))
+
+// let n = 10;
+// let first = 0 , second = 1;
+// process.stdout.write(first+" "+second+" ")
+
+// for(let i=1;i<=n-2;i++){
+//     let third = first + second;
+//     first = second;
+//     second = third
+//     process.stdout.write(third+" ");
+// }
+
+function fiboNTerms(n, first, second){
+    if(n==0) return
+    let third = first+second;
+    process.stdout.write(third+" ");
+    fiboNTerms(n-1,second, third)
 }
-console.log(arr);
+
+let n=10;
+process.stdout.write(0+" "+1+" ");
+fiboNTerms(n-2, 0, 2)
+
+function fibo(n){
+    if(n==0 || n==1) return n;
+    reurn fibo(n-1) + fibo(n-2)
+}
+let n = 7;
+console.log(fibo(n));

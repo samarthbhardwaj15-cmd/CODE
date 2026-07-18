@@ -31,22 +31,34 @@
 //     toaster("Harsh accepted your request"); 
 //  }, 2000);
 
-console.log(this);
+// console.log(this);
 
-function abcd() {
-    console.log(this);
-}
-abcd();                                       
+// function abcd() {
+//     console.log(this);
+// }
+// abcd();                                       
 
-let obj = {
-    name: "harsh",
-    age: 26,
-    sayName: function () {
-        console.log(this.age);
-    },
-};
+// let obj = {
+//     name: "harsh",
+//     age: 26,
+//     sayName: function () {
+//         console.log(this.age);
+//     },
+// };
 
-document.querySelector("h1").addEventListener("click", function () 
-function () { //alert();
-    console.log((this.style.color = "red"));
-});
+// document.querySelector("h1").addEventListener("click", function () 
+// function () { //alert();
+//     console.log((this.style.color = "red"));
+// });
+
+// let obj = {
+//     name: "harsh",
+//     age: 26,
+// };
+
+// function abcd(a,b,c,d) {
+//     console.log(this, a, b, c);
+// }
+
+// let fnc = abcd.bind(obj, 1, 2, 3);
+// fnc();
