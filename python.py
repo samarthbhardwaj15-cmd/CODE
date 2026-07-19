@@ -82,6 +82,91 @@
 # if __name__ == "__main__":
 #     app.run(debug=True)]
 
-                      
+import sqlite3
+
+#Connect Database
+conn = sqlite3.connect("hospital.db")
+cursor = conn.cursor()
+
+#Create Table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS patients(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+age INTEGER,
+gender TEXT,
+disease TEXT    
+)        
+""")
+conn.commit()
+
+def add_patient():
+    name = input("Enter Name: ")
+    age = int(input("Enter age: "))
+    gender = input("Enter Gender: ")
+    disease = input("Enter disease: ")
+    
+    cursor.execute(
+        "INSERT INTO patients(name,age,gender,disease) VALUES(?,?,?,?)",
+        (name, age, gender, disease),
+    )
+    conn.commit()
+    print("Patient Added successfully!")
+    
+def view_patients():
+    cursor.execute("SELECT * FROM patients")
+    data = cursor.fetchall()
+    
+    print("\nID\tName\tGender\tDisease")
+    print("-" * 50)
+    
+    for row in data:
+        print(row[0], row[1], row[2], row[3], row[4], sep="t")  
+        
+def search_patient():
+    pid = input("Enter Patient ID: ")
+    cursor.execute("SELECT * FROM patients WHERE id=?", (pid))
+    row = cursor.fetchone
+    
+    if row:
+        print(row)
+    else:
+        print("patient not found") 
+        
+def delete_patient():
+    pid = input("Enter patient ID: ")
+    cursor.execute("DELETE FROM patinets WHERE id=?", (pid,))
+    conn.commit()
+    print("Patient Deleted")
+    
+while True:
+    print("\n==== HOSPITAL MANAGEMENT SYSTEM ====") 
+    print("1. Add Patient")
+    print("2. View Patient")
+    print("3. Search Patient")
+    print("4. Delete Patient")
+    print("5. Exit")          
+    
+    choice = input("Enter Choice: ")
+    
+    if choice == "1":
+        add_patient()
+    elif choice  == "2":
+        view_patients()
+        
+    elif choice == "3":
+        search_patient()
+        
+    elif choice == "4":
+        delete_patient()
+        
+    elif choice == "5":
+        print("Thank  you")
+        break
+    else:
+        print("Invalid Choice")
+        
+conn.close()            
+                                  
     
     
