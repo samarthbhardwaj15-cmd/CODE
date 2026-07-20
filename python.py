@@ -82,91 +82,212 @@
 # if __name__ == "__main__":
 #     app.run(debug=True)]
 
+
+# -----------------hospital managment system-----------------------
+# import sqlite3
+
+# #Connect Database
+# conn = sqlite3.connect("hospital.db")
+# cursor = conn.cursor()
+
+# #Create Table
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS patients(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT,
+# age INTEGER,
+# gender TEXT,
+# disease TEXT    
+# )        
+# """)
+# conn.commit()
+
+# def add_patient():
+#     name = input("Enter Name: ")
+#     age = int(input("Enter age: "))
+#     gender = input("Enter Gender: ")
+#     disease = input("Enter disease: ")
+    
+#     cursor.execute(
+#         "INSERT INTO patients(name,age,gender,disease) VALUES(?,?,?,?)",
+#         (name, age, gender, disease),
+#     )
+#     conn.commit()
+#     print("Patient Added successfully!")
+    
+# def view_patients():
+#     cursor.execute("SELECT * FROM patients")
+#     data = cursor.fetchall()
+    
+#     print("\nID\tName\tGender\tDisease")
+#     print("-" * 50)
+    
+#     for row in data:
+#         print(row[0], row[1], row[2], row[3], row[4], sep="t")  
+        
+# def search_patient():
+#     pid = input("Enter Patient ID: ")
+#     cursor.execute("SELECT * FROM patients WHERE id=?", (pid))
+#     row = cursor.fetchone
+    
+#     if row:
+#         print(row)
+#     else:
+#         print("patient not found") 
+        
+# def delete_patient():
+#     pid = input("Enter patient ID: ")
+#     cursor.execute("DELETE FROM patinets WHERE id=?", (pid,))
+#     conn.commit()
+#     print("Patient Deleted")
+    
+# while True:
+#     print("\n==== HOSPITAL MANAGEMENT SYSTEM ====") 
+#     print("1. Add Patient")
+#     print("2. View Patient")
+#     print("3. Search Patient")
+#     print("4. Delete Patient")
+#     print("5. Exit")          
+    
+#     choice = input("Enter Choice: ")
+    
+#     if choice == "1":
+#         add_patient()
+#     elif choice  == "2":
+#         view_patients()
+        
+#     elif choice == "3":
+#         search_patient()
+        
+#     elif choice == "4":
+#         delete_patient()
+        
+#     elif choice == "5":
+#         print("Thank  you")
+#         break
+#     else:
+#         print("Invalid Choice")
+        
+# conn.close() 
+
+           
+# -------------------------------Food Delivery----------------------------      
+
+#database.py
 import sqlite3
 
-#Connect Database
-conn = sqlite3.connect("hospital.db")
+conn = sqlite3.connect("database.db")
 cursor = conn.cursor()
-
-#Create Table
 cursor.execute("""
-CREATE TABLE IF NOT EXISTS patients(
+CREATE TABLE IF NOT EXISTS menu(
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 name TEXT,
-age INTEGER,
-gender TEXT,
-disease TEXT    
-)        
+price INTEGER    
+)              
 """)
-conn.commit()
 
-def add_patient():
-    name = input("Enter Name: ")
-    age = int(input("Enter age: "))
-    gender = input("Enter Gender: ")
-    disease = input("Enter disease: ")
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS orders(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+food TEXT,
+quantity INTEGER,
+total INTEGER    
+)               
+""")
+
+conn.commit()
+conn.close()
+print("Database Created Sucessfully")
+
+#menu.py
+import sqlite3
+
+def add_food(name, price):
+    conn = sqlite3.connect("distance.db")
+    cur = conn,cursor()
     
-    cursor.execute(
-        "INSERT INTO patients(name,age,gender,disease) VALUES(?,?,?,?)",
-        (name, age, gender, disease),
-    )
+    cur.execute("INSERT INTO menu(name,price) VALUES(?,?)",(name,price))
+    
     conn.commit()
-    print("Patient Added successfully!")
+    conn.close()
     
-def view_patients():
-    cursor.execute("SELECT * FROM patients")
-    data = cursor.fetchall()
+def show_menu():
+    conn = sqlite3.connect("database.db")
+    cur  = conn.cursor()
     
-    print("\nID\tName\tGender\tDisease")
-    print("-" * 50)
+    cur.execute("SELECT * FROM menu")
     
-    for row in data:
-        print(row[0], row[1], row[2], row[3], row[4], sep="t")  
+    foods = cur.fetchall()
+    
+    print("\n----- MENU -----")
+    
+    for food in foods:
+        print(food)
+    
+    conn.close()    
+    
+# order.py
+import sqlite3
+def place_order(food, quantity):
+            
+    conn = sqlite3.connect("database.db")
+    cur = conn.cursor()
+    
+    cur.execute("SELECT price FROM menu WHERE name=?", (food,))
+    result = cur.fetchone()
+    
+    if result:
         
-def search_patient():
-    pid = input("Enter Patient ID: ")
-    cursor.execute("SELECT * FROM patients WHERE id=?", (pid))
-    row = cursor.fetchone
-    
-    if row:
-        print(row)
+        price = result[0]
+        total = price *  quantity
+        
+        cur.execute(
+            "INSERT INTO orders(food,quantity,total) VALUES(?,?,?)",
+            (food, quantity, total)
+        )
+        
+        conn.commit()
+        
+        print("Order Succesful")
+        print("Total Bill =", total)
+        
     else:
-        print("patient not found") 
+        print("Food Not Available")
         
-def delete_patient():
-    pid = input("Enter patient ID: ")
-    cursor.execute("DELETE FROM patinets WHERE id=?", (pid,))
-    conn.commit()
-    print("Patient Deleted")
+    conn.close() 
     
+#app.py
+from menu import *
+from order import *
+
 while True:
-    print("\n==== HOSPITAL MANAGEMENT SYSTEM ====") 
-    print("1. Add Patient")
-    print("2. View Patient")
-    print("3. Search Patient")
-    print("4. Delete Patient")
-    print("5. Exit")          
+    print("\nFood Delivery App:")
+    print("1. Add Food")
+    print("2. Show Menu")
+    print("3. Place Order")
+    print("4. Exit")
     
-    choice = input("Enter Choice: ")
+    choice = input("Enter Choice :")
     
     if choice == "1":
-        add_patient()
-    elif choice  == "2":
-        view_patients()
+        name = input("Food Name :")
+        price = int(input("price :"))   
+        
+        add_food(name, price)
+    elif choice == "2":
+        show_menu()
         
     elif choice == "3":
-        search_patient()
+        food = input("Food Name : ")
+        quantity = int(input("Qunatity :"))
+        
+        place_order(Food, quantity)
         
     elif choice == "4":
-        delete_patient()
-        
-    elif choice == "5":
-        print("Thank  you")
+        print("Thankyou")
         break
+    
     else:
-        print("Invalid Choice")
-        
-conn.close()            
-                                  
+        print("Invalid Choice")             
     
     

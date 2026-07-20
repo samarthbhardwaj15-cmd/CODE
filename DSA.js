@@ -781,3 +781,51 @@ for (let i=2; i<=Math.floor(Math.sqrt(n)); i++){
 for(let i=2;i<arr.length; i++){
     if(arr[i]) process.stdout.write(i+" ")
 }
+
+// function hanoi(n, source, helper, destination) {
+//     if (n === 1) {
+//         console.log(`${source} -> ${destination}`);
+//         return;
+//     }
+    
+//     hanoi(n - 1, source, destination, helper);
+    
+//     console.log(`${source} -> ${destination}`);
+    
+//     hanoi(n - 1, helper, source, destination);
+// }
+
+// hanoi(3,'A','B','C');
+
+// function permutations(arr, start = 0) {
+//     if (start === arr.length) {
+//         console.log(arr.join(""));
+//         return;
+//     }
+    
+//     for (let i = start; i <arr.length; i++) {
+//         [arr[start], arr[i]] = [arr[i], arr[start]];
+        
+//         permutations(arr, start + 1);
+        
+//         [arr[start], arr[i]] = [arr[i], arr[start]];
+//     }
+// }
+
+// permutations(['A','B','C']);
+
+function subsets(arr, index = 0, current = []) {
+    if (index === arr.length) {
+        console.log(current);
+        return;
+    }
+    
+    subsets(arr, index + 1, current);
+    
+    current.push(arr[index]);
+    subsets(arr, index + 1, current);
+    
+    current.pop();
+}
+
+subsets([1,2,3]);
