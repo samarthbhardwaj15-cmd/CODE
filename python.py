@@ -174,120 +174,167 @@
 # -------------------------------Food Delivery----------------------------      
 
 #database.py
-import sqlite3
+# import sqlite3
 
-conn = sqlite3.connect("database.db")
-cursor = conn.cursor()
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS menu(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-name TEXT,
-price INTEGER    
-)              
-""")
+# conn = sqlite3.connect("database.db")
+# cursor = conn.cursor()
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS menu(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT,
+# price INTEGER    
+# )              
+# """)
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS orders(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-food TEXT,
-quantity INTEGER,
-total INTEGER    
-)               
-""")
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS orders(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# food TEXT,
+# quantity INTEGER,
+# total INTEGER    
+# )               
+# """)
 
-conn.commit()
-conn.close()
-print("Database Created Sucessfully")
+# conn.commit()
+# conn.close()
+# print("Database Created Sucessfully")
 
-#menu.py
-import sqlite3
+# #menu.py
+# import sqlite3
 
-def add_food(name, price):
-    conn = sqlite3.connect("distance.db")
-    cur = conn,cursor()
+# def add_food(name, price):
+#     conn = sqlite3.connect("distance.db")
+#     cur = conn,cursor()
     
-    cur.execute("INSERT INTO menu(name,price) VALUES(?,?)",(name,price))
+#     cur.execute("INSERT INTO menu(name,price) VALUES(?,?)",(name,price))
     
-    conn.commit()
-    conn.close()
+#     conn.commit()
+#     conn.close()
     
-def show_menu():
-    conn = sqlite3.connect("database.db")
-    cur  = conn.cursor()
+# def show_menu():
+#     conn = sqlite3.connect("database.db")
+#     cur  = conn.cursor()
     
-    cur.execute("SELECT * FROM menu")
+#     cur.execute("SELECT * FROM menu")
     
-    foods = cur.fetchall()
+#     foods = cur.fetchall()
     
-    print("\n----- MENU -----")
+#     print("\n----- MENU -----")
     
-    for food in foods:
-        print(food)
+#     for food in foods:
+#         print(food)
     
-    conn.close()    
+#     conn.close()    
     
-# order.py
-import sqlite3
-def place_order(food, quantity):
+# # order.py
+# import sqlite3
+# def place_order(food, quantity):
             
-    conn = sqlite3.connect("database.db")
-    cur = conn.cursor()
+#     conn = sqlite3.connect("database.db")
+#     cur = conn.cursor()
     
-    cur.execute("SELECT price FROM menu WHERE name=?", (food,))
-    result = cur.fetchone()
+#     cur.execute("SELECT price FROM menu WHERE name=?", (food,))
+#     result = cur.fetchone()
     
-    if result:
+#     if result:
         
-        price = result[0]
-        total = price *  quantity
+#         price = result[0]
+#         total = price *  quantity
         
-        cur.execute(
-            "INSERT INTO orders(food,quantity,total) VALUES(?,?,?)",
-            (food, quantity, total)
-        )
+#         cur.execute(
+#             "INSERT INTO orders(food,quantity,total) VALUES(?,?,?)",
+#             (food, quantity, total)
+#         )
         
-        conn.commit()
+#         conn.commit()
         
-        print("Order Succesful")
-        print("Total Bill =", total)
+#         print("Order Succesful")
+#         print("Total Bill =", total)
         
-    else:
-        print("Food Not Available")
+#     else:
+#         print("Food Not Available")
         
-    conn.close() 
+#     conn.close() 
     
-#app.py
-from menu import *
-from order import *
+# #app.py
+# from menu import *
+# from order import *
+
+# while True:
+#     print("\nFood Delivery App:")
+#     print("1. Add Food")
+#     print("2. Show Menu")
+#     print("3. Place Order")
+#     print("4. Exit")
+    
+#     choice = input("Enter Choice :")
+    
+#     if choice == "1":
+#         name = input("Food Name :")
+#         price = int(input("price :"))   
+        
+#         add_food(name, price)
+#     elif choice == "2":
+#         show_menu()
+        
+#     elif choice == "3":
+#         food = input("Food Name : ")
+#         quantity = int(input("Qunatity :"))
+        
+#         place_order(Food, quantity)
+        
+#     elif choice == "4":
+#         print("Thankyou")
+#         break
+    
+#     else:
+#         print("Invalid Choice")
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Error! Division by zero is not allowed."
+    return a / b
 
 while True:
-    print("\nFood Delivery App:")
-    print("1. Add Food")
-    print("2. Show Menu")
-    print("3. Place Order")
-    print("4. Exit")
+    print("\n===== PYTHON CALCULATER ====")
+    print("1. Add(+)")
+    print("2. Sub")
+    print("3. Mutltipl")
+    print("4. Division")
     
-    choice = input("Enter Choice :")
+    choice = input("Enter your choice (1-5)")
     
-    if choice == "1":
-        name = input("Food Name :")
-        price = int(input("price :"))   
-        
-        add_food(name, price)
-    elif choice == "2":
-        show_menu()
-        
-    elif choice == "3":
-        food = input("Food Name : ")
-        quantity = int(input("Qunatity :"))
-        
-        place_order(Food, quantity)
-        
-    elif choice == "4":
-        print("Thankyou")
+     if choice == "5":
+        print("Thank you for using the calculator!")
         break
-    
+
+    if choice in ["1", "2", "3", "4"]:
+        try:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+
+            if choice == "1":
+                print("Result =", add(num1, num2))
+            elif choice == "2":
+                print("Result =", subtract(num1, num2))
+            elif choice == "3":
+                print("Result =", multiply(num1, num2))
+            elif choice == "4":
+                print("Result =", divide(num1, num2))
+
+        except ValueError:
+            print("Invalid input! Please enter numbers only.")
+
     else:
-        print("Invalid Choice")             
+        print("Invalid choice! Please select between 1 and 5.")             
     
     
