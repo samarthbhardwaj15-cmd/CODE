@@ -119,33 +119,63 @@
 //     console.log("hey");
 // });
 
-function profileLekarAao(username,) {
+// function profileLekarAao(username,) {
 
-}
+// }
 
-function saarePostLekarAao(id,cb) {
+// function saarePostLekarAao(id,cb) {
 
-}
+// }
 
-function savedPostNikaalo(id, cb){
-    console.log("fetching saved posts...");
-    setTimeout(() => {
-        cb({_id: id, saved: [1,2,3,3,45,4,323]});
-    }, 3000);
+// function savedPostNikaalo(id, cb){
+//     console.log("fetching saved posts...");
+//     setTimeout(() => {
+//         cb({_id: id, saved: [1,2,3,3,45,4,323]});
+//     }, 3000);
     
-}
+// }
 
-profileLekarAao("harsh", function (data)) {
-    console.log(data);
-    saarePostLekarAao(data._id,function (posts) {
-        console.log(posts);
-        savedPostsNikaalo(data._id, function (saved) {
-            console.log(saved);
+// profileLekarAao("harsh", function (data)) {
+//     console.log(data);
+//     saarePostLekarAao(data._id,function (posts) {
+//         console.log(posts);
+//         savedPostsNikaalo(data._id, function (saved) {
+//             console.log(saved);
             
             
-        });
+//         });
         
-    });
+//     });
     
-};
+// };
 
+  
+
+// pr.then(function (val) {
+//     console.log(val);
+// }).catch(function (val) {
+//     console.log(val);
+// });
+
+// async function abcd() {
+//     try {
+//         let val = await pr;
+//         console.log(val);
+//     } catch(err) {
+//       console.log(err);
+//     }  
+// }
+
+// abcd();
+  
+fetch("https://randomuser.me/api/")
+  .then((rawdata) => {
+    return rawdata.json();
+    // console.log(rawdata);
+  })
+  .then((data) => {
+    console.log(data.results[0].name.first);
+  })
+  .catch((err) => {
+    console.log(err);
+});     

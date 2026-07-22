@@ -290,51 +290,82 @@
 #     else:
 #         print("Invalid Choice")
 
-def add(a, b):
-    return a + b
+# def add(a, b):
+#     return a + b
 
-def subtract(a, b):
-    return a - b
+# def subtract(a, b):
+#     return a - b
 
-def multiply(a, b):
-    return a * b
+# def multiply(a, b):
+#     return a * b
 
-def divide(a, b):
-    if b == 0:
-        return "Error! Division by zero is not allowed."
-    return a / b
+# def divide(a, b):
+#     if b == 0:
+#         return "Error! Division by zero is not allowed."
+#     return a / b
 
-while True:
-    print("\n===== PYTHON CALCULATER ====")
-    print("1. Add(+)")
-    print("2. Sub")
-    print("3. Mutltipl")
-    print("4. Division")
+# while True:
+#     print("\n===== PYTHON CALCULATER ====")
+#     print("1. Add(+)")
+#     print("2. Sub")
+#     print("3. Mutltipl")
+#     print("4. Division")
     
-    choice = input("Enter your choice (1-5)")
+#     choice = input("Enter your choice (1-5)")
     
-     if choice == "5":
-        print("Thank you for using the calculator!")
-        break
+#      if choice == "5":
+#         print("Thank you for using the calculator!")
+#         break
 
-    if choice in ["1", "2", "3", "4"]:
-        try:
-            num1 = float(input("Enter first number: "))
-            num2 = float(input("Enter second number: "))
+#     if choice in ["1", "2", "3", "4"]:
+#         try:
+#             num1 = float(input("Enter first number: "))
+#             num2 = float(input("Enter second number: "))
 
-            if choice == "1":
-                print("Result =", add(num1, num2))
-            elif choice == "2":
-                print("Result =", subtract(num1, num2))
-            elif choice == "3":
-                print("Result =", multiply(num1, num2))
-            elif choice == "4":
-                print("Result =", divide(num1, num2))
+#             if choice == "1":
+#                 print("Result =", add(num1, num2))
+#             elif choice == "2":
+#                 print("Result =", subtract(num1, num2))
+#             elif choice == "3":
+#                 print("Result =", multiply(num1, num2))
+#             elif choice == "4":
+#                 print("Result =", divide(num1, num2))
 
-        except ValueError:
-            print("Invalid input! Please enter numbers only.")
+#         except ValueError:
+#             print("Invalid input! Please enter numbers only.")
 
-    else:
-        print("Invalid choice! Please select between 1 and 5.")             
+#     else:
+#         print("Invalid choice! Please select between 1 and 5.")             
     
+from PyPDF2 import PdfMerger
+import os
+
+def merge_pdfs(pdf_files, output_file):
+    merger = PdfMerger()
+    
+    try:
+        for pdf in pdf_files:
+            if os.path.exists(pdf):
+                merger.append(pdf)
+                print(f"Added: {pdf}")
+            else:
+                print(f"file not found: {pdf}")
+                
+        merger.write(output_file)
+        merger.close()
+        
+        print(f"\nPDFs merged succesfully!")
+        print(f"Saved as: {output_file}")   
+        
+    except Exception as e:
+        print("Error:", e)
+        
+if __name___ == "__main__":
+    pdf_list = [
+        "file1.pdf",
+        "file2.pdf"
+    ]
+    
+    output_pdf = "merged.pdf"
+    merge_pdfs(pdf_list, output_pdf)                     
     
