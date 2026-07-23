@@ -887,60 +887,105 @@ for(let i=2;i<arr.length; i++){
 // let arr = [2,5,8,,9,12,18,20,25,67,101,125]
 // let index = binarySearch(arr, 0 , arr)
 
-let arr = [2,5,8,9,12,18,20,25,67,101,125]
-let index = binarySearch(arr, 0, arr.length-1 , 67)
-if(index==-1) console.log("not found");
-else console.log("target found at " + index+ " index");
+// let arr = [2,5,8,9,12,18,20,25,67,101,125]
+// let index = binarySearch(arr, 0, arr.length-1 , 67)
+// if(index==-1) console.log("not found");
+// else console.log("target found at " + index+ " index");
 
-function binarySearch(arr , first , last , target){
-    while(first<=last){
-        let mid = Math.floor((first+last)/2)
-        if(arr[mid] == target) return mid
-        else if(arr[mid]>target) last = mid-1
-        else first = mid+1
-    }
-    return -1
-}
+// function binarySearch(arr , first , last , target){
+//     while(first<=last){
+//         let mid = Math.floor((first+last)/2)
+//         if(arr[mid] == target) return mid
+//         else if(arr[mid]>target) last = mid-1
+//         else first = mid+1
+//     }
+//     return -1
+// }
  
-function conquor(arr, first, mid, last) {
-    let temp = new Array(last - first + 1);
-    let i = first, j = mid+1, k =0;
-    while (i <= mid && j <= last) {
-        if (arr[i] < arr[j]) {
-            temp[k++] = arr[i++]
-        } else temp[k++] = arr[j++]
-    }
-    while (i <= mid) {
-        temp[k++] = arr[i++]
-    }
-    while (j <= last) {
-        temp[k++] = arr[j++]      
-    }
-    let p =0 , t=first;
-    while(p<temp.length){
-        arr[t++] = temp[p++]
-    }
-}
-function divide(arr, first, last){
-    if(first>=last) return
-    let mid = Math.floor((first+last)/2);
-    divide(arr, first, mid)
-    divide(arr, mid+1, last)
-    conquor(arr, first, mid, last)
-}
+// function conquor(arr, first, mid, last) {
+//     let temp = new Array(last - first + 1);
+//     let i = first, j = mid+1, k =0;
+//     while (i <= mid && j <= last) {
+//         if (arr[i] < arr[j]) {
+//             temp[k++] = arr[i++]
+//         } else temp[k++] = arr[j++]
+//     }
+//     while (i <= mid) {
+//         temp[k++] = arr[i++]
+//     }
+//     while (j <= last) {
+//         temp[k++] = arr[j++]      
+//     }
+//     let p =0 , t=first;
+//     while(p<temp.length){
+//         arr[t++] = temp[p++]
+//     }
+// }
+// function divide(arr, first, last){
+//     if(first>=last) return
+//     let mid = Math.floor((first+last)/2);
+//     divide(arr, first, mid)
+//     divide(arr, mid+1, last)
+//     conquor(arr, first, mid, last)
+// }
 
-let arr = [8, 2, 1, 9, 5, 12, 4, 20]
-divide(arr, 0,  arr.length-1)
-console.log(arr);
+// let arr = [8, 2, 1, 9, 5, 12, 4, 20]
+// divide(arr, 0,  arr.length-1)
+// console.log(arr);
 
 
-function twoSum(nums, target) {
-    for(let i= 0; i < nums.length; i++) {
-        for (let j = i+1; j < nums.length; j++) {
-            if (nums[i] + nums[j] === target) {
-                return [i, j];
-            }
+// function twoSum(nums, target) {
+//     for(let i= 0; i < nums.length; i++) {
+//         for (let j = i+1; j < nums.length; j++) {
+//             if (nums[i] + nums[j] === target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+// }
+// console.log(twoSum([2,7,11,15], 9));
+
+function maxArea(height) {
+    let left = 0;
+    let right = height.length - 1;
+    let maxWater = 0;
+
+    while (left < right) {
+        const width = right - left;
+        const currentHeight = Math.min(height[left], height[right]);
+        const area = width * currentHeight;
+
+        maxWater = Math.max(maxWater, area);
+
+        if(height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
         }
     }
+    return maxWater;
 }
-console.log(twoSum([2,7,11,15], 9));
+console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+
+function findMedianSortedArrays(nums1, nums2) {
+    let arr = []
+    let i=0, j=0;
+
+    while (i < nums1.length && j < nums2.length) {
+        if (nums1[i] < nums2[j]) {
+            arr.push(nums1[i++]);
+        } else {
+            arr.push(nums2[j++]);
+        }
+        
+        while (i < nums1.length) arr.push(nums1[i++]);
+        while (j < nums2.length) arr.push(nums2[j++]);
+
+        let n = arr.length;
+
+        if (n % 2 === 0) {
+            return (arr[n/2] + arr[n / 2 -1]) / 2;
+        }
+        return arr[Math.floor(n/2)];
+    }
+}
