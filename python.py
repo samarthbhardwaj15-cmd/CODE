@@ -337,35 +337,88 @@
 #     else:
 #         print("Invalid choice! Please select between 1 and 5.")             
     
-from PyPDF2 import PdfMerger
-import os
+# from PyPDF2 import PdfMerger
+# import os
 
-def merge_pdfs(pdf_files, output_file):
-    merger = PdfMerger()
+# def merge_pdfs(pdf_files, output_file):
+#     merger = PdfMerger()
     
-    try:
-        for pdf in pdf_files:
-            if os.path.exists(pdf):
-                merger.append(pdf)
-                print(f"Added: {pdf}")
-            else:
-                print(f"file not found: {pdf}")
+#     try:
+#         for pdf in pdf_files:
+#             if os.path.exists(pdf):
+#                 merger.append(pdf)
+#                 print(f"Added: {pdf}")
+#             else:
+#                 print(f"file not found: {pdf}")
                 
-        merger.write(output_file)
-        merger.close()
+#         merger.write(output_file)
+#         merger.close()
         
-        print(f"\nPDFs merged succesfully!")
-        print(f"Saved as: {output_file}")   
+#         print(f"\nPDFs merged succesfully!")
+#         print(f"Saved as: {output_file}")   
         
-    except Exception as e:
-        print("Error:", e)
+#     except Exception as e:
+#         print("Error:", e)
         
-if __name___ == "__main__":
-    pdf_list = [
-        "file1.pdf",
-        "file2.pdf"
-    ]
+# if __name___ == "__main__":
+#     pdf_list = [
+#         "file1.pdf",
+#         "file2.pdf"
+#     ]
     
-    output_pdf = "merged.pdf"
-    merge_pdfs(pdf_list, output_pdf)                     
+#     output_pdf = "merged.pdf"
+#     merge_pdfs(pdf_list, output_pdf)           
+
+#calculator
+
+num1 = float(input("Enter First :"));
+operator = input("Enter your choice(+,-,*,/):")
+num2 = float(input("Enter Senond :"));
+2
+if operator == "+":
+    print("result =", (num1 + num2))
+elif operator == "-":
+    print("result =", (num1 - num2))          
+elif operator == "*":
+    print("result =", (num1 * num2))
+elif operator == "/":
+    if num2 != 0:
+        print("result =", (num1 / num2))   
+else:
+    print("invalid input :")
+
+import random
+
+print("welcome to number guess game!")
+print("guess a number between 1 and 10")
+
+secret = random.randint(1, 10)
+attempts = 0
+ 
+while True:
+    guess = int(input("Enter your guess: "))
+    attempts += 1
     
+    if guess < secret:
+        print("too low")
+    elif guess > secret:
+        print("too high")
+    else:
+        print(f"Congrautlation in {attempts} attempts.")
+        break    
+
+import sqlite3
+
+conn = sqlite3.connect("hospital.db")
+cursor = conn.cursor()
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS patients(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+age INTEGER,
+gender TEXT,
+disease TEXT
+)               
+""")
+conn.commit()
