@@ -945,47 +945,129 @@ for(let i=2;i<arr.length; i++){
 // }
 // console.log(twoSum([2,7,11,15], 9));
 
-function maxArea(height) {
-    let left = 0;
-    let right = height.length - 1;
-    let maxWater = 0;
+// function maxArea(height) {
+//     let left = 0;
+//     let right = height.length - 1;
+//     let maxWater = 0;
 
-    while (left < right) {
-        const width = right - left;
-        const currentHeight = Math.min(height[left], height[right]);
-        const area = width * currentHeight;
+//     while (left < right) {
+//         const width = right - left;
+//         const currentHeight = Math.min(height[left], height[right]);
+//         const area = width * currentHeight;
 
-        maxWater = Math.max(maxWater, area);
+//         maxWater = Math.max(maxWater, area);
 
-        if(height[left] < height[right]) {
-            left++;
-        } else {
-            right--;
-        }
-    }
-    return maxWater;
-}
-console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+//         if(height[left] < height[right]) {
+//             left++;
+//         } else {
+//             right--;
+//         }
+//     }
+//     return maxWater;
+// }
+// console.log(maxArea([1,8,6,2,5,4,8,3,7]));
 
-function findMedianSortedArrays(nums1, nums2) {
-    let arr = []
-    let i=0, j=0;
+// function findMedianSortedArrays(nums1, nums2) {
+//     let arr = []
+//     let i=0, j=0;
 
-    while (i < nums1.length && j < nums2.length) {
-        if (nums1[i] < nums2[j]) {
-            arr.push(nums1[i++]);
-        } else {
-            arr.push(nums2[j++]);
-        }
+//     while (i < nums1.length && j < nums2.length) {
+//         if (nums1[i] < nums2[j]) {
+//             arr.push(nums1[i++]);
+//         } else {
+//             arr.push(nums2[j++]);
+//         }
         
-        while (i < nums1.length) arr.push(nums1[i++]);
-        while (j < nums2.length) arr.push(nums2[j++]);
+//         while (i < nums1.length) arr.push(nums1[i++]);
+//         while (j < nums2.length) arr.push(nums2[j++]);
 
-        let n = arr.length;
+//         let n = arr.length;
 
-        if (n % 2 === 0) {
-            return (arr[n/2] + arr[n / 2 -1]) / 2;
+//         if (n % 2 === 0) {
+//             return (arr[n/2] + arr[n / 2 -1]) / 2;
+//         }
+//         return arr[Math.floor(n/2)];
+    
+// function longestCommonPrefix(strs) {
+//     if (strs.length === 0) return "";
+//     let prefix = strs[0];
+
+//     for(let i=1; i<strs.length; i++) {
+//         while (strs[i].indexOf(prefix) !== 0){
+//             prefix = prefix.slice(0, -1);
+//             if(prefix === "") return "";
+//         }
+//     }
+//     return prefix;
+// }
+
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+
+//           
+
+function threeSumClosest(nums, target) {
+    nums.sort((a, b) => a - b);
+
+    let closestSum = nums[0] + nums[1] + nums[2];
+
+    for (let i=0; i < nums.length - 2; i++) {
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            let currentSum = nums[i] + nums[left] + nums[right];
+            if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+                closestSum = currentSum;
+            }
+            if (currentSum < target) {
+                left++;
+            } else if (currentSum > target) {
+                right--;
+            } else {
+                return currentSum;
+            }
         }
-        return arr[Math.floor(n/2)];
     }
+    return closestSum;
 }
+ let nums = [-1,2,1.-4];
+ let target = 1;
+
+ console.log(threeSumClosest(nums, target));
+
+
+ function threesum(nums) {
+    nums.sort((a, b) => a - b);
+    cosnt result = [];
+
+    for (let i=0; i<nums.length - 2; i++) {
+        if (i > 0 && nums[i] === nums[i-1]) continue;
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            const sum = nums[i] + nums[left] + nums[right];
+            if (sum === 0) {
+                result.push([nums[i], nums[left], nums[right]]);
+                while (left < right && nums[left] === nums[left + 1]) {
+                    left++;
+                }
+                while (left < right && nums[right] === nums[right - 1]) {
+                    right--;
+                }
+
+                left++;
+                right--;
+            } else if (sum < 0) {
+                left++;
+            } else {
+                right --;
+            }
+        }
+    }
+    return result;
+ }
+
+

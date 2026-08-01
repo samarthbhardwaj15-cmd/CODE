@@ -371,41 +371,41 @@
 
 #calculator
 
-num1 = float(input("Enter First :"));
-operator = input("Enter your choice(+,-,*,/):")
-num2 = float(input("Enter Senond :"));
-2
-if operator == "+":
-    print("result =", (num1 + num2))
-elif operator == "-":
-    print("result =", (num1 - num2))          
-elif operator == "*":
-    print("result =", (num1 * num2))
-elif operator == "/":
-    if num2 != 0:
-        print("result =", (num1 / num2))   
-else:
-    print("invalid input :")
+# num1 = float(input("Enter First :"));
+# operator = input("Enter your choice(+,-,*,/):")
+# num2 = float(input("Enter Senond :"));
+# 2
+# if operator == "+":
+#     print("result =", (num1 + num2))
+# elif operator == "-":
+#     print("result =", (num1 - num2))          
+# elif operator == "*":
+#     print("result =", (num1 * num2))
+# elif operator == "/":
+#     if num2 != 0:
+#         print("result =", (num1 / num2))   
+# else:
+#     print("invalid input :")
 
-import random
+# import random
 
-print("welcome to number guess game!")
-print("guess a number between 1 and 10")
+# print("welcome to number guess game!")
+# print("guess a number between 1 and 10")
 
-secret = random.randint(1, 10)
-attempts = 0
+# secret = random.randint(1, 10)
+# attempts = 0
  
-while True:
-    guess = int(input("Enter your guess: "))
-    attempts += 1
+# while True:
+#     guess = int(input("Enter your guess: "))
+#     attempts += 1
     
-    if guess < secret:
-        print("too low")
-    elif guess > secret:
-        print("too high")
-    else:
-        print(f"Congrautlation in {attempts} attempts.")
-        break    
+#     if guess < secret:
+#         print("too low")
+#     elif guess > secret:
+#         print("too high")
+#     else:
+#         print(f"Congrautlation in {attempts} attempts.")
+#         break    
 
 import sqlite3
 
@@ -422,3 +422,92 @@ disease TEXT
 )               
 """)
 conn.commit()
+
+def add_patient():
+    name = input("Enter Name :")
+    age = int(input("Enter Age :"))
+    gender = input("Enter Gender :")
+    disease = input("Enter Disease :")
+    
+    cursor.execute(
+        "INSERT INTO patients(name,age,gender,disease) VALUES(?,?,?,?)",
+        (name, age, gender, disease),
+    )
+    conn.commit()
+    print("Patient Added Successfully!")
+    
+def view_patients():
+    cursor.execute("SELECT * FROM patients")
+    data = cursor.fetchall()
+    
+    print("\nID\tName\tAge\tGender\tDisease")
+    print("-" * 50)
+    for row in data:
+        print(row[0],row[1],row[2],row[3],row[4], sep="\t")
+        
+def search_patient():
+    pid = input("Enter Patient ID: ")
+    cursor.execute("SELECT * FROM patients WHERE id=?", (pid,))
+    row = cursor..fetchone()
+    
+    if row:
+        print(row)
+    else:
+        print("Patient Not Found")
+        
+def delete_patient():
+    pid = input("Enter Patient ID :")
+    cursor.execute("DELETE FROM patients WHERE id=?", (pid,))
+    conn.commit()
+    print("Patient Deleted")
+    
+while True:
+    print("\n==== HOSPITAL MANAGMENT SYSTEM ====")
+    print("1. Add Patients")
+    print("2. View Patients")
+    print("3. Search Patients")
+    print("4. Delete Patients")
+    print("5. Exit")
+    
+    choice = input("Enter Choice :")
+    
+    if choice == "1":
+        add_patient()
+    elif choice == "2":
+        view_patients()  
+    elif choice == "3":
+        search_patient()
+    elif choice == "4":
+        delete_patient()
+    elif choice == "5":
+        print("Thank you")
+        break
+    else:
+        print("Invalid Choice")
+conn.close()
+
+# --------------NEW-------------------------------      
+
+# import random 
+# import string
+
+# length = int(input("Enter password length: "))
+# characters = string.ascii_letters + string.digits + string.punctuation
+
+# password = ""
+
+# for i in range(length):
+#     password += random.choice(characters)
+    
+# print("Generated Password :")
+# print(password)
+
+num = int(input("Enter a number:"))
+
+fact = 1
+
+for i in range(1, num + 1):
+    fact *= i
+    
+print("factorial =", fact)
+                                                  
