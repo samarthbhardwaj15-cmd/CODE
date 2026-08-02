@@ -502,12 +502,80 @@ conn.close()
 # print("Generated Password :")
 # print(password)
 
+# num = int(input("Enter a number:"))
+
+# fact = 1
+
+# for i in range(1, num + 1):
+#     fact *= i
+    
+# print("factorial =", fact)
+
 num = int(input("Enter a number:"))
 
-fact = 1
-
-for i in range(1, num + 1):
-    fact *= i
+if num < 0:
+    for i in range(2, num):
+        if num % i == 0:
+            print(num, "is not  a prime")
+            break
+    else:
+        print("Prime")
+else:
+    print("Not Prime")
     
-print("factorial =", fact)
+tasks = []
+
+while True:
+    print("\n==== TO-DO-LIST ====")
+    print("1. Add Task")
+    print("2. View Tasks")
+    print("3. Delete Task")
+    print("4. Exit")
+    
+    choice = input("Enter choice :")
+    
+    if choice == "1":
+        task = input("Enter Task :")
+        tasks.append(task)
+    elif choice == "2":
+        print("\nTASKS:")
+        for i, task in enumerate(tasks, start = 1):
+            print(i, task)
+    elif choice == "3":
+        print("Good bye!")
+        break
+    
+    else:
+        print("Invalid Choice")
+        
+balance = 10000
+
+while True:
+    print("\n===== BANKING SYSTEM ====")
+    print("1. Check Balance")
+    print("2. Deposit")
+    print("3. Withdraw")
+    print("4. Exit")   
+    
+    choice = input("Enter Choice :")
+    
+    if Choice == "1":
+        print("Current Balance =", balance)
+        
+    elif choice == "2":
+        amount = float(input("Enter Amount: "))
+        balance += amount
+        print("Money Deposited!")
+    
+    elif choice == "3":
+        amount = float(input("Enter Amount: "))
+        if amount <= balance:
+            balance -= amount
+            print("Please collect your cash")
+        else:
+            print("Insufficieent Balance")
+            
+    elif choice == "4":
+        break            
+                        
                                                   

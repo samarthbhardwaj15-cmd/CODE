@@ -1070,4 +1070,106 @@ function threeSumClosest(nums, target) {
     return result;
  }
 
+function ListNode(val, next = null) {
+    this.val = val;
+    this.next = next;
+} 
 
+var sortList = function(head) {
+    if (!head || !head.next) return head;
+
+    let slow = head;
+    let fast = head;
+    let prev = null;
+
+    while (fast && fast.next) {
+        prev = slow;
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    prev.next = null;
+
+    let left = sortList(head);
+    let right = sortList(slow);
+
+    return merge(left, right);
+};
+
+function merge(l1, l2) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+
+    while (l1 && l2) {
+        if (l1.val < l2.val) {
+            current.next = l1;
+            l1 = l1.next;
+        } else {
+            current.next = l2;
+            l2 = l2.next;
+        }
+        current = current.next;
+    }
+    current.next = l1 || l2;
+    return dummy.next;
+}
+
+function fourSum(nums, target) {
+    nums.sort((a, b) => a - b);
+    const result = [];
+    const n = nums.length;
+
+    for (let i =0; i < n - 3; i++) {
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+        for (let j = i + 1; j < n - 2; j++) {
+            if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+
+            let left = j + 1;
+            let right = n - 1;
+
+            while (left < right) {
+                const sum = nums[i] + nums[j] + nums[left] + nums[right];
+                if (sum === target) {
+                    result.push([nums[i], nums[j], nums[left], nums[right]]);
+
+                    while (left < right && nums[left] === nums[left + 1]) left++;
+                    while (left < right && nums[right] === nums[right - 1]) right--;
+
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+    }
+    return result;
+} 
+
+function threeSumClosest(nums, target) {
+    nums.sort((a, b) => a - b);
+
+    let closestSum = nums[0] + nums[1] + nums[2];
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        let left = i + 1;
+        let right = nums.length - 1;
+        
+        whhile (left < right) {
+            let currentSum = nums[i] + nums[left] + nums[right];
+            if(Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+                closestSum = currentSum;
+            }
+            if (currentSum < target) {
+                left++;
+            } else if (currentSum < target) {
+                right--;
+            } else {
+                return currentSum;
+            }
+        }
+    }
+    return closestSum;
+}
