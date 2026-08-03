@@ -1173,3 +1173,41 @@ function threeSumClosest(nums, target) {
     }
     return closestSum;
 }
+let nums = [-1, 2, 1, -4];
+let target = 1;
+console.log(threeSumClosest(nums,target));
+
+
+// function removeDuplicates(nums) {
+//     if (nums.length === 0) return 0;
+//     let i = 0;
+//     for (let j = 1; j < nums.length; j++) {
+//         if (nums[j] !== nums[i]) {
+//             i++;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1;
+// }
+
+// let nums = [1,1,2,2,3,4,4,5];
+// let length = removeDuplicates(nums);
+// console.log(length);
+// console.log(nums.slice(0, length));
+
+function removeDuplicates(nums) {
+    if (nums.length === 0) return 0;
+    let i = 0;
+    for (let j = 1; j < nums.length; j++) {
+        if (nums[j] !== nums[i]) {
+            i++;
+            nums[i] = nums[j];
+        }
+    }
+    return i + 1;
+}    
+
+let nums = [1,1,2,2,3,4,4,5];
+let length = removeDuplicates(nums);
+console.log(length);
+console.log(nums.slice(0, length));

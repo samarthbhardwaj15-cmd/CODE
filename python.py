@@ -407,175 +407,259 @@
 #         print(f"Congrautlation in {attempts} attempts.")
 #         break    
 
-import sqlite3
+# import sqlite3
 
-conn = sqlite3.connect("hospital.db")
-cursor = conn.cursor()
+# conn = sqlite3.connect("hospital.db")
+# cursor = conn.cursor()
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS patients(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-name TEXT,
-age INTEGER,
-gender TEXT,
-disease TEXT
-)               
-""")
-conn.commit()
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS patients(
+# id INTEGER PRIMARY KEY AUTOINCREMENT,
+# name TEXT,
+# age INTEGER,
+# gender TEXT,
+# disease TEXT
+# )               
+# """)
+# conn.commit()
 
-def add_patient():
-    name = input("Enter Name :")
-    age = int(input("Enter Age :"))
-    gender = input("Enter Gender :")
-    disease = input("Enter Disease :")
+# def add_patient():
+#     name = input("Enter Name :")
+#     age = int(input("Enter Age :"))
+#     gender = input("Enter Gender :")
+#     disease = input("Enter Disease :")
     
-    cursor.execute(
-        "INSERT INTO patients(name,age,gender,disease) VALUES(?,?,?,?)",
-        (name, age, gender, disease),
-    )
-    conn.commit()
-    print("Patient Added Successfully!")
+#     cursor.execute(
+#         "INSERT INTO patients(name,age,gender,disease) VALUES(?,?,?,?)",
+#         (name, age, gender, disease),
+#     )
+#     conn.commit()
+#     print("Patient Added Successfully!")
     
-def view_patients():
-    cursor.execute("SELECT * FROM patients")
-    data = cursor.fetchall()
+# def view_patients():
+#     cursor.execute("SELECT * FROM patients")
+#     data = cursor.fetchall()
     
-    print("\nID\tName\tAge\tGender\tDisease")
-    print("-" * 50)
-    for row in data:
-        print(row[0],row[1],row[2],row[3],row[4], sep="\t")
+#     print("\nID\tName\tAge\tGender\tDisease")
+#     print("-" * 50)
+#     for row in data:
+#         print(row[0],row[1],row[2],row[3],row[4], sep="\t")
         
-def search_patient():
-    pid = input("Enter Patient ID: ")
-    cursor.execute("SELECT * FROM patients WHERE id=?", (pid,))
-    row = cursor..fetchone()
+# def search_patient():
+#     pid = input("Enter Patient ID: ")
+#     cursor.execute("SELECT * FROM patients WHERE id=?", (pid,))
+#     row = cursor..fetchone()
     
-    if row:
-        print(row)
-    else:
-        print("Patient Not Found")
+#     if row:
+#         print(row)
+#     else:
+#         print("Patient Not Found")
         
-def delete_patient():
-    pid = input("Enter Patient ID :")
-    cursor.execute("DELETE FROM patients WHERE id=?", (pid,))
-    conn.commit()
-    print("Patient Deleted")
+# def delete_patient():
+#     pid = input("Enter Patient ID :")
+#     cursor.execute("DELETE FROM patients WHERE id=?", (pid,))
+#     conn.commit()
+#     print("Patient Deleted")
     
-while True:
-    print("\n==== HOSPITAL MANAGMENT SYSTEM ====")
-    print("1. Add Patients")
-    print("2. View Patients")
-    print("3. Search Patients")
-    print("4. Delete Patients")
-    print("5. Exit")
+# while True:
+#     print("\n==== HOSPITAL MANAGMENT SYSTEM ====")
+#     print("1. Add Patients")
+#     print("2. View Patients")
+#     print("3. Search Patients")
+#     print("4. Delete Patients")
+#     print("5. Exit")
     
-    choice = input("Enter Choice :")
+#     choice = input("Enter Choice :")
     
-    if choice == "1":
-        add_patient()
-    elif choice == "2":
-        view_patients()  
-    elif choice == "3":
-        search_patient()
-    elif choice == "4":
-        delete_patient()
-    elif choice == "5":
-        print("Thank you")
-        break
-    else:
-        print("Invalid Choice")
-conn.close()
+#     if choice == "1":
+#         add_patient()
+#     elif choice == "2":
+#         view_patients()  
+#     elif choice == "3":
+#         search_patient()
+#     elif choice == "4":
+#         delete_patient()
+#     elif choice == "5":
+#         print("Thank you")
+#         break
+#     else:
+#         print("Invalid Choice")
+# conn.close()
 
-# --------------NEW-------------------------------      
+# # --------------NEW-------------------------------      
 
-# import random 
-# import string
+# # import random 
+# # import string
 
-# length = int(input("Enter password length: "))
-# characters = string.ascii_letters + string.digits + string.punctuation
+# # length = int(input("Enter password length: "))
+# # characters = string.ascii_letters + string.digits + string.punctuation
 
-# password = ""
+# # password = ""
 
-# for i in range(length):
-#     password += random.choice(characters)
+# # for i in range(length):
+# #     password += random.choice(characters)
     
-# print("Generated Password :")
-# print(password)
+# # print("Generated Password :")
+# # print(password)
+
+# # num = int(input("Enter a number:"))
+
+# # fact = 1
+
+# # for i in range(1, num + 1):
+# #     fact *= i
+    
+# # print("factorial =", fact)
 
 # num = int(input("Enter a number:"))
 
-# fact = 1
+# if num < 0:
+#     for i in range(2, num):
+#         if num % i == 0:
+#             print(num, "is not  a prime")
+#             break
+#     else:
+#         print("Prime")
+# else:
+#     print("Not Prime")
+    
+# tasks = []
 
-# for i in range(1, num + 1):
-#     fact *= i
+# while True:
+#     print("\n==== TO-DO-LIST ====")
+#     print("1. Add Task")
+#     print("2. View Tasks")
+#     print("3. Delete Task")
+#     print("4. Exit")
     
-# print("factorial =", fact)
-
-num = int(input("Enter a number:"))
-
-if num < 0:
-    for i in range(2, num):
-        if num % i == 0:
-            print(num, "is not  a prime")
-            break
-    else:
-        print("Prime")
-else:
-    print("Not Prime")
+#     choice = input("Enter choice :")
     
-tasks = []
-
-while True:
-    print("\n==== TO-DO-LIST ====")
-    print("1. Add Task")
-    print("2. View Tasks")
-    print("3. Delete Task")
-    print("4. Exit")
+#     if choice == "1":
+#         task = input("Enter Task :")
+#         tasks.append(task)
+#     elif choice == "2":
+#         print("\nTASKS:")
+#         for i, task in enumerate(tasks, start = 1):
+#             print(i, task)
+#     elif choice == "3":
+#         print("Good bye!")
+#         break
     
-    choice = input("Enter choice :")
-    
-    if choice == "1":
-        task = input("Enter Task :")
-        tasks.append(task)
-    elif choice == "2":
-        print("\nTASKS:")
-        for i, task in enumerate(tasks, start = 1):
-            print(i, task)
-    elif choice == "3":
-        print("Good bye!")
-        break
-    
-    else:
-        print("Invalid Choice")
+#     else:
+#         print("Invalid Choice")
         
-balance = 10000
+# balance = 10000
 
-while True:
-    print("\n===== BANKING SYSTEM ====")
-    print("1. Check Balance")
-    print("2. Deposit")
-    print("3. Withdraw")
-    print("4. Exit")   
+# while True:
+#     print("\n===== BANKING SYSTEM ====")
+#     print("1. Check Balance")
+#     print("2. Deposit")
+#     print("3. Withdraw")
+#     print("4. Exit")   
     
-    choice = input("Enter Choice :")
+#     choice = input("Enter Choice :")
     
-    if Choice == "1":
-        print("Current Balance =", balance)
+#     if Choice == "1":
+#         print("Current Balance =", balance)
         
-    elif choice == "2":
-        amount = float(input("Enter Amount: "))
-        balance += amount
-        print("Money Deposited!")
+#     elif choice == "2":
+#         amount = float(input("Enter Amount: "))
+#         balance += amount
+#         print("Money Deposited!")
     
-    elif choice == "3":
-        amount = float(input("Enter Amount: "))
-        if amount <= balance:
-            balance -= amount
-            print("Please collect your cash")
-        else:
-            print("Insufficieent Balance")
+#     elif choice == "3":
+#         amount = float(input("Enter Amount: "))
+#         if amount <= balance:
+#             balance -= amount
+#             print("Please collect your cash")
+#         else:
+#             print("Insufficieent Balance")
             
-    elif choice == "4":
-        break            
-                        
-                                                  
+#     elif choice == "4":
+#         break 
+    
+               
+while True:
+    print("\n===== UNIT CONVERTER ====") 
+    print("1. KM to MIles")
+    print("2. Miles to KM")
+    print("3. Celsius to Fahrenheit")
+    print("4. Fahrenheit to Celsius")
+
+choice = input("Enter your choice (1-4):")
+
+if choice == "1":
+    km = float(input("Enter distance in kilometers:"))
+    print("miles =", km * 0.621371)
+    
+elif choice == "2":
+    miles = float(input("Enter distance in miles:"))
+    print("KM =", miles * 1.60934)
+    
+elif choice == "3":
+    c = float(input("Enter temperature in Celsius:"))
+    print("Fahrenheit =", (c * 9/5) + 32)
+    
+elif choice == "4":
+    f = float(input("Enter temperature in Fahrenheit:"))
+    print("Celsius =", (f - 32) * 5/9)
+      
+import socket
+import threading
+
+HOST = "127.0.0.1"
+PORT = 5000
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((HOST, PORT))
+server.listen()
+
+clients = []
+names = []
+
+print("Server started...")
+print(f"Listening on {HOST}:{PORT}")
+
+def broadcast(message):
+    for client in clients:
+        client.send(message)
+        
+def handle(client):
+    while True:
+        try:
+            message = client.recv(1024)
+            bradcast(message)
+        except:
+            if client in clients:
+                index = clients.index(client)
+                clients.remove(client)
+                client.close()
+                name = names.pop(index)
+                broadcast(f"{name} left the caht!".encode())
+            break
+        
+def receive():
+    while True:
+        clinet, address = server.accept()
+        
+        print(f"Connected with {str(address)}")
+        
+        client.send("NAME". encode())
+        print(f"Connected with {address}")
+
+        client.send("NAME".encode())
+        name = client.recv(1024).decode()
+
+        names.append(name)
+        clients.append(client)
+
+        print(f"{name} joined.")
+
+        broadcast(f"{name} joined the chat.".encode())
+
+        thread = threading.Thread(target=handle, args=(client,))
+        thread.start()
+
+
+receive()        
+            
