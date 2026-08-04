@@ -1195,19 +1195,97 @@ console.log(threeSumClosest(nums,target));
 // console.log(length);
 // console.log(nums.slice(0, length));
 
+// function removeDuplicates(nums) {
+//     if (nums.length === 0) return 0;
+//     let i = 0;
+//     for (let j = 1; j < nums.length; j++) {
+//         if (nums[j] !== nums[i]) {
+//             i++;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1;
+// }    
+
+// let nums = [1,1,2,2,3,4,4,5];
+// let length = removeDuplicates(nums);
+// console.log(length);
+// console.log(nums.slice(0, length));
+
+let nums = [3,2,2,3];
+let val = 3;
+
+function removeElement(nums, val) {
+    let k = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+}
+
+let nums = {3,2,3,2};
+let val = 3;
+
+function removeElement(nums, val) {
+    let k = 0;
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+    return k;
+}
+
+let nums = [0,0,1,1,1,2,2,2,3,3,4]
+
 function removeDuplicates(nums) {
     if (nums.length === 0) return 0;
+
     let i = 0;
-    for (let j = 1; j < nums.length; j++) {
+
+    for(let j = 1; j < nums.length; j++) {
         if (nums[j] !== nums[i]) {
             i++;
             nums[i] = nums[j];
         }
     }
     return i + 1;
-}    
+}
 
-let nums = [1,1,2,2,3,4,4,5];
-let length = removeDuplicates(nums);
-console.log(length);
-console.log(nums.slice(0, length));
+function threeSumClosest(nums, target){
+    nums.sort((a, b) => a - b);
+
+    let closestSum = nums[0] + nums[1] + nums[2];
+
+    for (let i = 0; i < nums.length - 2; i++) {
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            let currentSum = nums[i] + nums[left] + nums[right];
+
+            if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+                closestSum = currentSum;
+            }
+
+            if (currentSum < target) {
+                left++;
+            } else if (currentSum > target) {
+                right--;
+            } else {
+                return currentSum;
+            }
+        }
+    }
+
+    return closestSum;
+}
+
+
+

@@ -579,30 +579,30 @@
 #         break 
     
                
-while True:
-    print("\n===== UNIT CONVERTER ====") 
-    print("1. KM to MIles")
-    print("2. Miles to KM")
-    print("3. Celsius to Fahrenheit")
-    print("4. Fahrenheit to Celsius")
+# while True:
+#     print("\n===== UNIT CONVERTER ====") 
+#     print("1. KM to MIles")
+#     print("2. Miles to KM")
+#     print("3. Celsius to Fahrenheit")
+#     print("4. Fahrenheit to Celsius")
 
-choice = input("Enter your choice (1-4):")
+# choice = input("Enter your choice (1-4):")
 
-if choice == "1":
-    km = float(input("Enter distance in kilometers:"))
-    print("miles =", km * 0.621371)
+# if choice == "1":
+#     km = float(input("Enter distance in kilometers:"))
+#     print("miles =", km * 0.621371)
     
-elif choice == "2":
-    miles = float(input("Enter distance in miles:"))
-    print("KM =", miles * 1.60934)
+# elif choice == "2":
+#     miles = float(input("Enter distance in miles:"))
+#     print("KM =", miles * 1.60934)
     
-elif choice == "3":
-    c = float(input("Enter temperature in Celsius:"))
-    print("Fahrenheit =", (c * 9/5) + 32)
+# elif choice == "3":
+#     c = float(input("Enter temperature in Celsius:"))
+#     print("Fahrenheit =", (c * 9/5) + 32)
     
-elif choice == "4":
-    f = float(input("Enter temperature in Fahrenheit:"))
-    print("Celsius =", (f - 32) * 5/9)
+# elif choice == "4":
+#     f = float(input("Enter temperature in Fahrenheit:"))
+#     print("Celsius =", (f - 32) * 5/9)
       
 import socket
 import threading
@@ -661,5 +661,32 @@ def receive():
         thread.start()
 
 
-receive()        
-            
+receive()    
+
+text = "python"
+
+reversed_text = text[::-1]
+print(reversed_text)                         
+  
+t = "python"
+rev_t = ""
+for char in t:
+    rev_t = char + rev_t
+print(rev_t)    
+
+t = "python"
+rev_t = "".join(reversed(t))
+print(rev_t)
+
+t = "python"
+i = len(text) - 1
+while i >= 0:
+    print(text[i], end="")
+    i -= 1
+
+def reverse_string(text):
+    return text[::-1]
+
+string = input("Enter a string")
+print("reversed string:", rev_str(str))
+               

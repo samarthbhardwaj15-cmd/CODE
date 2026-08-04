@@ -216,12 +216,12 @@
 //     }
 // });
 
-let nm = document.querySelector("#name");
-let form = document.querySelector("form");
+// let nm = document.querySelector("#name");
+// let form = document.querySelector("form");
 
-form.addEventListener("submit", function (dets) {
-    dets.preventDefault();
-    const regex = /^[a-zA-Z0-9] {3,20}$/;
-    let ans = regex.text("aa_a");
-    console.log(ans);
-});
+// form.addEventListener("submit", function (dets) {
+//     dets.preventDefault();
+//     const regex = /^[a-zA-Z0-9] {3,20}$/;
+//     let ans = regex.text("aa_a");
+//     console.log(ans);
+// });
