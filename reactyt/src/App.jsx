@@ -1,8 +1,6 @@
-import React from 'react'
+function App(){
 
-const App = () => {
-  return (
-    <h1>Hello</h1>
-  )
+  return "Hello"
 }
- export default App
+
+export default App         

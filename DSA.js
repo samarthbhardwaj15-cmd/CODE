@@ -553,11 +553,11 @@
 // }
 // console.log(arr);
 
-function isAnagram(a, b) {
-    return a.split("").sort().join("") ===
-           b.split("").sort().join("");
-}
-console.log(isAnagram("listen", "silent"));
+// function isAnagram(a, b) {
+//     return a.split("").sort().join("") ===
+//            b.split("").sort().join("");
+// }
+// console.log(isAnagram("listen", "silent"));
  // function isAnagram(a, b) {
 
 
@@ -664,56 +664,56 @@ console.log(isAnagram("listen", "silent"));
 //     process.stdout.write(third+" ");
 // }
 
-function fiboNTerms(n, first, second){
-    if(n==0) return
-    let third = first+second;
-    process.stdout.write(third+" ");
-    fiboNTerms(n-1,second, third)
-}
+// function fiboNTerms(n, first, second){
+//     if(n==0) return
+//     let third = first+second;
+//     process.stdout.write(third+" ");
+//     fiboNTerms(n-1,second, third)
+// }
 
-let n=10;
-process.stdout.write(0+" "+1+" ");
-fiboNTerms(n-2, 0, 2)
+// let n=10;
+// process.stdout.write(0+" "+1+" ");
+// fiboNTerms(n-2, 0, 2)
 
-function fibo(n){
-    if(n==0 || n==1) return n;
-    reurn fibo(n-1) + fibo(n-2)
-}
-let n = 7;
-console.log(fibo(n));
+// function fibo(n){
+//     if(n==0 || n==1) return n;
+//     return fibo(n-1) + fibo(n-2)
+// }
+// let n = 7;
+// console.log(fibo(n));
 
-function selectionsort(arr) {
-    let n = arr.length;
+// function selectionsort(arr) {
+//     let n = arr.length;
     
-    for (let i=0; i<n-1; i++) {
-        let min = i;
+//     for (let i=0; i<n-1; i++) {
+//         let min = i;
         
-        for (let j=i+1; j<n; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-            }
-        }
+//         for (let j=i+1; j<n; j++) {
+//             if (arr[j] < arr[min]) {
+//                 min = j;
+//             }
+//         }
         
-        [arr[i], arr[min]] = [arr[min], arr[i]];
-    }
-    return arr;
-}
-console.log(selectionsort([64,25,12,22,11]));
+//         [arr[i], arr[min]] = [arr[min], arr[i]];
+//     }
+//     return arr;
+// }
+// console.log(selectionsort([64,25,12,22,11]));
 
-function insertionsort(arr) {
-    for (let i=1; i<arr.length; i++) {
-        let key = arr[i];
-        let j = i-1;
+// function insertionsort(arr) {
+//     for (let i=1; i<arr.length; i++) {
+//         let key = arr[i];
+//         let j = i-1;
         
-        while (j >= 0 && arr[j] > key) {
-            arr[j+1] = arr[j];
-            j--;
-        }
-        arr[j+1] = key;
-    }
-    return arr;
-}
-console.log(insertionsort([5,3,8,4,2]));
+//         while (j >= 0 && arr[j] > key) {
+//             arr[j+1] = arr[j];
+//             j--;
+//         }
+//         arr[j+1] = key;
+//     }
+//     return arr;
+// }
+// console.log(insertionsort([5,3,8,4,2]));
 
 // let n = 5;
 // for(let i=0; i<n; i++){
@@ -730,11 +730,11 @@ console.log(insertionsort([5,3,8,4,2]));
 //     fun(n-1);
 // }
 
-let n = 5;
-function fun(n){
-    if(n <= 1) return;
-    fun(n/2);
-}
+// let n = 5;
+// function fun(n){
+//     if(n <= 1) return;
+//     fun(n/2);
+// }
 
 // let a = 32, b = 20;
 
@@ -768,19 +768,19 @@ function fun(n){
 //     }
 // } 
 
-let n = 100;
-let arr = new Array(n+1).fill(true)
+// let n = 100;
+// let arr = new Array(n+1).fill(true)
 
-for (let i=2; i<=Math.floor(Math.sqrt(n)); i++){
-    if(arr[i]){
-        for(let j=i*i;j<=n; j+=i){
-            arr[j] = false;
-        }
-    }
-}
-for(let i=2;i<arr.length; i++){
-    if(arr[i]) process.stdout.write(i+" ")
-}
+// for (let i=2; i<=Math.floor(Math.sqrt(n)); i++){
+//     if(arr[i]){
+//         for(let j=i*i;j<=n; j+=i){
+//             arr[j] = false;
+//         }
+//     }
+// }
+// for(let i=2;i<arr.length; i++){
+//     if(arr[i]) process.stdout.write(i+" ")
+// }
 
 // function hanoi(n, source, helper, destination) {
 //     if (n === 1) {
@@ -1007,181 +1007,249 @@ for(let i=2;i<arr.length; i++){
 
 //           
 
-function threeSumClosest(nums, target) {
-    nums.sort((a, b) => a - b);
+// function threeSumClosest(nums, target) {
+//     nums.sort((a, b) => a - b);
 
-    let closestSum = nums[0] + nums[1] + nums[2];
+//     let closestSum = nums[0] + nums[1] + nums[2];
 
-    for (let i=0; i < nums.length - 2; i++) {
-        let left = i + 1;
-        let right = nums.length - 1;
+//     for (let i=0; i < nums.length - 2; i++) {
+//         let left = i + 1;
+//         let right = nums.length - 1;
 
-        while (left < right) {
-            let currentSum = nums[i] + nums[left] + nums[right];
-            if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
-                closestSum = currentSum;
-            }
-            if (currentSum < target) {
-                left++;
-            } else if (currentSum > target) {
-                right--;
-            } else {
-                return currentSum;
-            }
-        }
-    }
-    return closestSum;
-}
- let nums = [-1,2,1.-4];
- let target = 1;
+//         while (left < right) {
+//             let currentSum = nums[i] + nums[left] + nums[right];
+//             if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+//                 closestSum = currentSum;
+//             }
+//             if (currentSum < target) {
+//                 left++;
+//             } else if (currentSum > target) {
+//                 right--;
+//             } else {
+//                 return currentSum;
+//             }
+//         }
+//     }
+//     return closestSum;
+// }
+//  let nums = [-1,2,1.-4];
+//  let target = 1;
 
- console.log(threeSumClosest(nums, target));
+//  console.log(threeSumClosest(nums, target));
 
 
- function threesum(nums) {
-    nums.sort((a, b) => a - b);
-    cosnt result = [];
+//  function threesum(nums) {
+//     nums.sort((a, b) => a - b);
+//     cosnt result = [];
 
-    for (let i=0; i<nums.length - 2; i++) {
-        if (i > 0 && nums[i] === nums[i-1]) continue;
-        let left = i + 1;
-        let right = nums.length - 1;
+//     for (let i=0; i<nums.length - 2; i++) {
+//         if (i > 0 && nums[i] === nums[i-1]) continue;
+//         let left = i + 1;
+//         let right = nums.length - 1;
 
-        while (left < right) {
-            const sum = nums[i] + nums[left] + nums[right];
-            if (sum === 0) {
-                result.push([nums[i], nums[left], nums[right]]);
-                while (left < right && nums[left] === nums[left + 1]) {
-                    left++;
-                }
-                while (left < right && nums[right] === nums[right - 1]) {
-                    right--;
-                }
+//         while (left < right) {
+//             const sum = nums[i] + nums[left] + nums[right];
+//             if (sum === 0) {
+//                 result.push([nums[i], nums[left], nums[right]]);
+//                 while (left < right && nums[left] === nums[left + 1]) {
+//                     left++;
+//                 }
+//                 while (left < right && nums[right] === nums[right - 1]) {
+//                     right--;
+//                 }
 
-                left++;
-                right--;
-            } else if (sum < 0) {
-                left++;
-            } else {
-                right --;
-            }
-        }
-    }
-    return result;
- }
+//                 left++;
+//                 right--;
+//             } else if (sum < 0) {
+//                 left++;
+//             } else {
+//                 right --;
+//             }
+//         }
+//     }
+//     return result;
+//  }
 
-function ListNode(val, next = null) {
-    this.val = val;
-    this.next = next;
-} 
+// function ListNode(val, next = null) {
+//     this.val = val;
+//     this.next = next;
+// } 
 
-var sortList = function(head) {
-    if (!head || !head.next) return head;
+// var sortList = function(head) {
+//     if (!head || !head.next) return head;
 
-    let slow = head;
-    let fast = head;
-    let prev = null;
+//     let slow = head;
+//     let fast = head;
+//     let prev = null;
 
-    while (fast && fast.next) {
-        prev = slow;
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    prev.next = null;
+//     while (fast && fast.next) {
+//         prev = slow;
+//         slow = slow.next;
+//         fast = fast.next.next;
+//     }
+//     prev.next = null;
 
-    let left = sortList(head);
-    let right = sortList(slow);
+//     let left = sortList(head);
+//     let right = sortList(slow);
 
-    return merge(left, right);
-};
+//     return merge(left, right);
+// };
 
-function merge(l1, l2) {
-    let dummy = new ListNode(0);
-    let current = dummy;
+// function merge(l1, l2) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
 
-    while (l1 && l2) {
-        if (l1.val < l2.val) {
-            current.next = l1;
-            l1 = l1.next;
-        } else {
-            current.next = l2;
-            l2 = l2.next;
-        }
-        current = current.next;
-    }
-    current.next = l1 || l2;
-    return dummy.next;
-}
+//     while (l1 && l2) {
+//         if (l1.val < l2.val) {
+//             current.next = l1;
+//             l1 = l1.next;
+//         } else {
+//             current.next = l2;
+//             l2 = l2.next;
+//         }
+//         current = current.next;
+//     }
+//     current.next = l1 || l2;
+//     return dummy.next;
+// }
 
-function fourSum(nums, target) {
-    nums.sort((a, b) => a - b);
-    const result = [];
-    const n = nums.length;
+// function fourSum(nums, target) {
+//     nums.sort((a, b) => a - b);
+//     const result = [];
+//     const n = nums.length;
 
-    for (let i =0; i < n - 3; i++) {
-        if (i > 0 && nums[i] === nums[i - 1]) continue;
+//     for (let i =0; i < n - 3; i++) {
+//         if (i > 0 && nums[i] === nums[i - 1]) continue;
 
-        for (let j = i + 1; j < n - 2; j++) {
-            if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+//         for (let j = i + 1; j < n - 2; j++) {
+//             if (j > i + 1 && nums[j] === nums[j - 1]) continue;
 
-            let left = j + 1;
-            let right = n - 1;
+//             let left = j + 1;
+//             let right = n - 1;
 
-            while (left < right) {
-                const sum = nums[i] + nums[j] + nums[left] + nums[right];
-                if (sum === target) {
-                    result.push([nums[i], nums[j], nums[left], nums[right]]);
+//             while (left < right) {
+//                 const sum = nums[i] + nums[j] + nums[left] + nums[right];
+//                 if (sum === target) {
+//                     result.push([nums[i], nums[j], nums[left], nums[right]]);
 
-                    while (left < right && nums[left] === nums[left + 1]) left++;
-                    while (left < right && nums[right] === nums[right - 1]) right--;
+//                     while (left < right && nums[left] === nums[left + 1]) left++;
+//                     while (left < right && nums[right] === nums[right - 1]) right--;
 
-                    left++;
-                    right--;
-                } else if (sum < target) {
-                    left++;
-                } else {
-                    right--;
-                }
-            }
-        }
-    }
-    return result;
-} 
+//                     left++;
+//                     right--;
+//                 } else if (sum < target) {
+//                     left++;
+//                 } else {
+//                     right--;
+//                 }
+//             }
+//         }
+//     }
+//     return result;
+// } 
 
-function threeSumClosest(nums, target) {
-    nums.sort((a, b) => a - b);
+// function threeSumClosest(nums, target) {
+//     nums.sort((a, b) => a - b);
 
-    let closestSum = nums[0] + nums[1] + nums[2];
+//     let closestSum = nums[0] + nums[1] + nums[2];
 
-    for (let i = 0; i < nums.length - 2; i++) {
-        let left = i + 1;
-        let right = nums.length - 1;
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         let left = i + 1;
+//         let right = nums.length - 1;
         
-        whhile (left < right) {
-            let currentSum = nums[i] + nums[left] + nums[right];
-            if(Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
-                closestSum = currentSum;
-            }
-            if (currentSum < target) {
-                left++;
-            } else if (currentSum < target) {
-                right--;
-            } else {
-                return currentSum;
-            }
-        }
-    }
-    return closestSum;
-}
-let nums = [-1, 2, 1, -4];
-let target = 1;
-console.log(threeSumClosest(nums,target));
+//         whhile (left < right) {
+//             let currentSum = nums[i] + nums[left] + nums[right];
+//             if(Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+//                 closestSum = currentSum;
+//             }
+//             if (currentSum < target) {
+//                 left++;
+//             } else if (currentSum < target) {
+//                 right--;
+//             } else {
+//                 return currentSum;
+//             }
+//         }
+//     }
+//     return closestSum;
+// }
+// let nums = [-1, 2, 1, -4];
+// let target = 1;
+// console.log(threeSumClosest(nums,target));
 
+
+// // function removeDuplicates(nums) {
+// //     if (nums.length === 0) return 0;
+// //     let i = 0;
+// //     for (let j = 1; j < nums.length; j++) {
+// //         if (nums[j] !== nums[i]) {
+// //             i++;
+// //             nums[i] = nums[j];
+// //         }
+// //     }
+// //     return i + 1;
+// // }
+
+// // let nums = [1,1,2,2,3,4,4,5];
+// // let length = removeDuplicates(nums);
+// // console.log(length);
+// // console.log(nums.slice(0, length));
+
+// // function removeDuplicates(nums) {
+// //     if (nums.length === 0) return 0;
+// //     let i = 0;
+// //     for (let j = 1; j < nums.length; j++) {
+// //         if (nums[j] !== nums[i]) {
+// //             i++;
+// //             nums[i] = nums[j];
+// //         }
+// //     }
+// //     return i + 1;
+// // }    
+
+// // let nums = [1,1,2,2,3,4,4,5];
+// // let length = removeDuplicates(nums);
+// // console.log(length);
+// // console.log(nums.slice(0, length));
+
+// let nums = [3,2,2,3];
+// let val = 3;
+
+// function removeElement(nums, val) {
+//     let k = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== val) {
+//             nums[k] = nums[i];
+//             k++;
+//         }
+//     }
+//     return k;
+// }
+
+// let nums = {3,2,3,2};
+// let val = 3;
+
+// function removeElement(nums, val) {
+//     let k = 0;
+    
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== val) {
+//             nums[k] = nums[i];
+//             k++;
+//         }
+//     }
+//     return k;
+// }
+
+// let nums = [0,0,1,1,1,2,2,2,3,3,4]
 
 // function removeDuplicates(nums) {
 //     if (nums.length === 0) return 0;
+
 //     let i = 0;
-//     for (let j = 1; j < nums.length; j++) {
+
+//     for(let j = 1; j < nums.length; j++) {
 //         if (nums[j] !== nums[i]) {
 //             i++;
 //             nums[i] = nums[j];
@@ -1190,102 +1258,74 @@ console.log(threeSumClosest(nums,target));
 //     return i + 1;
 // }
 
-// let nums = [1,1,2,2,3,4,4,5];
-// let length = removeDuplicates(nums);
-// console.log(length);
-// console.log(nums.slice(0, length));
+// function threeSumClosest(nums, target){
+//     nums.sort((a, b) => a - b);
 
-// function removeDuplicates(nums) {
-//     if (nums.length === 0) return 0;
-//     let i = 0;
-//     for (let j = 1; j < nums.length; j++) {
-//         if (nums[j] !== nums[i]) {
-//             i++;
-//             nums[i] = nums[j];
+//     let closestSum = nums[0] + nums[1] + nums[2];
+
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         let left = i + 1;
+//         let right = nums.length - 1;
+
+//         while (left < right) {
+//             let currentSum = nums[i] + nums[left] + nums[right];
+
+//             if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+//                 closestSum = currentSum;
+//             }
+
+//             if (currentSum < target) {
+//                 left++;
+//             } else if (currentSum > target) {
+//                 right--;
+//             } else {
+//                 return currentSum;
+//             }
 //         }
 //     }
-//     return i + 1;
-// }    
 
-// let nums = [1,1,2,2,3,4,4,5];
-// let length = removeDuplicates(nums);
-// console.log(length);
-// console.log(nums.slice(0, length));
+//     return closestSum;
+// }
 
-let nums = [3,2,2,3];
-let val = 3;
+// let nums = [3,2,2,3];
+// let val = 3;
+// function removeElement(nums, val) {
+//     let k = 0;
 
-function removeElement(nums, val) {
-    let k = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== val) {
+//             nums[k] = nums[i]
+//             k++;
+//         }
+//     }
+//     return k;
+// }
 
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== val) {
-            nums[k] = nums[i];
-            k++;
-        }
+function nextPermutation(nums) {
+    let i = nums.length - 2;
+
+    while (i >= 0 && nums[i] >= nums[i + 1]) {
+        i--;
     }
-    return k;
-}
+    if (i >= 0) {
+        let j = nums.length - 1;
 
-let nums = {3,2,3,2};
-let val = 3;
-
-function removeElement(nums, val) {
-    let k = 0;
-    
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== val) {
-            nums[k] = nums[i];
-            k++;
+        while (nums[j] <= nums[i]) {
+            j--;
         }
-    }
-    return k;
-}
-
-let nums = [0,0,1,1,1,2,2,2,3,3,4]
-
-function removeDuplicates(nums) {
-    if (nums.length === 0) return 0;
-
-    let i = 0;
-
-    for(let j = 1; j < nums.length; j++) {
-        if (nums[j] !== nums[i]) {
-            i++;
-            nums[i] = nums[j];
-        }
-    }
-    return i + 1;
-}
-
-function threeSumClosest(nums, target){
-    nums.sort((a, b) => a - b);
-
-    let closestSum = nums[0] + nums[1] + nums[2];
-
-    for (let i = 0; i < nums.length - 2; i++) {
-        let left = i + 1;
-        let right = nums.length - 1;
-
-        while (left < right) {
-            let currentSum = nums[i] + nums[left] + nums[right];
-
-            if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
-                closestSum = currentSum;
-            }
-
-            if (currentSum < target) {
-                left++;
-            } else if (currentSum > target) {
-                right--;
-            } else {
-                return currentSum;
-            }
-        }
+        [nums[i], nums[j]] = [nums[j], nums[i]];
     }
 
-    return closestSum;
+    let left = i + 1;
+    let right = nums.length - 1;
+
+    while (left < right) {
+        [nums[left], nums[right]] = [nums[right], nums[left]];
+        left++;
+        right--;
+    }
+    return nums;
 }
-
-
-
+console.log(nextPermutation([1, 2, 3]));
+console.log(nextPermutation([2, 3, 1]));
+console.log(nextPermutation([3, 2, 1]));

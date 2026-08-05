@@ -3,15 +3,20 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box;
-    background-color: black; */
+    box-sizing: border-box;
+    /* background-color: black; */
     font-family: Helvetica;
 }
-body{
+section{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    background: url('"C:\Users\LENOVO\Downloads\genz.png"') no repeat;
+    background-size: cover;
+    background-position: center;
+    /* min-height: 100vh; */
 }
 /* html,body{
     width: 100%;
@@ -34,8 +39,11 @@ body{
     background: red;
     border-radius: 20px;
     display: flex;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(15px);
 } 
 
 h2{
@@ -84,7 +92,53 @@ h2{
     font-size: 1.2em;
     line-height: 57px;
 }
+.r1{
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
 
+.r1 label input{
+    margin-right: 3px;
+}
+
+.r1 a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.r1 a:hover{
+    text-decoration: underline;
+}
+
+button {
+    width: 100%;
+    height: 40%;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #000;
+    font-weight: 500;
+}
+.r2 {
+    font-size: .9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+.r2 p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+.r2 p a:hover {
+    text-decoration: underline;
+}
 
 /* form{
     text-align: center;
