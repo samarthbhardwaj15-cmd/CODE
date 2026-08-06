@@ -12,17 +12,18 @@ section{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    background: url('"C:\Users\LENOVO\Downloads\genz.png"') no repeat;
+    background-image: url("c:\Users\LENOVO\Downloads\bg.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
     background-position: center;
     /* min-height: 100vh; */
 }
-/* html,body{
+html,body{
     width: 100%;
     height: 100%;
-} */
-/* #main{
+}
+#main{
     color: rgb(1, 8, 21);
 }  */
 #t1{

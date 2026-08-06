@@ -1301,31 +1301,78 @@
 //     return k;
 // }
 
-function nextPermutation(nums) {
-    let i = nums.length - 2;
+// function nextPermutation(nums) {
+//     let i = nums.length - 2;
 
-    while (i >= 0 && nums[i] >= nums[i + 1]) {
-        i--;
-    }
-    if (i >= 0) {
-        let j = nums.length - 1;
+//     while (i >= 0 && nums[i] >= nums[i + 1]) {
+//         i--;
+//     }
+//     if (i >= 0) {
+//         let j = nums.length - 1;
 
-        while (nums[j] <= nums[i]) {
-            j--;
+//         while (nums[j] <= nums[i]) {
+//             j--;
+//         }
+//         [nums[i], nums[j]] = [nums[j], nums[i]];
+//     }
+
+//     let left = i + 1;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         [nums[left], nums[right]] = [nums[right], nums[left]];
+//         left++;
+//         right--;
+//     }
+//     return nums;
+// }
+// console.log(nextPermutation([1, 2, 3]));
+// console.log(nextPermutation([2, 3, 1]));
+// console.log(nextPermutation([3, 2, 1]));
+
+
+// let nums = [4,5,6,7,0,1,2];
+// let target = 0;
+
+// function search(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             return mid;
+//         }
+
+//         if (nums[left] <= nums[mid]) {
+//             if (target >= nums[left] && target < nums[mid]) {
+//                 right = mid - 1;
+//             } else {
+//                 left = mid + 1;
+//             }
+//         } else { 
+//             if (target > nums[mid] && target <= nums[right]) {
+//                 left = mid - 1;
+//             }
+//         }
+//     }
+//     return - 1;
+// }
+
+// let nums = [2,3,4];
+
+function twosum(nums, target) {
+    for(let  i=0; i < nums.length; i++) {
+        for(let j = i+1; j < nums.length; j++) {
+            if(nums[i] + nums[j] === target) {
+                return [i, j];
+            }
         }
-        [nums[i], nums[j]] = [nums[j], nums[i]];
     }
-
-    let left = i + 1;
-    let right = nums.length - 1;
-
-    while (left < right) {
-        [nums[left], nums[right]] = [nums[right], nums[left]];
-        left++;
-        right--;
-    }
-    return nums;
 }
-console.log(nextPermutation([1, 2, 3]));
-console.log(nextPermutation([2, 3, 1]));
-console.log(nextPermutation([3, 2, 1]));
+console.log(twosum([2,7,11,15], 9));
+
+
+
+

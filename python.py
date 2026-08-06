@@ -604,89 +604,117 @@
 #     f = float(input("Enter temperature in Fahrenheit:"))
 #     print("Celsius =", (f - 32) * 5/9)
       
-import socket
-import threading
+# import socket
+# import threading
 
-HOST = "127.0.0.1"
-PORT = 5000
+# HOST = "127.0.0.1"
+# PORT = 5000
 
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((HOST, PORT))
-server.listen()
+# server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# server.bind((HOST, PORT))
+# server.listen()
 
-clients = []
-names = []
+# clients = []
+# names = []
 
-print("Server started...")
-print(f"Listening on {HOST}:{PORT}")
+# print("Server started...")
+# print(f"Listening on {HOST}:{PORT}")
 
-def broadcast(message):
-    for client in clients:
-        client.send(message)
+# def broadcast(message):
+#     for client in clients:
+#         client.send(message)
         
-def handle(client):
-    while True:
-        try:
-            message = client.recv(1024)
-            bradcast(message)
-        except:
-            if client in clients:
-                index = clients.index(client)
-                clients.remove(client)
-                client.close()
-                name = names.pop(index)
-                broadcast(f"{name} left the caht!".encode())
-            break
+# def handle(client):
+#     while True:
+#         try:
+#             message = client.recv(1024)
+#             bradcast(message)
+#         except:
+#             if client in clients:
+#                 index = clients.index(client)
+#                 clients.remove(client)
+#                 client.close()
+#                 name = names.pop(index)
+#                 broadcast(f"{name} left the caht!".encode())
+#             break
         
-def receive():
-    while True:
-        clinet, address = server.accept()
+# def receive():
+#     while True:
+#         clinet, address = server.accept()
         
-        print(f"Connected with {str(address)}")
+#         print(f"Connected with {str(address)}")
         
-        client.send("NAME". encode())
-        print(f"Connected with {address}")
+#         client.send("NAME". encode())
+#         print(f"Connected with {address}")
 
-        client.send("NAME".encode())
-        name = client.recv(1024).decode()
+#         client.send("NAME".encode())
+#         name = client.recv(1024).decode()
 
-        names.append(name)
-        clients.append(client)
+#         names.append(name)
+#         clients.append(client)
 
-        print(f"{name} joined.")
+#         print(f"{name} joined.")
 
-        broadcast(f"{name} joined the chat.".encode())
+#         broadcast(f"{name} joined the chat.".encode())
 
-        thread = threading.Thread(target=handle, args=(client,))
-        thread.start()
+#         thread = threading.Thread(target=handle, args=(client,))
+#         thread.start()
 
 
-receive()    
+# receive()    
 
-text = "python"
+# text = "python"
 
-reversed_text = text[::-1]
-print(reversed_text)                         
+# reversed_text = text[::-1]
+# print(reversed_text)                         
   
-t = "python"
-rev_t = ""
-for char in t:
-    rev_t = char + rev_t
-print(rev_t)    
+# t = "python"
+# rev_t = ""
+# for char in t:
+#     rev_t = char + rev_t
+# print(rev_t)    
 
-t = "python"
-rev_t = "".join(reversed(t))
-print(rev_t)
+# t = "python"
+# rev_t = "".join(reversed(t))
+# print(rev_t)
 
-t = "python"
-i = len(text) - 1
-while i >= 0:
-    print(text[i], end="")
-    i -= 1
+# t = "python"
+# i = len(text) - 1
+# while i >= 0:
+#     print(text[i], end="")
+#     i -= 1
 
-def reverse_string(text):
-    return text[::-1]
+# def reverse_string(text):
+#     return text[::-1]
 
-string = input("Enter a string")
-print("reversed string:", rev_str(str))
-               
+# string = input("Enter a string")
+# print("reversed string:", rev_str(str))
+
+def factorial(n):
+    if n == 1:
+        return 1
+    return n * factorial(n-1)
+print(factorial(5))
+
+def details(**kwargs):
+    print(kwargs)
+    
+details(name="samarth", age=20)    
+
+def add(*args):
+    print(sum(args))
+add(1,2,3,4)    
+
+add = lambda a,b: a+b
+print(add(5,3))
+
+square = lambda x: x*x
+print(square(50))
+
+def greet(name):
+    return "Hello " + name
+
+print(greet("Samarth"))
+
+nums = [1,2,3]
+print(2 in nums)
