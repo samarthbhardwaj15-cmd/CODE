@@ -1362,17 +1362,79 @@
 
 // let nums = [2,3,4];
 
-function twosum(nums, target) {
-    for(let  i=0; i < nums.length; i++) {
-        for(let j = i+1; j < nums.length; j++) {
-            if(nums[i] + nums[j] === target) {
-                return [i, j];
-            }
+// function twosum(nums, target) {
+//     for(let  i=0; i < nums.length; i++) {
+//         for(let j = i+1; j < nums.length; j++) {
+//             if(nums[i] + nums[j] === target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+// }
+// console.log(twosum([2,7,11,15], 9));
+
+
+function searchRange(nums, target) {
+    function findFirst() {
+        let left = 0;
+        let right = nums.length - 1;
+        let ans = -1;
+
+        while (left <= right) {
+            let mid = Math.floor((left + right) / 2);
+
+            if (nums[mid] === target) {
+                ans = mid;
+                right = mid - 1;
+            } else if (nums[mid] < target) {
+                left = mid - 1;
+        } else {
+            right = mid - 1;
         }
     }
+    return ans;
 }
-console.log(twosum([2,7,11,15], 9));
 
+function findlast() {
+    let left = 0;
+    let right = nums.length - 1;
+    let ans = -1;
 
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            ans = mid;
+            left = mid + 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return ans;
+}
+
+return [findFirst(), findlast()];
+}
+
+console.log(searchRange([5,7,7,8,8,10], 8));
+
+function removeDuplicates(nums) {
+    if (nums.length === 0) return 0;
+    let i = 0;
+    for (let j = 1; j < nums.length; j++) {
+        if (nums[j] !== nums[i]) {
+            i++;
+            nums[i] = nums[j];
+        }
+    }
+    return i + 1;
+}
+
+let nums = [1,1,2,2,3,4,4,5];
+let length = removeDuplicates(nums);
+console.log(length);
+console.log(nums.slice(0, length));
 
 

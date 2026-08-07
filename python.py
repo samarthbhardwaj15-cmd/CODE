@@ -690,31 +690,86 @@
 # string = input("Enter a string")
 # print("reversed string:", rev_str(str))
 
-def factorial(n):
-    if n == 1:
-        return 1
-    return n * factorial(n-1)
-print(factorial(5))
+# def factorial(n):
+#     if n == 1:
+#         return 1
+#     return n * factorial(n-1)
+# print(factorial(5))
 
-def details(**kwargs):
-    print(kwargs)
+# def details(**kwargs):
+#     print(kwargs)
     
-details(name="samarth", age=20)    
+# details(name="samarth", age=20)    
 
-def add(*args):
-    print(sum(args))
-add(1,2,3,4)    
+# def add(*args):
+#     print(sum(args))
+# add(1,2,3,4)    
 
-add = lambda a,b: a+b
-print(add(5,3))
+# add = lambda a,b: a+b
+# print(add(5,3))
 
-square = lambda x: x*x
-print(square(50))
+# square = lambda x: x*x/
+# print(square(50))
 
-def greet(name):
-    return "Hello " + name
+# def greet(name):
+#     return "Hello " + name
 
-print(greet("Samarth"))
+# print(greet("Samarth"))
 
-nums = [1,2,3]
-print(2 in nums)
+# nums = [1,2,3]
+# print(2 in nums)
+
+class Student:
+    name = "Samarth"
+Student1 = Student()    
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+s1 = Student("Samarth")
+
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+        
+class Dog(Animal):
+    pass        
+               
+class Dog:
+    def sound(self):
+        print("Bark")
+        
+class Cat:
+    def sound(self):
+        print("Meow")            
+        
+class Student:
+    def __init__(self):
+        self.__marks = 90                   
+     
+age = 15
+
+if age < 18:
+    raise ValueError("Age must be 18  or above")
+
+file = open("data.txt", "r")
+
+file = open("data.txt", "r")
+data = file.read()
+print(data)
+file.close()     
+
+file = open("data.txt", "w")
+file.write("Hello Python")
+file.close()
+
+with open("data.txt", "r") as file:
+    data = file.read()
+    print(data)
+         
+import math
+print(math.sqrt(25))
+
+         
+                
+                
