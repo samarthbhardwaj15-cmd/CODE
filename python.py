@@ -719,57 +719,98 @@
 # nums = [1,2,3]
 # print(2 in nums)
 
-class Student:
-    name = "Samarth"
-Student1 = Student()    
+# class Student:
+#     name = "Samarth"
+# Student1 = Student()    
 
-class Student:
-    def __init__(self, name):
-        self.name = name
-s1 = Student("Samarth")
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+# s1 = Student("Samarth")
 
-class Animal:
-    def speak(self):
-        print("Animal speaks")
+# class Animal:
+#     def speak(self):
+#         print("Animal speaks")
         
-class Dog(Animal):
-    pass        
+# class Dog(Animal):
+#     pass        
                
-class Dog:
-    def sound(self):
-        print("Bark")
+# class Dog:
+#     def sound(self):
+#         print("Bark")
         
-class Cat:
-    def sound(self):
-        print("Meow")            
+# class Cat:
+#     def sound(self):
+#         print("Meow")            
         
-class Student:
-    def __init__(self):
-        self.__marks = 90                   
+# class Student:
+#     def __init__(self):
+#         self.__marks = 90                   
      
-age = 15
+# age = 15
 
-if age < 18:
-    raise ValueError("Age must be 18  or above")
+# if age < 18:
+#     raise ValueError("Age must be 18  or above")
 
-file = open("data.txt", "r")
+# file = open("data.txt", "r")
 
-file = open("data.txt", "r")
-data = file.read()
-print(data)
-file.close()     
+# file = open("data.txt", "r")
+# data = file.read()
+# print(data)
+# file.close()     
 
-file = open("data.txt", "w")
-file.write("Hello Python")
-file.close()
+# file = open("data.txt", "w")
+# file.write("Hello Python")
+# file.close()
 
-with open("data.txt", "r") as file:
-    data = file.read()
-    print(data)
+# with open("data.txt", "r") as file:
+#     data = file.read()
+#     print(data)
          
-import math
-print(math.sqrt(25))
+# import math
+# print(math.sqrt(25))
 
-         
-                
-                
+s = "python"
+reverse = s[::-1]
+print(reverse)
+
+s = "madam"
+if s == s[::-1]:
+    print("palindrome")
+else:
+    print("No Palindrome")
+       
+numbers = [10,25,7,40,15]
+
+largest = numbers[0]       
+
+for num in numbers:
+    if num > largest:
+        largets = num
+print(largest)      
+print(max(numbers))  
+                 
+a = 0
+b = 1
+
+for i in range(10):
+    print(a, end=" ")
+    a, b = b, a+b              
+
+n = 17
+if num < 2:
+    print("Not Prime")  
+else:
+    for i in range(2, n):
+        if n % i == 0:
+            print("Not Prime")
+            break 
+    else:
+        print("prime")            
+
+n = 5
+factorial = 1
+
+for i  in range(1, n + 1):
+    factorial *= i
+print(factorial)                 

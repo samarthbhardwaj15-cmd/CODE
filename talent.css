@@ -12,20 +12,20 @@ section{
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-image: url("c:\Users\LENOVO\Downloads\bg.jpg");
+    background-image: url("https://us-east1-aws.api.snapchat.com/web-capture/www.snapchat.com/@time_genz/preview/square.jpeg?xp_id=1");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     background-position: center;
     /* min-height: 100vh; */
 }
-html,body{
+/* html,body{
     width: 100%;
     height: 100%;
-}
+} 
 #main{
     color: rgb(1, 8, 21);
-}  */
+}   */
 #t1{
     font-size: 30px;
     font-weight: 30;
@@ -37,7 +37,7 @@ html,body{
     position: relative;
     width: 400px;
     height: 450px;
-    background: red;
+    /* background: red; */
     border-radius: 20px;
     display: flex;
     background: transparent;
@@ -48,12 +48,15 @@ html,body{
 } 
 
 h2{
-    font-size: 2em;
-    color: #fff;
+    font-size: 3em;
+    margin-top: -320px;
+    font-size: 40px;
+    color: #110101;
     text-align: center;
 }
 .inp{
     position: absolute;
+    margin-top: 400%;
     width: 310px;
     margin: 30px 0;
     border-bottom: 2px solid #fff;
@@ -81,7 +84,7 @@ h2{
     background: transparent;
     border: none;
     font-size: 1em;
-    color: #fff;
+    color: #e5e0e0;
     padding: 0 35px 0 5px;
 
 }
@@ -89,7 +92,7 @@ h2{
 .inp .icon{
     position: absolute;
     right: 8px;
-    color: #fff;
+    color: #d20a0a;
     font-size: 1.2em;
     line-height: 57px;
 }
