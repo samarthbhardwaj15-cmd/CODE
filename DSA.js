@@ -1453,14 +1453,54 @@
 // console.log(maxProfit(prices));
 
 
-function maxSubArray(nums) {
-    let currentSum = nums[0];
-    let maxSum = nums[0];
+// function maxSubArray(nums) {
+//     let currentSum = nums[0];
+//     let maxSum = nums[0];
 
-    for (let i = 1; i < nums.length; i++) {
-        currentSum = Math.max(nums[i], currentSum + nums[i]);
-        maxSum = Math.max(maxSum, currentSum);
+//     for (let i = 1; i < nums.length; i++) {
+//         currentSum = Math.max(nums[i], currentSum + nums[i]);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+
+class ListNode {
+    constructor(value) {
+        this.val = value;
+        this.next = null;
     }
-    return maxSum;
 }
-console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+let num = [2,4,5,6,1,3];
+
+let head = new ListNode(num[0]);
+let current = head;
+
+for (let i = 1; i < num.length; i++) {
+    current.next = new ListNode(num[i]);
+    current = current.next;
+}
+function reverseList(head) {
+    let prev = null;
+    let current = head;
+
+    while (current !== null) {
+        let next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+    }
+    return prev;
+}
+
+let reversedHead = reverseList(head);
+current = reversedHead;
+
+while (current !== null) {
+    console.log(current.val);
+    current = current.next;
+    
+}
+
+console.log("num");
