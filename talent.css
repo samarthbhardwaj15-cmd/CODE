@@ -11,21 +11,25 @@ section{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     background-image: url("https://us-east1-aws.api.snapchat.com/web-capture/www.snapchat.com/@time_genz/preview/square.jpeg?xp_id=1");
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
     background-position: center;
-    /* min-height: 100vh; */
+    min-height: 100vh;
+    margin: 0;
 }
 /* html,body{
     width: 100%;
     height: 100%;
-} 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   */
 #main{
     color: rgb(1, 8, 21);
-}   */
+}   
 #t1{
     font-size: 30px;
     font-weight: 30;
@@ -40,6 +44,8 @@ section{
     /* background: red; */
     border-radius: 20px;
     display: flex;
+    text-align: center;
+    padding: 40px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     justify-content: center;
@@ -47,7 +53,7 @@ section{
     backdrop-filter: blur(15px);
 } 
 
-h2{
+.log h2{
     font-size: 3em;
     margin-top: -320px;
     font-size: 40px;
@@ -55,13 +61,12 @@ h2{
     text-align: center;
 }
 .inp{
+
     position: absolute;
-    margin-top: 400%;
-    width: 310px;
+    width: 100%;
     margin: 30px 0;
     border-bottom: 2px solid #fff;
 }
-
 .inp label{
     position: absolute;
     top: 50px;
@@ -77,6 +82,9 @@ h2{
 .input-box input:valid~label {
     top: -5px;
 }
+.inp span {
+    margin-right: 10px;
+}
 
 .inp input{
     width: 100%;
@@ -86,7 +94,7 @@ h2{
     font-size: 1em;
     color: #e5e0e0;
     padding: 0 35px 0 5px;
-
+    box-sizing: border-box;
 }
 
 .inp .icon{
