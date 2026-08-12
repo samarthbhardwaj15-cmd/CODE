@@ -898,3 +898,56 @@ for num in num:
     if num > largest:
         largest = num
 print(largest)            
+
+numbers = []
+for i in range(5):
+    numbers.append(i)
+print(numbers)    
+
+
+numbers = [i for i in range(5)]
+print(numbers)
+
+def numbers():
+    for i in range(5):
+        yield i
+for n in numbers():
+    print(n)        
+    
+numbers = [10, 20, 30]
+it = iter(numbers)
+print(next(it))
+print(next(it))
+print(next(it))    
+
+def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+    return wrapper
+@decorator
+def hello():
+    print("Hello")
+hello()
+
+numbers = [1, 2, 3, 4]
+result = list(map(lambda x: x * 2, numbers))
+print(result)        
+
+numbers = [1, 2, 3, 4, 5, 6]
+result = list(filter(lambda x : x % 2 == 0, numbers))
+print(result)
+
+deep = copy.deepcopy(original)
+deep[0][0] = 500
+print(original)
+print(deep)
+
+shallow = copy.copy(original)
+shallow[0][0] = 100
+
+from functools import reduce
+numbers = [1, 2, 3, 4]
+result = reduc(lambda x, y: x + y, numbers)
+print(result)
