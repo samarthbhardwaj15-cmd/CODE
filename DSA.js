@@ -1524,17 +1524,92 @@
 // let k = 3;
 // console.log();
 
+// function merge(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while (j >= 0) {
+//         if (i >= 0 && nums1[i] > nums2[j]) {
+//             nums1[k] = nums1[i]
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j];
+//             j--;
+//         }
+//         k--;
+//     }
+// }
+// let nums1 = [1, 2, 3, 0, 0, 0];
+// let nums2 = [2, 5, 6];
+// merge(nums1, 3, nums2, 3)
+// console.log(nums1);
+
+
+// function rotate(nums, k) {
+//     k =  k % nums.length;
+//     reverse(nums, 0, nums.length - 1);
+
+//     reverse(nums, 0, k-1);
+
+//     reverse(nums,  k, nums.length - 1);
+// }
+// function reverse(nums, left, right) {
+//     while (left < right) {
+//         [nums[left], nums[right]] = [nums[right], nums[left]];
+//         left++;
+//         right--;
+//     }
+// }
+// let nums = [1,2,3,4,5]
+// let k = 3;
+// console.log(k);
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if(nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+// }
+// let nums = [0,1,0,3,12];
+// moveZeroes(nums);
+// console.log(nums);
+
+function productExpectSelf(nums) {
+    let n = nums.length;
+    let answer = new Array(n).fill(1);
+
+    let prefix = 1;
+
+    for (let i = 0; i < n; i++) {
+        answer[i] = prefix;
+        prefix *= nums[i];    
+    }
+    let suffix = 1;
+
+    for (let i = n - 1;  i >= 0; i--) {
+        answer[i] *= suffix;
+        suffix *= nums[i];
+    }
+    return answer;
+}
+console.log(productExpectSelf([1, 2, 3, 4]));
+
 function merge(nums1, m, nums2, n) {
     let i = m - 1;
     let j = n - 1;
     let k = m + n - 1;
 
     while (j >= 0) {
-        if (i >= 0 && nums1[i] > nums2[j]) {
-            nums1[k] = nums1[i]
+        if (i >= 0 && nums1[i] > nums[j]) {
+            nums1[k] = nums2[i];
             i--;
         } else {
-            nums1[k] = nums2[j];
+            nums1[k] = nums2[j]
             j--;
         }
         k--;
@@ -1542,39 +1617,20 @@ function merge(nums1, m, nums2, n) {
 }
 let nums1 = [1, 2, 3, 0, 0, 0];
 let nums2 = [2, 5, 6];
-merge(nums1, 3, nums2, 3)
+
+merge(nums1, 3, nums2, 3);
+
 console.log(nums1);
 
 
-function rotate(nums, k) {
-    k =  k % nums.length;
-    reverse(nums, 0, nums.length - 1);
+function containsDuplicate(nums) {
+    let set = new Set();
 
-    reverse(nums, 0, k-1);
-
-    reverse(nums,  k, nums.length - 1);
-}
-function reverse(nums, left, right) {
-    while (left < right) {
-        [nums[left], nums[right]] = [nums[right], nums[left]];
-        left++;
-        right--;
-    }
-}
-let nums = [1,2,3,4,5]
-let k = 3;
-console.log(k);
-
-function moveZeroes(nums) {
-    let j = 0;
-
-    for (let i = 0; i < nums.length; i++) {
-        if(nums[i] !== 0) {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            j++;
+    for (let num of nums) {
+        if (set.has(num)) {
+            return true;
         }
+        set.add(num);
     }
+    return false;
 }
-let nums = [0,1,0,3,12];
-moveZeroes(nums);
-console.log(nums);

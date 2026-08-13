@@ -815,139 +815,159 @@
 #     factorial *= i
 # print(factorial)                 
 
-a = 10
-b = 20
+# a = 10
+# b = 20
 
-a,b = b,a 
-print(a)
-print(b)
+# a,b = b,a 
+# print(a)
+# print(b)
 
-sentence = "Python is Easy to learn"
-words = sentence.split()
-print(len(words))
+# sentence = "Python is Easy to learn"
+# words = sentence.split()
+# print(len(words))
 
-list1 = [1, 2, 3]
-list2 = [4, 5, 6]
-result = list1 + list2
-print(result)
+# list1 = [1, 2, 3]
+# list2 = [4, 5, 6]
+# result = list1 + list2
+# print(result)
 
-numbers = [5, 2, 8, 1, 3]
-numbers.sort()
-print(numbers)
+# numbers = [5, 2, 8, 1, 3]
+# numbers.sort()
+# print(numbers)
 
-numbers = [5, 2, 8, 1, 3]
-numbers.sort(reverse=True)
-print(numbers)
+# numbers = [5, 2, 8, 1, 3]
+# numbers.sort(reverse=True)
+# print(numbers)
 
-s = "hello"
-frequency = {}
-for char in s:
-    frequency[char] = frequency.get(char, 0) + 1
-print(frequency)
+# s = "hello"
+# frequency = {}
+# for char in s:
+#     frequency[char] = frequency.get(char, 0) + 1
+# print(frequency)
 
-numbers = [10, 25, 7, 40, 15]
-numbers = list(set(numbers))
-numbers.sort()
-print(numbers[-2])    
+# numbers = [10, 25, 7, 40, 15]
+# numbers = list(set(numbers))
+# numbers.sort()
+# print(numbers[-2])    
 
-num = [10, 25, 7, 40, 15]
-largest = second = float("-inf")
+# num = [10, 25, 7, 40, 15]
+# largest = second = float("-inf")
 
-for num in num:
-    if num > largest:
-        second = largest
-        largest = num
-    elif num > second and num != largest:
-        second = num
+# for num in num:
+#     if num > largest:
+#         second = largest
+#         largest = num
+#     elif num > second and num != largest:
+#         second = num
         
-print(second)        
+# print(second)        
 
-num = [1, 2, 2, 3, 4, 4, 5]
-unique = list(set(num))
-print(unique)
+# num = [1, 2, 2, 3, 4, 4, 5]
+# unique = list(set(num))
+# print(unique)
 
-num = [1, 2, 2, 3, 4, 4,5]
-unique = []
-for num in num:
-    if num not in unique:
-        unique.append(num)
-print(unique)        
+# num = [1, 2, 2, 3, 4, 4,5]
+# unique = []
+# for num in num:
+#     if num not in unique:
+#         unique.append(num)
+# print(unique)        
 
-s = "hello python"
-count = 0
-for char in s.lower():
-    if char in  "aeiou":
-        count += 1
-print(count)        
+# s = "hello python"
+# count = 0
+# for char in s.lower():
+#     if char in  "aeiou":
+#         count += 1
+# print(count)        
 
-n = 5
-factorial = 1
-for i in range(1, n + 1):
-    factorial *= i
-print(factorial)    
+# n = 5
+# factorial = 1
+# for i in range(1, n + 1):
+#     factorial *= i
+# print(factorial)    
 
-a = 0 
-b = 1
+# a = 0 
+# b = 1
+# for i in range(10):
+#     print(a, end=" ")
+#     a, b = b, a+b
+    
+# num = [10, 25, 7, 40, 15]
+# largest = num[0]
+# for num in num:
+#     if num > largest:
+#         largest = num
+# print(largest)            
+
+# numbers = []
+# for i in range(5):
+#     numbers.append(i)
+# print(numbers)    
+
+
+# numbers = [i for i in range(5)]
+# print(numbers)
+
+# def numbers():
+#     for i in range(5):
+#         yield i
+# for n in numbers():
+#     print(n)        
+    
+# numbers = [10, 20, 30]
+# it = iter(numbers)
+# print(next(it))
+# print(next(it))
+# print(next(it))    
+
+# def decorator(func):
+#     def wrapper():
+#         print("Before function")
+#         func()
+#         print("After function")
+#     return wrapper
+# @decorator
+# def hello():
+#     print("Hello")
+# hello()
+
+# numbers = [1, 2, 3, 4]
+# result = list(map(lambda x: x * 2, numbers))
+# print(result)        
+
+# numbers = [1, 2, 3, 4, 5, 6]
+# result = list(filter(lambda x : x % 2 == 0, numbers))
+# print(result)
+
+# deep = copy.deepcopy(original)
+# deep[0][0] = 500
+# print(original)
+# print(deep)
+
+# shallow = copy.copy(original)
+# shallow[0][0] = 100
+
+# from functools import reduce
+# numbers = [1, 2, 3, 4]
+# result = reduc(lambda x, y: x + y, numbers)
+# print(result)
+
+s = "python"
+print(s[::-1])
+
+s = "madam"
+print(s == s[::-1])
+
+a, b = 0, 1
 for i in range(10):
     print(a, end=" ")
-    a, b = b, a+b
+    a, b = b, a + b
     
-num = [10, 25, 7, 40, 15]
-largest = num[0]
-for num in num:
-    if num > largest:
-        largest = num
-print(largest)            
-
-numbers = []
-for i in range(5):
-    numbers.append(i)
-print(numbers)    
-
-
-numbers = [i for i in range(5)]
-print(numbers)
-
-def numbers():
-    for i in range(5):
-        yield i
-for n in numbers():
-    print(n)        
-    
-numbers = [10, 20, 30]
-it = iter(numbers)
-print(next(it))
-print(next(it))
-print(next(it))    
-
-def decorator(func):
-    def wrapper():
-        print("Before function")
-        func()
-        print("After function")
-    return wrapper
-@decorator
-def hello():
-    print("Hello")
-hello()
-
-numbers = [1, 2, 3, 4]
-result = list(map(lambda x: x * 2, numbers))
-print(result)        
-
-numbers = [1, 2, 3, 4, 5, 6]
-result = list(filter(lambda x : x % 2 == 0, numbers))
-print(result)
-
-deep = copy.deepcopy(original)
-deep[0][0] = 500
-print(original)
-print(deep)
-
-shallow = copy.copy(original)
-shallow[0][0] = 100
-
-from functools import reduce
-numbers = [1, 2, 3, 4]
-result = reduc(lambda x, y: x + y, numbers)
-print(result)
+n = 3
+for i in range(2, n):
+    if n % i == 0:
+        print("Not Prime")
+        break
+else:
+    print("prime")    
+         
