@@ -55,7 +55,7 @@ section{
 
 .log h2{
     font-size: 3em;
-    margin-top: -320px;
+    margin: -370px 0 0 80px;
     font-size: 40px;
     color: #110101;
     text-align: center;
@@ -121,7 +121,7 @@ section{
     line-height: 57px;
 }
 .r1{
-    margin: -15px 0 15px;
+    margin: 50px 0 0 15px;
     font-size: .9em;
     color: #040214;
     display: flex;
@@ -135,7 +135,7 @@ section{
 
 
 .r1 a{
-    color: #195be8;
+    color: #01040a;
     bottom: 89%;
     left: 95%;
     text-decoration: none;
@@ -152,25 +152,24 @@ button {
     height: 10%;
     background: #150101;
     border: none;
-    margin: 160px auto 0;
-    left: 50%;
+    margin: 100px 0 0 -130px;
     display: block;
     outline: none;
-    border-radius: 40px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 1em;
-    color: #1476b7;
+    color: #dde1e3;
     font-weight: 500;
 
 }
 .r2 {
     font-size: .9em;
-    color: #fff;
+    color: #070101;
     text-align: center;
-    margin: 25px 0 10px;
+    margin: 100px 0 0 60px;
 }
 .r2 p a {
-    color: #fff;
+    color: #0f0404;
     text-decoration: none;
     font-weight: 600;
 }
@@ -190,3 +189,4 @@ input{
     width: 100%;
     background-color: white;
 } */
+

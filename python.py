@@ -970,4 +970,6 @@ for i in range(2, n):
         break
 else:
     print("prime")    
-         
+
+x = [1, 2, 3]
+x = None         

@@ -1579,58 +1579,88 @@
 // moveZeroes(nums);
 // console.log(nums);
 
-function productExpectSelf(nums) {
+// function productExpectSelf(nums) {
+//     let n = nums.length;
+//     let answer = new Array(n).fill(1);
+
+//     let prefix = 1;
+
+//     for (let i = 0; i < n; i++) {
+//         answer[i] = prefix;
+//         prefix *= nums[i];    
+//     }
+//     let suffix = 1;
+
+//     for (let i = n - 1;  i >= 0; i--) {
+//         answer[i] *= suffix;
+//         suffix *= nums[i];
+//     }
+//     return answer;
+// }
+// console.log(productExpectSelf([1, 2, 3, 4]));
+
+// function merge(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while (j >= 0) {
+//         if (i >= 0 && nums1[i] > nums[j]) {
+//             nums1[k] = nums2[i];
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j]
+//             j--;
+//         }
+//         k--;
+//     }
+// }
+// let nums1 = [1, 2, 3, 0, 0, 0];
+// let nums2 = [2, 5, 6];
+
+// merge(nums1, 3, nums2, 3);
+
+// console.log(nums1);
+
+
+// function containsDuplicate(nums) {
+//     let set = new Set();
+
+//     for (let num of nums) {
+//         if (set.has(num)) {
+//             return true;
+//         }
+//         set.add(num);
+//     }
+//     return false;
+// }
+
+function missingnum(nums){
     let n = nums.length;
-    let answer = new Array(n).fill(1);
-
-    let prefix = 1;
-
-    for (let i = 0; i < n; i++) {
-        answer[i] = prefix;
-        prefix *= nums[i];    
-    }
-    let suffix = 1;
-
-    for (let i = n - 1;  i >= 0; i--) {
-        answer[i] *= suffix;
-        suffix *= nums[i];
-    }
-    return answer;
-}
-console.log(productExpectSelf([1, 2, 3, 4]));
-
-function merge(nums1, m, nums2, n) {
-    let i = m - 1;
-    let j = n - 1;
-    let k = m + n - 1;
-
-    while (j >= 0) {
-        if (i >= 0 && nums1[i] > nums[j]) {
-            nums1[k] = nums2[i];
-            i--;
-        } else {
-            nums1[k] = nums2[j]
-            j--;
-        }
-        k--;
-    }
-}
-let nums1 = [1, 2, 3, 0, 0, 0];
-let nums2 = [2, 5, 6];
-
-merge(nums1, 3, nums2, 3);
-
-console.log(nums1);
-
-
-function containsDuplicate(nums) {
-    let set = new Set();
+    let expectedSum = n * (n + 1) / 2;
+    let actualSum = 0;
 
     for (let num of nums) {
-        if (set.has(num)) {
-            return true;
-        }
-        set.add(num);
+        actualSum += num;
     }
-    return false;
+    return expectedSum - actualSum;
 }
+console.log(missingnum([3, 0, 1]));
+
+function majorityElement(nums) {
+    let candidate = null;
+    let count = 0;
+
+    for (let num of nums) {
+        if (count === 0) {
+            condidate = num;
+        }
+        if (num === candidate) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    return candidate;
+}
+console.log(majorityElement([3, 2, 3]));

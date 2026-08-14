@@ -1,15 +1,16 @@
 import React from "react";
-import { useFormStatus } from "react-dom";
-import React, {useState} from 'react'
+// import { useFormStatus } from "react-dom";
+// import React, { useState } from 'react'
 
 const App = () => {
   // const a = 10
-  // const age = 100
+  // const age = 100z
   //  let user = "sarthak"
   // const abc = () => 
+  //  const [num, setNum] = useState(0) 
     {
   // console.log("Hello");
-  const [num, setNum] = useState(0)
+  
   
 
   // const changeUser = () => {
@@ -30,12 +31,15 @@ const App = () => {
         {/* <button onClick={abc}>Change User</button> */}
         {/* <button onClick={changeUser}>Change User</button>
       // </div> */}
-      <div>
-        <h3>Number is</h3>
+      {/* <div>
+        <h3>Number is {num}</h3>
         <button onClick={()=>setNum(num+10)}>Increment</button>
         <button onClick={()=>setNum(num-10)}>Decrement</button>
-      </div>  
-
+      </div>   */}
+      <div>
+        <h3 className='text-xl'>HELLO guys</h3>
+        <h3>Hello</h3>
+      </div>
 
 
     </>
