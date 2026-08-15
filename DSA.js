@@ -1664,3 +1664,37 @@ function majorityElement(nums) {
     return candidate;
 }
 console.log(majorityElement([3, 2, 3]));
+
+function findPeakElement(nums) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while(left < right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] > nums[mid + 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+console.log(findPeakElement([1, 2, 3, 1]));
+
+function majorityElement(nums) {
+    let candidate = null;
+    let count = 0;
+
+    for (let num of nums) {
+        if(count === 0) {
+            candidate = num;
+        }
+        if (num === candidate) {
+            count++;
+        } else {
+            count--;
+        }
+    }
+    return candidate;
+}
