@@ -1635,52 +1635,101 @@
 //     return false;
 // }
 
-function missingnum(nums){
-    let n = nums.length;
-    let expectedSum = n * (n + 1) / 2;
-    let actualSum = 0;
+// function missingnum(nums){
+//     let n = nums.length;
+//     let expectedSum = n * (n + 1) / 2;
+//     let actualSum = 0;
 
-    for (let num of nums) {
-        actualSum += num;
+//     for (let num of nums) {
+//         actualSum += num;
+//     }
+//     return expectedSum - actualSum;
+// }
+// console.log(missingnum([3, 0, 1]));
+
+// function majorityElement(nums) {
+//     let candidate = null;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if (count === 0) {
+//             condidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+// console.log(majorityElement([3, 2, 3]));
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while(left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+// function majorityElement(nums) {
+//     let candidate = null;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if(count === 0) {
+//             candidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+
+function reverseString(s) {
+    let left = 0;
+    let right = s.length - 1;
+
+    while(left < right) {
+        [s[left], s[right]] = [s[right], s[left]];
+
+        left++;
+        right--;
     }
-    return expectedSum - actualSum;
 }
-console.log(missingnum([3, 0, 1]));
-
-function majorityElement(nums) {
-    let candidate = null;
-    let count = 0;
-
-    for (let num of nums) {
-        if (count === 0) {
-            condidate = num;
-        }
-        if (num === candidate) {
-            count++;
-        } else {
-            count--;
-        }
-    }
-    return candidate;
-}
-console.log(majorityElement([3, 2, 3]));
+let s = ["h", "e", "l", "l", "o"]
+reverseString(s);
+console.log(s);
 
 function findPeakElement(nums) {
     let left = 0;
     let right = nums.length - 1;
 
-    while(left < right) {
-        let mid = Math.floor((left + right) / 2);
+    while (left < right) {
+        let mid =  Math.floor((left + right) / 2);
 
-        if (nums[mid] > nums[mid + 1]) {
+        if (nums[mid] > nums[mmid + 1]) {
             right = mid;
         } else {
-            left = mid + 1;
+            left = mid + 1
         }
+        return left;
     }
-    return left;
 }
-console.log(findPeakElement([1, 2, 3, 1]));
+console.log(nums);
 
 function majorityElement(nums) {
     let candidate = null;
@@ -1698,3 +1747,17 @@ function majorityElement(nums) {
     }
     return candidate;
 }
+console.log(majorityElement([3, 2, 3]));
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+function missingNumber(nums) {
+    let n = nums.length;
+    let expectedSum = n * (n + 1) / 2;
+
+    let actualSum = 0;
+    for (let num of nums) {
+        actualSum += num;
+    }
+    return expectedSum - actualSum;
+}
+console.log(missingNumber([3, 0, 1]));

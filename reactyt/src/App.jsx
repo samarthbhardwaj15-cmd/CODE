@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "./Header";
 // import { useFormStatus } from "react-dom";
 // import React, { useState } from 'react'
 
@@ -14,6 +15,7 @@ const App = () => {
   //   console.log(username);
   //   setUsername('')
   // }
+  // const num = 10
 
     {
   // console.log("Hello");
@@ -21,7 +23,15 @@ const App = () => {
   //   console.log(user)   
   //   user = "Aryan"
   //   console.log(user);
-  } 
+  }
+  const users = [
+    {
+      "name": "Rohit Sharma",
+      "city": "Mumbai",
+      "age": 32,
+      "profession": "softwre Engineer"
+    }] 
+
       
   return (
     <>
@@ -58,16 +68,26 @@ const App = () => {
       {/* <div>
         <h1>Heloo</h1>
       </div> */}
-      <nav>
-        <h2>Sheryians</h2>
+      {/* <Header/>
+       <nav>
+         <h2>Sheryians</h2>
+         <div>
+           <h4>About</h4>
+           <h4>Contact</h4>
+         <h4>share</h4>
+         </div>
+       </nav> */}
+      {/* <div>
+        <Header a={num} />
+        <Header a = 'sam'/>
+      </div> */}
+      <div>
         <div>
-          <h4>About</h4>
-          <h4>Contact</h4>
-          <h4>share</h4>
+          {users.map(function(elem,idx){
+            return <Header key={idx} username={elem.name} age={elem.age} prof={elem.profession} city={elem.city} photu={elem.city} photu={elem.photu}/>
+          })}
         </div>
-      </nav>
-
-
+      </div>
 
     </>
   );
