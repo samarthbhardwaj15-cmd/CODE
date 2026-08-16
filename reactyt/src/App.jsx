@@ -1,7 +1,8 @@
-import React from "react";
-import Header from "./Header";
+import React , {useEffect, useState} from "react";
+// import Header from "./Header";
 // import { useFormStatus } from "react-dom";
 // import React, { useState } from 'react'
+import axios from "axios";
 
 const App = () => {
   // const a = 10
@@ -24,14 +25,33 @@ const App = () => {
   //   user = "Aryan"
   //   console.log(user);
   }
-  const users = [
-    {
-      "name": "Rohit Sharma",
-      "city": "Mumbai",
-      "age": 32,
-      "profession": "softwre Engineer"
-    }] 
-
+  // const users = [
+  //   {
+  //     "name": "Rohit Sharma",
+  //     "city": "Mumbai",
+  //     "age": 32,
+  //     "profession": "softwre Engineer"
+  //   },
+  //   {
+  //     "name": "Rohit Sharma",
+  //     "city": "Mumbai",
+  //     "age": 32,
+  //     "profession": "softwre Engineer"
+  //   } 
+  // ]
+  const [data, setData] = useState([])
+  const getData = async ()=>{
+    const response = await axios.get('https://picsum.photos/v2/list')
+    // const data = response.data
+    setData(response.data)
+    // console.log(data);
+    
+    // console.log(response);
+    
+  } 
+  useEffect(() => {
+    getData()
+  }, []) 
       
   return (
     <>
@@ -81,10 +101,21 @@ const App = () => {
         <Header a={num} />
         <Header a = 'sam'/>
       </div> */}
-      <div>
+      {/* <div>
         <div>
           {users.map(function(elem,idx){
             return <Header key={idx} username={elem.name} age={elem.age} prof={elem.profession} city={elem.city} photu={elem.city} photu={elem.photu}/>
+          })}
+        </div>
+      </div> */}
+      <div>
+        <button onClick={getData} className=''>Get Data</button>
+        <div>
+          {data.map(function(elem, idx){
+            return <div key={idx} className="">
+              <img src="elem.dowlaod_url" alt=""/>
+              <h1>{elem.author}</h1>
+            </div>
           })}
         </div>
       </div>
