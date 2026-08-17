@@ -1,8 +1,10 @@
-import React , {useEffect, useState} from "react";
-// import Header from "./Header";
+// import React , {useEffect, useState} from "react";
+import React  from "react";
+import Header from "./Header";
+// import Product from "./package"
 // import { useFormStatus } from "react-dom";
 // import React, { useState } from 'react'
-import axios from "axios";
+// import axios from "axios";
 
 const App = () => {
   // const a = 10
@@ -39,19 +41,19 @@ const App = () => {
   //     "profession": "softwre Engineer"
   //   } 
   // ]
-  const [data, setData] = useState([])
-  const getData = async ()=>{
-    const response = await axios.get('https://picsum.photos/v2/list')
+  // const [data, setData] = useState([])
+  // const getData = async ()=>{
+  //   const response = await axios.get('https://picsum.photos/v2/list')
     // const data = response.data
-    setData(response.data)
+    // setData(response.data)
     // console.log(data);
     
     // console.log(response);
     
-  } 
-  useEffect(() => {
-    getData()
-  }, []) 
+  // } 
+  // useEffect(() => {
+  //   getData()
+  // }, []) 
       
   return (
     <>
@@ -108,7 +110,7 @@ const App = () => {
           })}
         </div>
       </div> */}
-      <div>
+      {/* <div>
         <button onClick={getData} className=''>Get Data</button>
         <div>
           {data.map(function(elem, idx){
@@ -118,7 +120,17 @@ const App = () => {
             </div>
           })}
         </div>
-      </div>
+      </div> */}
+      {/* <div>
+        <Header />
+        <h2>samm</h2>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/' element={<About />} />
+          <Route path='/' element={<Contact />} />
+          <Route path='/' element={<Product />} />
+        </Routes>
+      </div> */}
 
     </>
   );

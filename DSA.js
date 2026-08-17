@@ -1699,65 +1699,110 @@
 //     return candidate;
 // }
 
-function reverseString(s) {
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while(left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+// }
+// let s = ["h", "e", "l", "l", "o"]
+// reverseString(s);
+// console.log(s);
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid =  Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mmid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1
+//         }
+//         return left;
+//     }
+// }
+// console.log(nums);
+
+// function majorityElement(nums) {
+//     let candidate = null;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if(count === 0) {
+//             candidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+// console.log(majorityElement([3, 2, 3]));
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+// function missingNumber(nums) {
+//     let n = nums.length;
+//     let expectedSum = n * (n + 1) / 2;
+
+//     let actualSum = 0;
+//     for (let num of nums) {
+//         actualSum += num;
+//     }
+//     return expectedSum - actualSum;
+// }
+// console.log(missingNumber([3, 0, 1]));
+
+function isPalindrome(s) {
     let left = 0;
     let right = s.length - 1;
 
-    while(left < right) {
-        [s[left], s[right]] = [s[right], s[left]];
-
+    while (left < right) {
+        while (left < right && !/[a-zA-Z0-9]/.test(s[left])) {
+            left++;
+        }
+        while (left < right && !/[a-zA-Z0-9]/.test(s[right])) {
+            right--;
+        }
+        if (s[left].toLowerCase() !== s[right].toLowerCase()) {
+            return false;
+        }
         left++;
         right--;
     }
-}
-let s = ["h", "e", "l", "l", "o"]
-reverseString(s);
-console.log(s);
+    return true;
+}    
+console.log(isPalindrome("A man, a plan, a canal: Panama"));
+console.log(isPalindrome("race a car"));
+console.log(isPalindrome(" "));
 
-function findPeakElement(nums) {
-    let left = 0;
-    let right = nums.length - 1;
-
-    while (left < right) {
-        let mid =  Math.floor((left + right) / 2);
-
-        if (nums[mid] > nums[mmid + 1]) {
-            right = mid;
-        } else {
-            left = mid + 1
-        }
-        return left;
+function isAnagram(s, t) {
+    if (s.length !== t.length) {
+        return false;
     }
-}
-console.log(nums);
-
-function majorityElement(nums) {
-    let candidate = null;
-    let count = 0;
-
-    for (let num of nums) {
-        if(count === 0) {
-            candidate = num;
-        }
-        if (num === candidate) {
-            count++;
-        } else {
-            count--;
-        }
+    let count = {};
+    for (let char of s) {
+        count[char] = (count[char] || 0) + 1;
     }
-    return candidate;
-}
-console.log(majorityElement([3, 2, 3]));
-console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
-
-function missingNumber(nums) {
-    let n = nums.length;
-    let expectedSum = n * (n + 1) / 2;
-
-    let actualSum = 0;
-    for (let num of nums) {
-        actualSum += num;
+    for (let char of t) {
+        if (!count[char]) {
+            return false;
+        }
+        count[char]--;
     }
-    return expectedSum - actualSum;
+    return true;
 }
-console.log(missingNumber([3, 0, 1]));
+console.log(isAnagram("anagram", "nagaram"));
+// true
+
+console.log(isAnagram("rat", "car"));
+// false
