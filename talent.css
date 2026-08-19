@@ -64,12 +64,12 @@ section{
 
     position: absolute;
     width: 100%;
-    margin: 50px 0 0 0;
+    margin: 0px 0 0 0;
     border-bottom: 2px solid #0c0404;
 }
 .in label{
     position: absolute;
-    bottom: 101%;
+    bottom: 105%;
     left: 35%;
     transform: translateY(-50%);
     font-size: 1em;
@@ -79,7 +79,7 @@ section{
 }
 .in1 label{
     position: absolute;
-    bottom: 80%;
+    bottom: 72%;
     left: 35%;
     transform: translateY(-50%);
     font-size: 1em;
@@ -93,15 +93,8 @@ section{
     top: -5px;
 }
 .in span {
-    bottom: 100%;
-    margin-right: 10px;
+    bottom: 50%;
 }
-
-.r1 input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-}
-
 .inp input{
     width: 100%;
     height: 40px;
@@ -122,14 +115,17 @@ section{
     line-height: 57px;
 }
 .r1{
-    margin: 100px 0 0 15px;
+    margin: 80px 0 0 10px;
     font-size: .9em;
     color: #040214;
     display: flex;
     text-align: justify;
     justify-content: space-between;
 }
-
+.r1 input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
 .r1 label input{
     margin-right: 5px;
 }
@@ -139,6 +135,7 @@ section{
     color: #01040a;
     bottom: 89%;
     left: 95%;
+    margin: 0 6px 0 0;
     text-decoration: none;
 }
 
@@ -167,7 +164,7 @@ button {
     font-size: .9em;
     color: #070101;
     text-align: center;
-    margin: 140px 0 0 40px;
+    margin: 100px 0 0 40px;
 }
 .r2 p a {
     color: #0f0404;

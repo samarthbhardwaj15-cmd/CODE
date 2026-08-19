@@ -1762,47 +1762,162 @@
 // }
 // console.log(missingNumber([3, 0, 1]));
 
-function isPalindrome(s) {
-    let left = 0;
-    let right = s.length - 1;
+// function isPalindrome(s) {
+//     let left = 0;
+//     let right = s.length - 1;
 
-    while (left < right) {
-        while (left < right && !/[a-zA-Z0-9]/.test(s[left])) {
-            left++;
-        }
-        while (left < right && !/[a-zA-Z0-9]/.test(s[right])) {
-            right--;
-        }
-        if (s[left].toLowerCase() !== s[right].toLowerCase()) {
-            return false;
-        }
-        left++;
-        right--;
-    }
-    return true;
-}    
-console.log(isPalindrome("A man, a plan, a canal: Panama"));
-console.log(isPalindrome("race a car"));
-console.log(isPalindrome(" "));
+//     while (left < right) {
+//         while (left < right && !/[a-zA-Z0-9]/.test(s[left])) {
+//             left++;
+//         }
+//         while (left < right && !/[a-zA-Z0-9]/.test(s[right])) {
+//             right--;
+//         }
+//         if (s[left].toLowerCase() !== s[right].toLowerCase()) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }    
+// console.log(isPalindrome("A man, a plan, a canal: Panama"));
+// console.log(isPalindrome("race a car"));
+// console.log(isPalindrome(" "));
 
-function isAnagram(s, t) {
-    if (s.length !== t.length) {
-        return false;
-    }
-    let count = {};
-    for (let char of s) {
-        count[char] = (count[char] || 0) + 1;
-    }
-    for (let char of t) {
-        if (!count[char]) {
-            return false;
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let count = {};
+//     for (let char of s) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// // true
+
+// console.log(isAnagram("rat", "car"));
+// // false
+
+// function firstUniqueChar(s) {
+//     let freq = new Map();
+
+//     for (let char of s) {
+//         freq.set(char, (freq.get(char) || 0) + 1);
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (freq.get(s[i]) === 1) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(firstUniqueChar("leetcode"));
+// console.log(firstUniqueChar("loveleetcode"));
+// console.log(firstUniqueChar("aabb"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let count = {};
+//     for (let char of s) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if(!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "car"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+//         left++;
+//         right--;
+//     }
+// }
+// let s = ["h", "e", "l", "l", "o"];
+// reverseString(s);
+// console.log(s);
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+function groupAnagrams(strs) {
+    let map = new Map();
+
+    for (let str of strs) {
+        let key = str.split("").sort().join("");
+
+        if (!map.has(key)) {
+            map.set(key, []);
         }
-        count[char]--;
+        map.get(key).push(str);
     }
-    return true;
+    return Array.from(map.values());
 }
-console.log(isAnagram("anagram", "nagaram"));
-// true
+let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+console.log(groupAnagrams(strs));
 
-console.log(isAnagram("rat", "car"));
-// false
+function firstUnique(s) {
+    let freq = new Map();
+
+    for (let char of s) {
+        freq.set(char, (freq.get(char) || 0) + 1);
+    }
+    for (let i=0; i < s.length; i++) {
+        if (freq.get(s[i] === 1)) {
+            return i;
+        }
+    }
+    return -1;
+}
+console.log(firstUnique("leetcode"));
+console.log(firstUnique("loveleetcode"));
+console.log(firstUnique("aabb"));
+
+function moveZeroes(nums) {
+    let j = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            [nums[i], nums[j] = [nums[j], nums[i]]];
+            j++;
+        }
+    }    
+}
+
+let nums = [0, 1, 0, 3, 12];
+moveZeroes(nums);
+console.log(nums);
