@@ -1,10 +1,24 @@
 import { useEffect, useRef } from "react";
 import canvasImage from "./canvasimage";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
-function Canvas() {
-    
+function Canvas({ details }) {
+    const { startIndex, numImages, duration } = details;
+    const [index, setIndex] = useState({value: startIndex });
     const canvasref = useRef(null);
-    useEffect ( () => {
+    useGSAP (() => {
+        gsap.to(index, {
+            value: startIndex + numImages - 1,
+            duration: duration,
+            ease: "linear",
+            repeat: -1,
+            ease: "linear",
+            onUpdate: () => {
+                setIndex({value: Math.round(index.value) });
+            },    
+        });
+    });
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         const img = new Image();
@@ -14,8 +28,14 @@ function Canvas() {
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
         };
-    });
-    return <canvas ref={canvasRef} id="canvas"></canvas>;
+    }, [index]);
+    return (
+    <canvas 
+    ref={canvasRef} 
+    className={`w-[${size}px] h-[${size}px]`}
+    id="canvas">
+    </canvas>;
+
 }
 
 export default Canvas;

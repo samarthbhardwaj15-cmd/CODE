@@ -1874,50 +1874,101 @@
 // }
 // console.log(findPeakElement([1, 2, 3, 1]));
 
-function groupAnagrams(strs) {
-    let map = new Map();
+// function groupAnagrams(strs) {
+//     let map = new Map();
 
-    for (let str of strs) {
-        let key = str.split("").sort().join("");
+//     for (let str of strs) {
+//         let key = str.split("").sort().join("");
 
-        if (!map.has(key)) {
-            map.set(key, []);
+//         if (!map.has(key)) {
+//             map.set(key, []);
+//         }
+//         map.get(key).push(str);
+//     }
+//     return Array.from(map.values());
+// }
+// let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// console.log(groupAnagrams(strs));
+
+// function firstUnique(s) {
+//     let freq = new Map();
+
+//     for (let char of s) {
+//         freq.set(char, (freq.get(char) || 0) + 1);
+//     }
+//     for (let i=0; i < s.length; i++) {
+//         if (freq.get(s[i] === 1)) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(firstUnique("leetcode"));
+// console.log(firstUnique("loveleetcode"));
+// console.log(firstUnique("aabb"));
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             [nums[i], nums[j] = [nums[j], nums[i]]];
+//             j++;
+//         }
+//     }    
+// }
+
+// let nums = [0, 1, 0, 3, 12];
+// moveZeroes(nums);
+// console.log(nums);
+
+// function lengthOfLongestSubstring(s) {
+//     let set = new Set();
+//     let left  = 0;
+//     let maxLength  = 0;
+
+//     for (let right = 0; right < s.length; right++) {
+//         while (set.has(s[right])) {
+//             set.delete(s[left]);
+//             left;
+//         }
+//         set.add(s[right]);
+//         maxLength = Math.max(maxLength, right - left + 1);
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+// console.log(lengthOfLongestSubstring("bbbbb"));
+// console.log(lengthOfLongestSubstring("pwwkew");
+
+function compress(chars) {
+    let write = 0;
+    let read = 0;
+
+    while (read < chars.length) {
+        let currentChar = chars[read];
+        let count = 0;
+
+        while (read < chars.length && chars[read] === currentChar) {
+            read++;
+            count++;
         }
-        map.get(key).push(str);
-    }
-    return Array.from(map.values());
-}
-let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
-console.log(groupAnagrams(strs));
+        chars[write] = currentChar;
+        write++;
 
-function firstUnique(s) {
-    let freq = new Map();
-
-    for (let char of s) {
-        freq.set(char, (freq.get(char) || 0) + 1);
-    }
-    for (let i=0; i < s.length; i++) {
-        if (freq.get(s[i] === 1)) {
-            return i;
+        if(count > 1) {
+            let countStr = count.toString();
+            for (let digit of countStr) {
+                chars[write] = digit;
+                write++;
+            }
         }
     }
-    return -1;
-}
-console.log(firstUnique("leetcode"));
-console.log(firstUnique("loveleetcode"));
-console.log(firstUnique("aabb"));
-
-function moveZeroes(nums) {
-    let j = 0;
-
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            [nums[i], nums[j] = [nums[j], nums[i]]];
-            j++;
-        }
-    }    
+    return write;
 }
 
-let nums = [0, 1, 0, 3, 12];
-moveZeroes(nums);
-console.log(nums);
+let chars = ["a", "a", "b", "b",  "c", "c", "c"];
+let length = compress(chars);
+console.log(length);
+console.log(chars);
+
