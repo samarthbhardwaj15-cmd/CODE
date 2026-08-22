@@ -1972,3 +1972,6 @@ let length = compress(chars);
 console.log(length);
 console.log(chars);
 
+var reverseWords = function(s) {
+    return s.trim().split(/\s+/).reverse().join(" ");
+};

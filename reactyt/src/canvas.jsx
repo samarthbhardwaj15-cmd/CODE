@@ -19,23 +19,34 @@ function Canvas({ details }) {
             },    
         });
     });
-        const canvas = document.getElementById("canvas");
+    useEffect(() => { 
+         const scale = window.devicePixelRatio;
+        // const canvas = document.getElementById("canvas");
+        const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
         const img = new Image();
-        img.src = canvasImage[0];
+        img.src = canvasImage[index.value];
         img.onload = () => {
             canvas.width = img.width;
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0);
         };
     }, [index]);
+
     return (
     <canvas 
-    ref={canvasRef} 
+    ref={canvasRef}
+    style={{
+        width: `${size * 1.2}px`,
+        height: `${size * 1.2}px`,
+        top: `${top}%`,
+        left: `${left}%`,
+        zIndex: `${zIndex}`,
+    }} 
     className={`w-[${size}px] h-[${size}px]`}
-    id="canvas">
-    </canvas>;
-
+    id="canvas"
+    ></canvas>
+    );
 }
 
 export default Canvas;
