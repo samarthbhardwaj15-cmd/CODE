@@ -17,7 +17,8 @@ function Tutorial() {
         ))}
         <div className="w-full h-screen text-white">
             <nav className="fixed top-0 left-0 w-full p-8 flex justify-between z-50"></nav>
-            <div className="brand text-2xl font-regular">thirtysixstudios</div>
+            <div className="textcontainer w-full px-[20%] brand text-2xl font-regular">thirtysixstudios</div>
+            <div className="text w"></div>
             <div className="links flex gap-10">
                 {["Home", "About", "Projects", "Contact"].map((link, index) => (
                     <a

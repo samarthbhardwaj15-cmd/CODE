@@ -1941,37 +1941,62 @@
 // console.log(lengthOfLongestSubstring("bbbbb"));
 // console.log(lengthOfLongestSubstring("pwwkew");
 
-function compress(chars) {
-    let write = 0;
-    let read = 0;
+// function compress(chars) {
+//     let write = 0;
+//     let read = 0;
 
-    while (read < chars.length) {
-        let currentChar = chars[read];
-        let count = 0;
+//     while (read < chars.length) {
+//         let currentChar = chars[read];
+//         let count = 0;
 
-        while (read < chars.length && chars[read] === currentChar) {
-            read++;
-            count++;
-        }
-        chars[write] = currentChar;
-        write++;
+//         while (read < chars.length && chars[read] === currentChar) {
+//             read++;
+//             count++;
+//         }
+//         chars[write] = currentChar;
+//         write++;
 
-        if(count > 1) {
-            let countStr = count.toString();
-            for (let digit of countStr) {
-                chars[write] = digit;
-                write++;
-            }
+//         if(count > 1) {
+//             let countStr = count.toString();
+//             for (let digit of countStr) {
+//                 chars[write] = digit;
+//                 write++;
+//             }
+//         }
+//     }
+//     return write;
+// }
+
+// let chars = ["a", "a", "b", "b",  "c", "c", "c"];
+// let length = compress(chars);
+// console.log(length);
+// console.log(chars);
+
+// var reverseWords = function(s) {
+//     return s.trim().split(/\s+/).reverse().join(" ");
+// };
+
+function romanToInt(s) {
+    const values = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    };
+    let result = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if (i + 1 < s.length && values[s[i]] < values[s[i + 1]]) {
+            result -= values[s[i]];
+        } else {
+            result += values[s[i]];
         }
     }
-    return write;
+    return result;
 }
-
-let chars = ["a", "a", "b", "b",  "c", "c", "c"];
-let length = compress(chars);
-console.log(length);
-console.log(chars);
-
-var reverseWords = function(s) {
-    return s.trim().split(/\s+/).reverse().join(" ");
-};
+console.log(romanToInt("III"));
+console.log(romanToInt("LVIII"));
+console.log(romanToInt("MCMXCIV"));
