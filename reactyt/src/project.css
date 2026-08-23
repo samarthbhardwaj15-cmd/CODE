@@ -1,1 +1,8 @@
 @import "tailwindcss";
+body{
+    background: #000;
+    color: azure;
+}
+h1{
+    color: azure;
+}

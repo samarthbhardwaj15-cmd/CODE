@@ -2000,3 +2000,35 @@ function romanToInt(s) {
 console.log(romanToInt("III"));
 console.log(romanToInt("LVIII"));
 console.log(romanToInt("MCMXCIV"));
+
+function fib(n) {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+
+    return fib(n-1) + fib(n-2);
+}
+console.log(fib(6));
+
+function fib(n) {
+    let a = 0;
+    let b = 1;
+
+    for (let i = 0; i < n; i++) {
+        let next = a + b;
+        a = b;
+        b = next;
+    }
+    return a;
+}
+console.log(fib(6));
+
+var isPowerTwo = function(n) {
+    if (n <= 0) return false;
+
+    while (n % 2 === 0) {
+        n = n / 2;
+    }
+    return n === 1;
+}
+let n = 16;
+console.log(n);
