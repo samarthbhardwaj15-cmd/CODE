@@ -20,11 +20,20 @@
 const express = require('express');
 const index = express()
 
-app.set("view engine", 'ejs')
+index.set("view engine", 'ejs')
+
+index.use((req, res, next)) => {
+    console.log("this is middleware");
+    
+}
 index.get('/', (req, res) => {
-    res.send('Hello World')
+    res.render('index')
 })
+// index.get('/', (req, res) => {
+//     res.send('Hello World')
+// })
 index.get('/about', (req, res)=>{
     res.send('About page')
 })
-index.listen(3000)
+
+index.listen(3000);
