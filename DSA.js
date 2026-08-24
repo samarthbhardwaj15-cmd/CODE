@@ -2032,3 +2032,47 @@ var isPowerTwo = function(n) {
 }
 let n = 16;
 console.log(n);
+
+function reverseStr(s, k) {
+    let arr = s.split("");
+
+    for (let i =0; i < arr.length; i += 2 * k) {
+        let left = i;
+        let right = Math.min(i + k-1, arr.length - 1);
+
+        while (left < right) {
+            [arr[left], arr[right]] = [arr[right], arr[left]];
+            left++;
+            right--;
+        }
+    }
+    return arr.join("");
+}
+console.log(reverseStr("abcdefg", 2));
+
+var isPowerOfTwo = function(n) {
+    if (n <= 0) return false;
+
+    while (n % 2 === 0) {
+        n = n / 2;
+    }
+    return n === 1;
+};
+
+function subsets(nums) {
+    let result = [];
+
+    function backtrack(index, current) {
+        if (index === nums.length) {
+            result.push([...current]);
+            return;
+        }
+        backtrack(index + 1, current);
+        current.push(nums[index]);
+        backtrack(index + 1, current);
+        current.pop();
+    }
+    backtrack(0, []);
+    return result;
+}
+console.log(subsets([1, 2, 3]));
