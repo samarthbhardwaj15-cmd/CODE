@@ -18,22 +18,43 @@
 
 
 const express = require('express');
+const morgan = require('morgan')
 const index = express()
+
+index.use(morgan('dev'))
+
 
 index.set("view engine", 'ejs')
 
-index.use((req, res, next)) => {
-    console.log("this is middleware");
+// index.use((req, res, next) => {
+//     console.log("this is middleware")
+//     const a = 3
+//     const b = 2
+//     console.log(a + b)
+//     return next()
     
-}
-index.get('/', (req, res) => {
-    res.render('index')
-})
-// index.get('/', (req, res) => {
-//     res.send('Hello World')
 // })
-index.get('/about', (req, res)=>{
-    res.send('About page')
+// index.get('/', (req, res) => {
+//     res.render('index')
+//    res.send('Hello World')
+// })
+// index.get('/', 
+//     (req, res, next) => {
+//         const a = 5;
+//         const b = 10;
+//         console.log(a + b)
+
+//         next()
+//     }
+//     , (req, res) => { 
+//         res.render('index') 
+//     }) 
+// index.get('/about', (req, res)=>{
+//     res.send('About page')
+// })
+index.get('/get-form-data', (req, res) => {
+    console.log(req.query)
+    res.send('data received')
 })
 
 index.listen(3000);

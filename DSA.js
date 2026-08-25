@@ -1976,103 +1976,145 @@
 //     return s.trim().split(/\s+/).reverse().join(" ");
 // };
 
-function romanToInt(s) {
-    const values = {
-        I: 1,
-        V: 5,
-        X: 10,
-        L: 50,
-        C: 100,
-        D: 500,
-        M: 1000
-    };
-    let result = 0;
+// function romanToInt(s) {
+//     const values = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
+//     let result = 0;
 
-    for (let i = 0; i < s.length; i++) {
-        if (i + 1 < s.length && values[s[i]] < values[s[i + 1]]) {
-            result -= values[s[i]];
-        } else {
-            result += values[s[i]];
-        }
-    }
-    return result;
-}
-console.log(romanToInt("III"));
-console.log(romanToInt("LVIII"));
-console.log(romanToInt("MCMXCIV"));
+//     for (let i = 0; i < s.length; i++) {
+//         if (i + 1 < s.length && values[s[i]] < values[s[i + 1]]) {
+//             result -= values[s[i]];
+//         } else {
+//             result += values[s[i]];
+//         }
+//     }
+//     return result;
+// }
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
 
-function fib(n) {
-    if (n === 0) return 0;
-    if (n === 1) return 1;
+// function fib(n) {
+//     if (n === 0) return 0;
+//     if (n === 1) return 1;
 
-    return fib(n-1) + fib(n-2);
-}
-console.log(fib(6));
+//     return fib(n-1) + fib(n-2);
+// }
+// console.log(fib(6));
 
-function fib(n) {
-    let a = 0;
-    let b = 1;
+// function fib(n) {
+//     let a = 0;
+//     let b = 1;
 
-    for (let i = 0; i < n; i++) {
-        let next = a + b;
-        a = b;
-        b = next;
-    }
-    return a;
-}
-console.log(fib(6));
+//     for (let i = 0; i < n; i++) {
+//         let next = a + b;
+//         a = b;
+//         b = next;
+//     }
+//     return a;
+// }
+// console.log(fib(6));
 
-var isPowerTwo = function(n) {
-    if (n <= 0) return false;
+// var isPowerTwo = function(n) {
+//     if (n <= 0) return false;
 
-    while (n % 2 === 0) {
-        n = n / 2;
-    }
-    return n === 1;
-}
-let n = 16;
-console.log(n);
+//     while (n % 2 === 0) {
+//         n = n / 2;
+//     }
+//     return n === 1;
+// }
+// let n = 16;
+// console.log(n);
 
-function reverseStr(s, k) {
-    let arr = s.split("");
+// function reverseStr(s, k) {
+//     let arr = s.split("");
 
-    for (let i =0; i < arr.length; i += 2 * k) {
-        let left = i;
-        let right = Math.min(i + k-1, arr.length - 1);
+//     for (let i =0; i < arr.length; i += 2 * k) {
+//         let left = i;
+//         let right = Math.min(i + k-1, arr.length - 1);
 
-        while (left < right) {
-            [arr[left], arr[right]] = [arr[right], arr[left]];
-            left++;
-            right--;
-        }
-    }
-    return arr.join("");
-}
-console.log(reverseStr("abcdefg", 2));
+//         while (left < right) {
+//             [arr[left], arr[right]] = [arr[right], arr[left]];
+//             left++;
+//             right--;
+//         }
+//     }
+//     return arr.join("");
+// }
+// console.log(reverseStr("abcdefg", 2));
 
-var isPowerOfTwo = function(n) {
-    if (n <= 0) return false;
+// var isPowerOfTwo = function(n) {
+//     if (n <= 0) return false;
 
-    while (n % 2 === 0) {
-        n = n / 2;
-    }
-    return n === 1;
-};
+//     while (n % 2 === 0) {
+//         n = n / 2;
+//     }
+//     return n === 1;
+// };
 
-function subsets(nums) {
+// function subsets(nums) {
+//     let result = [];
+
+//     function backtrack(index, current) {
+//         if (index === nums.length) {
+//             result.push([...current]);
+//             return;
+//         }
+//         backtrack(index + 1, current);
+//         current.push(nums[index]);
+//         backtrack(index + 1, current);
+//         current.pop();
+//     }
+//     backtrack(0, []);
+//     return result;
+// }
+// console.log(subsets([1, 2, 3]));
+
+function combinationSum(candidates, target) {
     let result = [];
 
-    function backtrack(index, current) {
-        if (index === nums.length) {
+    function backtrack(start, remaining, current) {
+        if (remaining === 0) {
             result.push([...current]);
             return;
         }
-        backtrack(index + 1, current);
-        current.push(nums[index]);
-        backtrack(index + 1, current);
-        current.pop();
+        if (remaining < 0) {
+            return;
+        }
+        for (let i = start; i < candidates.length; i++) {
+            current.push(candidates[i]);
+            backtrack(i, remaining - candidates[i], current);
+            current.pop();
+        }
     }
-    backtrack(0, []);
+    backtrack(0, target, []);
     return result;
 }
-console.log(subsets([1, 2, 3]));
+
+function comnbinationSum(candidates, target) {
+    let result = [];
+
+    function backtrack(start, remaining, current) {
+        result.push([...current]);
+        return;
+    }
+    if (remaining === 0) {
+        result.push([...current]);
+        return;
+    }
+    if (remaining < 0) {
+        return;
+    }
+    for (let i = start;  i < candidates.length; i++) {
+        current.push(candidates[i]);
+        backtrack(i, remaining - candidates[i], current);
+        current.pop();
+    }
+}
