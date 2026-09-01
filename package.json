@@ -1,4 +1,4 @@
-{
+  {
   "name": "code",
   "version": "1.0.0",
   "description": "",
@@ -23,6 +23,5 @@
     "ejs": "^6.0.1",
     "express": "^5.2.1",
     "mongoose": "^9.9.4"
-  },
-  "devDependencies": {}
+  }
 }
