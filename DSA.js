@@ -1,4 +1,66 @@
-//type coercion.
+function twoSum(nums, target) {
+    let map = new Map();
+
+    for (let i = 0; i < nums.length; i++) {
+        let complement = target - nums[i];
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        }
+        map.set(nums[i], i);
+    }
+    return [];
+}
+console.log(twoSum([2, 7, 11, 15], 9));
+
+function maxProfit(prices) {
+    let minPrice = prices[0];
+    let maxProfit = 0;
+    for(let i = 1; i < prices.length; i++) {
+        minPrice = Math.min(minPrice, prices[i]);
+        let profit = prices[i] - minPrice;
+        maxProfit = Math.max(maxProfit, profit);
+    }
+    return maxProfit;
+}
+console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+//type coercion
+// function solveNQueens(n) {
+
+//     let result = [];
+//     let board = Array.from({length: n}, () => Array(n).fill("."));
+//     let cols = new Set();
+//     let diag1 = new Set();
+//     let diag2 = new Set();
+
+//     function backtrack(row) {
+//         if (row === n) {
+//             result.push(board.map(row => row.join("")));
+//             return;
+//         }
+//         for (let col = 0; col < n; col++) {
+//             if (
+//                 cols.has(col) ||
+//                 diag1.has(row  - col) ||
+//                 diag2.has(row + col)
+//             ) {
+//                 continue;
+//             }
+//             board[row][col] = "Q";
+//             cols.add(col);
+//             diag1.add(row - col);
+//             diag2.add(row + col);
+
+//             backtrack(row + 1);
+//             board[row][col] = ".";
+//             cols.delete(col);
+//             diag1.delete(row - col);
+//             diag2.delete(row + col);
+//         }
+//     }
+//     backtrack(0);
+//     return result;
+// }
+
 //console.log("1"+1);
 //console.log("1"-1);
 
@@ -2077,44 +2139,43 @@
 // }
 // console.log(subsets([1, 2, 3]));
 
-function combinationSum(candidates, target) {
-    let result = [];
+// function combinationSum(candidates, target) {
+//     let result = [];
 
-    function backtrack(start, remaining, current) {
-        if (remaining === 0) {
-            result.push([...current]);
-            return;
-        }
-        if (remaining < 0) {
-            return;
-        }
-        for (let i = start; i < candidates.length; i++) {
-            current.push(candidates[i]);
-            backtrack(i, remaining - candidates[i], current);
-            current.pop();
-        }
-    }
-    backtrack(0, target, []);
-    return result;
-}
+//     function backtrack(start, remaining, current) {
+//         if (remaining === 0) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (remaining < 0) {
+//             return;
+//         }
+//         for (let i = start; i < candidates.length; i++) {
+//             current.push(candidates[i]);
+//             backtrack(i, remaining - candidates[i], current);
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, target, []);
+//     return result;
+// }
 
-function comnbinationSum(candidates, target) {
-    let result = [];
+// function comnbinationSum(candidates, target) {
+//     let result = [];
 
-    function backtrack(start, remaining, current) {
-        result.push([...current]);
-        return;
-    }
-    if (remaining === 0) {
-        result.push([...current]);
-        return;
-    }
-    if (remaining < 0) {
-        return;
-    }
-    for (let i = start;  i < candidates.length; i++) {
-        current.push(candidates[i]);
-        backtrack(i, remaining - candidates[i], current);
-        current.pop();
-    }
-}
+//     function backtrack(start, remaining, current) {
+//         result.push([...current]);
+//         return;
+//     }
+//     if (remaining === 0) {
+//         result.push([...current]);
+//         return;
+//     }
+//     if (remaining < 0) {
+//         return;
+//     }
+//     for (let i = start;  i < candidates.length; i++) {
+//         current.push(candidates[i]);
+//         backtrack(i, remaining - candidates[i], current);
+//         current.pop();
+//   
