@@ -1,8 +1,54 @@
-function twoSum(nums, target) {
+function rotate(nums,k) {
+    k = k % nums.length;
+    nums.reverse();
+
+    reversePart(nums, 0, k-1);
+    reversePart(nums, k, nums.length - 1);
+}
+function reversePart(nums, left, right) {
+    while (left < right) {
+        [nums[left], nums[right]] = [nums[right], nums[left]];
+        left++;
+        right--;
+    }
+}
+let arr = [1, 2, 3, 4, 5, 6, 7];
+rotate(arr, 3);
+console.log(arr);
+
+function merge(nums1, m, nums2, n) {
+    let i = m - 1;
+    let j = n - 1;
+    let k = m + n - 1;
+
+    while (i >= 0 && j >= 0) {
+        if (nums1[i] > nums2[j]) {
+            nums1[k] = nums1[i];
+            i--;
+        } else {
+            nums1[k] = nums2[j]
+            j--;
+        }
+        k--;
+    }
+    while (j >= 0) {
+        nums1[k] = nums2[j];
+        j--;
+        k--;
+    }
+}
+let nums1 = [1, 2, 3, 0, 0, 0];
+let nums2 = [2, 5, 6];
+
+merge(nums1, 3, nums2, 3);
+console.log(nums1);
+
+function twoSum(nums, t) {
     let map = new Map();
 
     for (let i = 0; i < nums.length; i++) {
         let complement = target - nums[i];
+
         if (map.has(complement)) {
             return [map.get(complement), i];
         }
@@ -12,17 +58,45 @@ function twoSum(nums, target) {
 }
 console.log(twoSum([2, 7, 11, 15], 9));
 
-function maxProfit(prices) {
-    let minPrice = prices[0];
-    let maxProfit = 0;
-    for(let i = 1; i < prices.length; i++) {
-        minPrice = Math.min(minPrice, prices[i]);
-        let profit = prices[i] - minPrice;
-        maxProfit = Math.max(maxProfit, profit);
+function moveZeroes(nums) {
+    let j = 0;
+
+    for(let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+            j++;
+        }
     }
-    return maxProfit;
+    return nums;
 }
-console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+
+// function twoSum(nums, target) {
+//     let map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let complement = target - nums[i];
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function maxProfit(prices) {
+//     let minPrice = prices[0];
+//     let maxProfit = 0;
+//     for(let i = 1; i < prices.length; i++) {
+//         minPrice = Math.min(minPrice, prices[i]);
+//         let profit = prices[i] - minPrice;
+//         maxProfit = Math.max(maxProfit, profit);
+//     }
+//     return maxProfit;
+// }
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]));
 //type coercion
 // function solveNQueens(n) {
 

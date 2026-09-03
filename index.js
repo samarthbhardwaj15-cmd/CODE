@@ -17,7 +17,15 @@
 // })
 
 
-const express = require('express');
+// const express = require('express');
+// const userRouter = require('./routes/user.routes')
+// // const dotenv = require('');
+// dotenv.config();
+// const connnecTODB = require('./config/db')
+// connectToDB();
+
+// const app = express();
+
 // const morgan = require('morgan')
 // const index = express()
 // const dbConnection = require('./db')
@@ -29,7 +37,7 @@ const express = require('express');
 // index.use(express.urlencoded({ extended: true}))
 // index.use(express.static("public"))
 
-index.set("view engine", 'ejs'); 
+// index.set('view engine', 'ejs'); 
 // index.use((req, res, next) => {
 //     console.log("this is middleware")
 //     const a = 3
@@ -102,8 +110,8 @@ index.set("view engine", 'ejs');
 // })
 
 // })
-index.use('/user', userRouter)
-index.listen(3000, () => {
-    console.log("server is running on port 3000")
-});
+// index.use('/user', userRouter)
+// index.listen(3000, () => {
+//     console.log("server is running on port 3000")
+// });
 
