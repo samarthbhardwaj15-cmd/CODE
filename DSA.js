@@ -1,75 +1,165 @@
-function rotate(nums,k) {
-    k = k % nums.length;
-    nums.reverse();
+function productExceptSelf(nums) {
+    let result = new Array(nums.length).fill(1);
 
-    reversePart(nums, 0, k-1);
-    reversePart(nums, k, nums.length - 1);
-}
-function reversePart(nums, left, right) {
-    while (left < right) {
-        [nums[left], nums[right]] = [nums[right], nums[left]];
-        left++;
-        right--;
-    }
-}
-let arr = [1, 2, 3, 4, 5, 6, 7];
-rotate(arr, 3);
-console.log(arr);
-
-function merge(nums1, m, nums2, n) {
-    let i = m - 1;
-    let j = n - 1;
-    let k = m + n - 1;
-
-    while (i >= 0 && j >= 0) {
-        if (nums1[i] > nums2[j]) {
-            nums1[k] = nums1[i];
-            i--;
-        } else {
-            nums1[k] = nums2[j]
-            j--;
-        }
-        k--;
-    }
-    while (j >= 0) {
-        nums1[k] = nums2[j];
-        j--;
-        k--;
-    }
-}
-let nums1 = [1, 2, 3, 0, 0, 0];
-let nums2 = [2, 5, 6];
-
-merge(nums1, 3, nums2, 3);
-console.log(nums1);
-
-function twoSum(nums, t) {
-    let map = new Map();
+    let prefix = 1;
 
     for (let i = 0; i < nums.length; i++) {
-        let complement = target - nums[i];
-
-        if (map.has(complement)) {
-            return [map.get(complement), i];
-        }
-        map.set(nums[i], i);
+        result[i] = prefix;
+        prefix *= nums[i];
     }
-    return [];
+    let suffix = 1;
+
+    for (let i = nums.length - 1; i >= 0; i--) {
+        result[i] *= suffix;
+        suffix *= nums[i];
+    }
+    return result;
 }
-console.log(twoSum([2, 7, 11, 15], 9));
+console.log(productExceptSelf([1, 2, 3, 4]));
 
-function moveZeroes(nums) {
-    let j = 0;
+function containDuplicate(nums) {
+    let set = new Set();
 
-    for(let i = 0; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            j++;
+    for (let num of nums) {
+        if (set.has(num)) {
+            return true;
+        }
+        set.add(num);
+    }
+    return false;
+}
+console.log(containDuplicate([1, 2, 3, 1]));
+console.log(containDuplicate([1, 2, 3, 4]));
+
+function missingNumber(nums) {
+    let xor = nums.length;
+
+    for (let i = 0; i < nums.length; i++) {
+        xor = xor ^ i ^ nums[i];
+    }
+    return xor;
+}
+console.log(missingNumber([3, 0, 1]));
+
+function majorityElement(nums) {
+    let candidate = 0;
+    let count = 0;
+
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+        }
+        if (num === candidate) {
+            count++;
+        } else {
+            count--;
         }
     }
-    return nums;
+    return candidate;
 }
-console.log(moveZeroes([0, 1, 0, 3, 12]));
+console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+function findPeakElement(nums) {
+    let left = 0
+    let right = nums.length - 1;
+
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] > nums[mid + 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+console.log(findPeakElement([1, 2, 3, 1]));
+
+function maxSubArray(nums) {
+    let currentSum = nums[0];
+    let maxSum = nums[0];
+
+    for (let i = 1; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// function rotate(nums,k) {
+//     k = k % nums.length;
+//     nums.reverse();
+
+//     reversePart(nums, 0, k-1);
+//     reversePart(nums, k, nums.length - 1);
+// }
+// function reversePart(nums, left, right) {
+//     while (left < right) {
+//         [nums[left], nums[right]] = [nums[right], nums[left]];
+//         left++;
+//         right--;
+//     }
+// }
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// rotate(arr, 3);
+// console.log(arr);
+
+// function merge(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while (i >= 0 && j >= 0) {
+//         if (nums1[i] > nums2[j]) {
+//             nums1[k] = nums1[i];
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j]
+//             j--;
+//         }
+//         k--;
+//     }
+//     while (j >= 0) {
+//         nums1[k] = nums2[j];
+//         j--;
+//         k--;
+//     }
+// }
+// let nums1 = [1, 2, 3, 0, 0, 0];
+// let nums2 = [2, 5, 6];
+
+// merge(nums1, 3, nums2, 3);
+// console.log(nums1);
+
+// function twoSum(nums, t) {
+//     let map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let complement = target - nums[i];
+
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for(let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+//     return nums;
+// }
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
 
 
 // function twoSum(nums, target) {
