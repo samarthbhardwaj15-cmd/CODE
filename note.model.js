@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
-const noteSchema = new mongoose.Schema({
+// const noteSchema = new mongoose.Schema({
+//     title: String,
+//     description: String,
+// })
+// const noteModel = mongoose.model("note", noteSchema)
+
+const postSchema = new mongoose.Schema({
     title: String,
-    description: String,
+    caption: String,
 })
-const noteModel = mongoose.model("note", noteSchema)
+const postModel = mongoose.model("post", postSchema)
