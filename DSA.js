@@ -1,40 +1,92 @@
-function findPeakElement(nums) {
+function reverseString(s) {
     let left = 0;
-    let right = nums.length - 1;
+    let right = s.length - 1;
 
     while (left < right) {
-        let mid = Math.floor((left + right) / 2);
-        if (nums[mid] > nums[mid + 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
+        [s[left], s[right]] = [s[right], s[left]];
+        left++;
+        right--;
+    }
+    return s;
+}
+console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+function isPalindrome(s) {
+    s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+    let left = 0;
+    let right =  s.length - 1;
+
+    while (left < right) {
+        if (s[left] !== s[right]) {
+            return false;
         }
+        left++;
+        right--;
     }
-    return left;
+    return true;
 }
-console.log(findPeakElement([1, 2, 3, 1]));
+console.log(isPalindrome("madam"));
+console.log(isPalindrome("hello"));
 
-function missingNumber(nums) {
-    let xor = nums.length;
-
-    for (let i = 0; i < nums.length; i++) {
-        xor = xor ^ i ^ nums[i];
+function isAnagram(s, t) {
+    if (s.length !== t.length) {
+        return false;
     }
-    return xor;
-}
-console.log(missingNumber([3, 0, 1]));
+    let map = {};
 
-function moveZeroes(nums) {
-    let j = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if(nums[i] !== 0) {
-            [nums[i], nums[j]] = [nums[j], nums[i]];
-            j++;
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1;
+    }
+    for (let char of t) {
+        if (!map[char]) {
+            return false;
         }
+        map[char]--;
     }
-    return nums;
+    return true;
 }
-console.log(moveZeroes([0, 1, 0, 3, 12]));
+console.log(isAnagram("anagram", "nagaram"));
+console.log(isAnagram("rat", "car"));
+
+
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+// function missingNumber(nums) {
+//     let xor = nums.length;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         xor = xor ^ i ^ nums[i];
+//     }
+//     return xor;
+// }
+// console.log(missingNumber([3, 0, 1]));
+
+// function moveZeroes(nums) {
+//     let j = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if(nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+//     return nums;
+// }
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
 
 
 
