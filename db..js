@@ -8,7 +8,13 @@ const connectDB = require("./src/db/db")
 // }
 // module.exports = connection
 async function connectDB() {
-    await mongoose.connect("")
-    console.log("Connected to DB");
-    
+    // await mongoose.connect("")
+    // console.log("Connected to DB");
+    try {
+        await mongoose.connect(process.env.MONGO-URI,)
+        console.log('Database connected succesfully');
+            }
+    catch (error) {
+        console.error('Database connection error:', error);
+    }
 }

@@ -2,22 +2,26 @@ import React from 'react'
 import {BrowserRouter as Router , Routes, Route} form 
 'react-router-dom'
 
-const App = () => {
-    return (
-        <Router>
-        <Routes>
-        <Route path='/' element={<h1>Hello World</h1>} />
-        <Route path='/' element={<h1>About Us</h1>} />
-        </Routes>
-        </Router>
-    )
-}
-// const express = require("express");
+// const App = () => {
+//     return (
+//         <Router>
+//         <Routes>
+//         <Route path='/' element={<h1>Hello World</h1>} />
+//         <Route path='/' element={<h1>About Us</h1>} />
+//         </Routes>
+//         </Router>
+//     )
+// }
+const express = require("express");
+const cookieStore  = require('cookie-parser');
+const authRoutes = require('./routes/auth.routes');
 // const multer = require('multer');
 // const uploadFile = require("./services/storage.service")
 // const postModel = require("./model/post.model")
-// const app  = express();
-// app.use(express.json());
+const app  = express();
+app.use(express.json());
+app.use(cookieParser());
+app.use('/api/auth', authRoutes);
 // // const noteModel = require("./models/note.model")
 // // const notes = [];
 
@@ -105,4 +109,5 @@ const App = () => {
 // })
 
 module.exports = app;
-import { format } from 'morgan';
+import { format } from 'morgan';import cookieParser from 'cookie-parser';
+

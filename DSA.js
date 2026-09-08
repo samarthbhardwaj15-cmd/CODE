@@ -1,9 +1,46 @@
+function longestCommonPrefix(strs) {
+    if (strs.length === 0) {
+        return "";
+    }
+    let prefix = strs[0];
+    for (let i = 1; i < strs.length; i++) {
+        while (!strs[i].startsWith(prefix)) {
+            prefix = prefix.slice(0, -1);
+
+            if (prefix === "") {
+                return "";
+            }
+        }
+    }
+    return prefix;
+}
+console.log(
+    longestCommonPrefix(["flower", "flow", "flought"])
+);
+
+function firstUniqChar(s) {
+    let map = {};
+
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1;
+    }
+    for (let i = 0; i < s.length; i++) {
+        if (map[s[i] === 1]) {
+            return i;
+        }
+    }
+    return -1;
+}
+console.log(firstUniqChar("leetcode"));
+console.log(firstUniqChar("loveleetcode"));
+
 function reverseString(s) {
     let left = 0;
     let right = s.length - 1;
 
     while (left < right) {
         [s[left], s[right]] = [s[right], s[left]];
+
         left++;
         right--;
     }
@@ -13,8 +50,9 @@ console.log(reverseString(["h", "e", "l", "l", "o"]));
 
 function isPalindrome(s) {
     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+    
     let left = 0;
-    let right =  s.length - 1;
+    let right = s.length - 1;
 
     while (left < right) {
         if (s[left] !== s[right]) {
@@ -23,7 +61,7 @@ function isPalindrome(s) {
         left++;
         right--;
     }
-    return true;
+    return true;    
 }
 console.log(isPalindrome("madam"));
 console.log(isPalindrome("hello"));
@@ -32,8 +70,7 @@ function isAnagram(s, t) {
     if (s.length !== t.length) {
         return false;
     }
-    let map = {};
-
+    let map = {};;
     for (let char of s) {
         map[char] = (map[char] || 0) + 1;
     }
@@ -46,7 +83,62 @@ function isAnagram(s, t) {
     return true;
 }
 console.log(isAnagram("anagram", "nagaram"));
-console.log(isAnagram("rat", "car"));
+console.log(isAnagram("rat", "cat"));
+
+
+
+
+
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+//     let left = 0;
+//     let right =  s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             return false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "car"));
 
 
 
