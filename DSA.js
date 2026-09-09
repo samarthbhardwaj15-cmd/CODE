@@ -1,38 +1,48 @@
-function longestCommonPrefix(strs) {
-    if (strs.length === 0) {
-        return "";
-    }
-    let prefix = strs[0];
-    for (let i = 1; i < strs.length; i++) {
-        while (!strs[i].startsWith(prefix)) {
-            prefix = prefix.slice(0, -1);
+function groupAnagrams(strs) {
+    let map = new Map();
 
-            if (prefix === "") {
-                return "";
-            }
+    for (let str of strs) {
+        let key = str.split("").sort().join("");
+
+        if (!map.has(key)) {
+            map.set(key, []);
         }
+        map.get(key).push(str);
     }
-    return prefix;
+    return Array.from(map.values());
 }
-console.log(
-    longestCommonPrefix(["flower", "flow", "flought"])
-);
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
 
-function firstUniqChar(s) {
-    let map = {};
+function lengthOfLongestSubstring(s) {
+    let set = new Set();
+    let left = 0;
+    let maxLength = 0;
 
-    for (let char of s) {
-        map[char] = (map[char] || 0) + 1;
-    }
-    for (let i = 0; i < s.length; i++) {
-        if (map[s[i] === 1]) {
-            return i;
+    for (let right = 0; right < s.length; right++) {
+        while (set.has(s[right])) {
+            set.delete(s[left]);
+            left++;
         }
+        set.add(s[right]);
+
+        maxLength = Math.max(
+            maxLength,
+            right - left + 1
+        );
     }
-    return -1;
+    return maxLength;
 }
-console.log(firstUniqChar("leetcode"));
-console.log(firstUniqChar("loveleetcode"));
+console.log(lengthOfLongestSubstring("abcabcbb"));
+console.log(lengthOfLongestSubstring("bbbbb"));
+
+function reversewords(s) {
+    return s
+        .trim()
+        .split(/\s+/)
+        .reverse()
+        .join(" ");
+}
+console.log(reversewords("the sky is blue"));
 
 function reverseString(s) {
     let left = 0;
@@ -50,7 +60,7 @@ console.log(reverseString(["h", "e", "l", "l", "o"]));
 
 function isPalindrome(s) {
     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
-    
+
     let left = 0;
     let right = s.length - 1;
 
@@ -59,9 +69,9 @@ function isPalindrome(s) {
             return false;
         }
         left++;
-        right--;
+        right--:
     }
-    return true;    
+    return true;
 }
 console.log(isPalindrome("madam"));
 console.log(isPalindrome("hello"));
@@ -70,20 +80,125 @@ function isAnagram(s, t) {
     if (s.length !== t.length) {
         return false;
     }
-    let map = {};;
+    let map = {};
     for (let char of s) {
         map[char] = (map[char] || 0) + 1;
     }
     for (let char of t) {
         if (!map[char]) {
-            return false;
+            retunr false;
         }
         map[char]--;
     }
     return true;
 }
-console.log(isAnagram("anagram", "nagaram"));
-console.log(isAnagram("rat", "cat"));
+console.log(isAnagram("anagram","nagaram"));
+console.log(isAnagram("rat", "car"));
+
+function firstUniqChar(s) {
+    let map = {};
+
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1;
+    }
+    for (let i = 0; i < s.length; i++) {
+        if (map[s[i]] === 1) {
+            return i
+        }
+
+    }
+    return -1;
+}
+console.log(firstUniqChar("leetcode"));
+console.log(firstUniqChar("loveleetcode"));
+
+
+// function longestCommonPrefix(strs) {
+//     if (strs.length === 0) {
+//         return "";
+//     }
+//     let prefix = strs[0];
+//     for (let i = 1; i < strs.length; i++) {
+//         while (!strs[i].startsWith(prefix)) {
+//             prefix = prefix.slice(0, -1);
+
+//             if (prefix === "") {
+//                 return "";
+//             }
+//         }
+//     }
+//     return prefix;
+// }
+// console.log(
+//     longestCommonPrefix(["flower", "flow", "flought"])
+// );
+
+// function firstUniqChar(s) {
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (map[s[i] === 1]) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(firstUniqChar("leetcode"));
+// console.log(firstUniqChar("loveleetcode"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+    
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;    
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};;
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             return false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "cat"));
 
 
 
