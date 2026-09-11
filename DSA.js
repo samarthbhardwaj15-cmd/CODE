@@ -11,10 +11,10 @@ function romanToInt(s) {
     let result = 0;
 
     for (let i = 0; i <s.length; i++) {
-        if(
-            i+1 < s.length && values[s[i]] < values[s[i + 1]]
+        if (
+            i + 1 < s.length &&  values[s[i]] < values[s[i + 1]]
         ) {
-            result -= values[s[i]];
+            result -= values[s[i]]
         } else {
             result += values[s[i]];
         }
@@ -25,45 +25,12 @@ console.log(romanToInt("III"));
 console.log(romanToInt("LVIII"));
 console.log(romanToInt("MCMXCIV"));
 
-function compress(chars) {
-    let write = 0;
-    let read = 0;
-
-    while (read < chars.length) {
-        let currentChar = chars[read];
-        let count = 0;
-
-        while (
-            read < chars.length && chars[read] === currentChar
-        ) {
-            read++;
-            count++;
-        }
-        chars[write] = currentChar;
-        write++;
-
-        if(count > 1) {
-            let countString = String(count);
-
-            for (let char of countString) {
-                chars[write] = char;
-                write++;
-            }
-        }
-    }
-    return write;
-}
-let chars = ["a", "a", "b", "b", "c", "c", "c"];
-let length = compress(chars);
-console.log(chars.slice(0, length));
-
 function reverseString(s) {
     let left = 0;
     let right = s.length - 1;
 
     while (left < right) {
         [s[left], s[right]] = [s[right], s[left]];
-
         left++;
         right--;
     }
@@ -71,73 +38,8 @@ function reverseString(s) {
 }
 console.log(reverseString(["h", "e", "l", "l", "o"]));
 
-function reverseWords(s) {
-    return s
-        .trim()
-        .split(/\s+/)
-        .reverse()
-        .join(" ");
-}
-console.log(reverseWords("the sky is blue"));
-
-function lengthOfLongestSubstring(s) {
-    let set = new Set();
-
-    let left = 0;
-    let maxLength = 0;
-
-    for (let right = 0; right < s.length; right++) {
-        while (set.has(s[right])) {
-            set.delete(s[left]);
-            left++;
-        }
-        set.add(s[right]);
-
-        maxLength = Math.max(
-            maxLength,
-            right - left + 1
-        );
-    }
-    return maxLength;
-}
-console.log(lengthOfLongestSubstring("abcabcbb"));
-
-function groupAnagrams(strs) {
-    let map = new Map();
-
-    for (let str of strs) {
-        let key = str.split("").sort().join("");
-
-        if(!map.has(key)) {
-            map.set(key, []);
-        }
-        map.get(key).push(str);
-    }
-    return Array.from(map.values());
-}
-console.log(["eat", "tea", "tan", "ate", "nat", "bat"]);
-
-function longestCommonPrefix(strs) {
-    if (strs.length === 0) {
-        return "";
-    }
-    let prefix = strs[0];
-
-    for (let i = 1; i < strs.length; i++) {
-        while (!strs[i].startsWith(prefix)) {
-            prefix = prefix.slice(0, -1);
-
-            if (prefix === "") {
-                return "";
-            }
-        }
-    }
-    return prefix;
-}
-console.log(longestCommonPrefix(["flower", "flow", "flight"]));
-
 function isPalindrome(s) {
-    s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+    s = s.toLowerCase().replace(/[^a-z0-9]/g, "")
 
     let left = 0;
     let right = s.length - 1;
@@ -154,6 +56,34 @@ function isPalindrome(s) {
 console.log(isPalindrome("madam"));
 console.log(isPalindrome("hello"));
 
+function isAnagram(s, t) {
+    if (s.length !== t.length) {
+        return false;
+    }
+    let map = {};
+
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1;
+    }
+    for (let char of t) {
+        if (!map[char]) {
+            return false;
+        }
+        map[char]--;
+    }
+    return true;
+}
+console.log(isAnagram("anagram", "nagaram"));
+console.log(isAnagram("rat", "car"));
+
+function reverseWords(s) {
+    return s
+        .trim()
+        .split(/\s+/)
+        .reverse()
+        .join("");
+}
+console.log(reverseWords("the sky is blue"));
 
 
 
@@ -161,8 +91,161 @@ console.log(isPalindrome("hello"));
 
 
 
+// function romanToInt(s) {
+//     let values = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
+//     let result = 0;
 
+//     for (let i = 0; i <s.length; i++) {
+//         if(
+//             i+1 < s.length && values[s[i]] < values[s[i + 1]]
+//         ) {
+//             result -= values[s[i]];
+//         } else {
+//             result += values[s[i]];
+//         }
+//     }
+//     return result;
+// }
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
 
+// function compress(chars) {
+//     let write = 0;
+//     let read = 0;
+
+//     while (read < chars.length) {
+//         let currentChar = chars[read];
+//         let count = 0;
+
+//         while (
+//             read < chars.length && chars[read] === currentChar
+//         ) {
+//             read++;
+//             count++;
+//         }
+//         chars[write] = currentChar;
+//         write++;
+
+//         if(count > 1) {
+//             let countString = String(count);
+
+//             for (let char of countString) {
+//                 chars[write] = char;
+//                 write++;
+//             }
+//         }
+//     }
+//     return write;
+// }
+// let chars = ["a", "a", "b", "b", "c", "c", "c"];
+// let length = compress(chars);
+// console.log(chars.slice(0, length));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function reverseWords(s) {
+//     return s
+//         .trim()
+//         .split(/\s+/)
+//         .reverse()
+//         .join(" ");
+// }
+// console.log(reverseWords("the sky is blue"));
+
+// function lengthOfLongestSubstring(s) {
+//     let set = new Set();
+
+//     let left = 0;
+//     let maxLength = 0;
+
+//     for (let right = 0; right < s.length; right++) {
+//         while (set.has(s[right])) {
+//             set.delete(s[left]);
+//             left++;
+//         }
+//         set.add(s[right]);
+
+//         maxLength = Math.max(
+//             maxLength,
+//             right - left + 1
+//         );
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+
+// function groupAnagrams(strs) {
+//     let map = new Map();
+
+//     for (let str of strs) {
+//         let key = str.split("").sort().join("");
+
+//         if(!map.has(key)) {
+//             map.set(key, []);
+//         }
+//         map.get(key).push(str);
+//     }
+//     return Array.from(map.values());
+// }
+// console.log(["eat", "tea", "tan", "ate", "nat", "bat"]);
+
+// function longestCommonPrefix(strs) {
+//     if (strs.length === 0) {
+//         return "";
+//     }
+//     let prefix = strs[0];
+
+//     for (let i = 1; i < strs.length; i++) {
+//         while (!strs[i].startsWith(prefix)) {
+//             prefix = prefix.slice(0, -1);
+
+//             if (prefix === "") {
+//                 return "";
+//             }
+//         }
+//     }
+//     return prefix;
+// }
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
 
 // function groupAnagrams(strs) {
 //     let map = new Map();

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import { Link, NavLink } from 'react-router-dom'
 
@@ -55,7 +55,7 @@ const Navbar = () => {
               <p>Back</p>
             </div>
             <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
-            <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/collection'><Collection></Collection></NavLink>
+            <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/collection'>Collection</NavLink>
             <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/about'>ABOUt</NavLink>
             <NavLink onClick={()=>setVisible(false)} className='py-2 pl-6 border' to='/contact'>CONTACT</NavLink>
           </div>
