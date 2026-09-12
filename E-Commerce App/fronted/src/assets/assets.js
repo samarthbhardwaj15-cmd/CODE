@@ -1,17 +1,34 @@
-// import logo from './logo.png'
-// import search from './search.png'
-// import profile_icon from './profile_icon.png'
-// import cart_icon from './cart_icon.png'
-// import menu_icon from './menu_icon.png'
-// import dropdown_icon from './dropdown_icon.png'
+import logo from './logo.png'
+import search from './search.png'
+import profile from './profile.png'
+import cart from './cart.png'
+import menu from './menu.png'
+import dropdown from './dropdown.png'
 
-// const assets = {
-//     logo,
-//     search,
-//     profile_icon,
-//     cart_icon,
-//     menu_icon,
-//     dropdown_icon,
-// }
 
-// export { assets }
+const assets = {
+    logo,
+    search,
+    profile,
+    cart,
+    menu,
+    dropdown,
+}
+// export const products = [
+//      {
+//         _id: "aaaaa",
+//         name: "women Round neck"
+           BestSeller: "true"   
+//      },
+//      {
+//         _id: "aaaaa",
+//         name: "women Round neck"
+           BestSeller: "true"   
+//      },
+//      {
+//         _id: "aaaaa",
+//         name: "women Round neck"
+           BestSeller: "false"   
+//      },
+// ]
+export { assets }

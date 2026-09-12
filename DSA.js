@@ -1,89 +1,149 @@
-function romanToInt(s) {
-    let values = {
-        I: 1,
-        V: 5,
-        X: 10,
-        L: 50,
-        C: 100,
-        D: 500,
-        M: 1000
-    };
-    let result = 0;
-
-    for (let i = 0; i <s.length; i++) {
-        if (
-            i + 1 < s.length &&  values[s[i]] < values[s[i + 1]]
-        ) {
-            result -= values[s[i]]
-        } else {
-            result += values[s[i]];
-        }
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1;
     }
-    return result;
+    return n * factorial(n-1);
 }
-console.log(romanToInt("III"));
-console.log(romanToInt("LVIII"));
-console.log(romanToInt("MCMXCIV"));
+console.log(factorial(5));
 
-function reverseString(s) {
-    let left = 0;
-    let right = s.length - 1;
-
-    while (left < right) {
-        [s[left], s[right]] = [s[right], s[left]];
-        left++;
-        right--;
+function fibonacci(n) {
+    if (n <= 1) {
+        return n;
     }
-    return s;
+    return fibonacci(n-1) + fibonacci(n-2);
 }
-console.log(reverseString(["h", "e", "l", "l", "o"]));
+console.log(fibonacci(6));
 
-function isPalindrome(s) {
-    s = s.toLowerCase().replace(/[^a-z0-9]/g, "")
-
-    let left = 0;
-    let right = s.length - 1;
-
-    while (left < right) {
-        if (s[left] !== s[right]) {
-            return false;
-        }
-        left++;
-        right--;
+function power(x, n) {
+    if (n === 0) {
+        return 1;
     }
-    return true;
+    return x * power(x, n - 1);
 }
-console.log(isPalindrome("madam"));
-console.log(isPalindrome("hello"));
+console.log(power(2,5));
 
-function isAnagram(s, t) {
-    if (s.length !== t.length) {
-        return false;
+function printNumbers(n) {
+    if (n === 0) {
+        return;
     }
-    let map = {};
-
-    for (let char of s) {
-        map[char] = (map[char] || 0) + 1;
-    }
-    for (let char of t) {
-        if (!map[char]) {
-            return false;
-        }
-        map[char]--;
-    }
-    return true;
+    printNumbers(n - 1);
+    console.log(n);
 }
-console.log(isAnagram("anagram", "nagaram"));
-console.log(isAnagram("rat", "car"));
+printNumbers(5)
 
-function reverseWords(s) {
-    return s
-        .trim()
-        .split(/\s+/)
-        .reverse()
-        .join("");
+
+function reverseString(str) {
+    if (str.length === 0) {
+        return "";
+    }
+    return reverseString(str.slice(1)) + str[0];
 }
-console.log(reverseWords("the sky is blue"));
+console.log(reverseString("hello"));
+
+function power(x, n){
+    if(n === 0) {
+        return 1;
+    }
+    return x * power(x, n-1);
+}
+console.log(power(2, 5));
+
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1; 
+}
+return n * factorial(n - 1);
+}
+console.log(factorial(5));
+
+
+
+// function romanToInt(s) {
+//     let values = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
+//     let result = 0;
+
+//     for (let i = 0; i <s.length; i++) {
+//         if (
+//             i + 1 < s.length &&  values[s[i]] < values[s[i + 1]]
+//         ) {
+//             result -= values[s[i]]
+//         } else {
+//             result += values[s[i]];
+//         }
+//     }
+//     return result;
+// }
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "")
+
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             return false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "car"));
+
+// function reverseWords(s) {
+//     return s
+//         .trim()
+//         .split(/\s+/)
+//         .reverse()
+//         .join("");
+// }
+// console.log(reverseWords("the sky is blue"));
 
 
 
