@@ -1,8 +1,56 @@
+function permute(nums) {
+    let result = [];
+
+    function backtrack(start) {
+        if (start === nucdms.length) {
+            result.push([...nums]);
+            return;
+        }
+        for (let i =start; i < nums.length; i++) {
+            [nums[start], nums[i] = nums[i], nums[start]];
+
+            backtrack(start + 1);
+            [nums[start], nums[i] = nums[i], nums[start]];
+        }
+    }
+    backtrack(0)
+
+    return result;
+}
+console.log(permute([1, 2, 3]));
+
+function combinationSum(candidates, target) {
+    let result = [];
+
+    function backtrack(start, current, sum) {
+
+        if (sum === target) {
+            result.push([...current]);
+            return;
+        }
+        if (sum > target) {
+            return;
+        }
+        for (let i = start; i < candidates.length; i++) {
+            current.push(candidates[i]);
+            backtrack(
+                i,
+                current,
+                sum + candidates[i]
+            );
+            current.pop();
+        }
+    }
+    backtrack(0, [], 0);
+    return result;    
+}
+console.log(combinationSum([2, 3, 6, 7], 7))
+
 function factorial(n) {
-    if (n === 0 || n === 1) {
+    if(n === 0 || n === 1) {
         return 1;
     }
-    return n * factorial(n-1);
+    return n * factorial(n - 1);
 }
 console.log(factorial(5));
 
@@ -10,11 +58,11 @@ function fibonacci(n) {
     if (n <= 1) {
         return n;
     }
-    return fibonacci(n-1) + fibonacci(n-2);
+    return fibonacci(n - 1) + fibonacci(n-2);
 }
 console.log(fibonacci(6));
 
-function power(x, n) {
+function power(x,n) {
     if (n === 0) {
         return 1;
     }
@@ -29,34 +77,107 @@ function printNumbers(n) {
     printNumbers(n - 1);
     console.log(n);
 }
-printNumbers(5)
-
+printNumbers(5);
 
 function reverseString(str) {
     if (str.length === 0) {
         return "";
     }
-    return reverseString(str.slice(1)) + str[0];
+    return reverseString(str.slice(1) + str[0]);
 }
 console.log(reverseString("hello"));
 
-function power(x, n){
-    if(n === 0) {
-        return 1;
+function solveNQueens(n) {
+    let result = [];
+
+    let board = Array.from(
+        { length: n },
+        () => Array(n).fill(".")
+    );
+    function isSafe(row, col) {
+        for (let i = 0; i < row; i++) {
+            if (board[i][col] === "Q") {
+                return false;
+            }
+        }
+        for ( let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) 
+        { if (board[i] [j] === "Q") {
+            return false;
+          }
+        }
+        for ( 
+            let i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
+                if (board[i][j] === "Q") {
+                    return false;
+                }
+            }
+            for ( let i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++ ) {
+
+            }
     }
-    return x * power(x, n-1);
 }
-console.log(power(2, 5));
-
-function factorial(n) {
-    if (n === 0 || n === 1) {
-        return 1; 
-}
-return n * factorial(n - 1);
-}
-console.log(factorial(5));
 
 
+
+
+
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1;
+//     }
+//     return n * factorial(n-1);
+// }
+// console.log(factorial(5));
+
+// function fibonacci(n) {
+//     if (n <= 1) {
+//         return n;
+//     }
+//     return fibonacci(n-1) + fibonacci(n-2);
+// }
+// console.log(fibonacci(6));
+
+// function power(x, n) {
+//     if (n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n - 1);
+// }
+// console.log(power(2,5));
+
+// function printNumbers(n) {
+//     if (n === 0) {
+//         return;
+//     }
+//     printNumbers(n - 1);
+//     console.log(n);
+// }
+// printNumbers(5)
+
+
+// function reverseString(str) {
+//     if (str.length === 0) {
+//         return "";
+//     }
+//     return reverseString(str.slice(1)) + str[0];
+// }
+// console.log(reverseString("hello"));
+
+// function power(x, n){
+//     if(n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n-1);
+// }
+// console.log(power(2, 5));
+
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1; 
+// }
+// return n * factorial(n - 1);
+// }
+// console.log(factorial(5));
 
 // function romanToInt(s) {
 //     let values = {
