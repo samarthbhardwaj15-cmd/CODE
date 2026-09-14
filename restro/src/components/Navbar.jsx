@@ -1,13 +1,24 @@
-import React from 'react'
+// import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { navLinks } from '../data/data'
-import { MenuIcon } from 'lucide-react'
+import { MenuIcon, XIcon } from 'lucide-react'
 
 const Navbar = () => {
 
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  // useEffect(()=> {
+  //   const handScroll = ()=>{
+  //     setScrolled(window.scrollY > 10);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return ()=> window.removeEvnetListener("scroll", handScroll)
+  // }, [])
+
   return (
     <>
-      <nav className='fixed top-0 z-20 px-auto w-full tansition-all duration-300 bg-transparent'>
+      <nav className={`fixed top-0 z-20 px-auto w-full tansition-all duration-300 ${scrolled ? 'bg-white/70 backdrop-blur-md' : 'bg-transparent'}`}>
         <div className='flex items-center justify-between font-medium py-4 mx-auto max-w-7xl'>
             <a href="">
                 <img src="/assets/logo.svg" alt="logo" />
@@ -21,7 +32,7 @@ const Navbar = () => {
               ))}
             </div>
             
-           <a href="#booking-process" classname='hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full transition'>Book a table
+           <a href="#booking-process" className='hidden md:block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full transition'>Book a table
             </a> 
 
             <button onClick={()=> setMobileOpen(true)} className='md:hidden bg-zinc-800 text-white p-2 rounded-md aspect-square'> 
@@ -34,7 +45,9 @@ const Navbar = () => {
        <div className={`flex flex-col items-center justify-center p-8 fixed inset-0 bg-white/70 backdrop-blur-md z-40 transform transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className='flex flex-col items-center space-y-6 font-medium'>
           {navLinks.map((link)=>( 
-            <a key={link.name} href={link.href} className='text-2xl text-zinc-800 hover:text-orange-500 transition' >
+            <a key={link.name} href={link.href} className='text-2xl text-zinc-800 hover:text-orange-500 transition' 
+            onClick={()=> setMobileOpen(false)}
+            >
               {link.name}
             </a>
           ))}
