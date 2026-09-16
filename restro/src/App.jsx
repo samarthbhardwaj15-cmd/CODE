@@ -2,7 +2,9 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import HeroSection from './section/HeroSection'
 import About from './section/about'
-import stats from './section/stats'
+import Stats from './section/stats'
+import Dishes from './section/dishes'
+import Features from './section/features'
 
 const App = () => {
   return (
@@ -10,7 +12,9 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <About />
-      <stats />
+      <Stats />
+      <Dishes />
+      <Features />
     </>
   )
 }

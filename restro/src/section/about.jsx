@@ -14,7 +14,7 @@ const about = () => {
          <div>
         <Animated scale={0.8} y={0} classname="flex items-center gap-2">
             <img src="/assets/iconL.png" alt="iconLeft"/>
-            <span className='font-medium uppercse' text-align>
+            <span className='font-medium uppercse text-align'>
                 Crafted with Passion
             </span>
             <img src="/assets/iconR.png" alt="iconRight" />

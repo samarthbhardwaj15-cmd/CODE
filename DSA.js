@@ -1,109 +1,219 @@
-function factorial(n) {
-    if (n === 0 || n === 1) {
-        return 1;
-    }
-    return n * factorial(n-1);
-}
-console.log(factorial(5));
+function binarySearch(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
 
-function fibonacci(n) {
-    if(n <= 1) {
-        return n;
-    }
-    return fibonacci(n-1) + fibonacci(n-2);
-}
-console.log(fibonacci(6));
+    while (left <= right) {
+        let  mid = Math.floor((left + right) / 2);
 
-function power(x,n){
-    if (n === 0) {
-        return 1;
-    }
-    return x * power(x, n - 1);
-}
-console.log(power(2,5));
-
-function printNUmbers(n) {
-    if (n === 0) {
-        return;
-    }
-    printNumbers(n - 1);
-    console.log(n);
-}
-printNumbers(5);
-
-function reverseString(str) {
-    if (str.length === 0) {
-        return "";
-    }
-    return reverseString(str.slice(1) + str[0]);
-}
-console.log(reverseString("hello"));
-
-function subsets(nums) {
-    let result = [];
-
-    function backtrack(index, current) {
-        if (index === nums.length) {
-            result.push([...current]);
-            return;
+        if (nums[mid] === target) {
+            return mid;
         }
-        backtrack(index + 1,current);
-
-        current.push(nums[index]);
-
-        backtrack(index + 1, current);
-        current.pop();
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
     }
-    backtrack(0, []);
-    return result;
+    return -1;
 }
-console.log(subsets([1, 2, 3]));
+console.log(binarySearch([1, 3, 5, 7, 9], 7 ));
 
-function permute(nums) {
-    let result = [];
+function searchInsert(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            return mid;
+        }
+        if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+console.log(searchInsert([1, 3, 5, 6], 5));
+console.log(searchInsert([1, 3, 5, 6], 2));
+console.log(searchInsert([1, 3, 5, 6], 7));
+
+function searchRange(nums, target) {
+    let first = findFirst(nums, target);
+    let last = findLast(nums, target);
+
+    return [first, last];
+}
+function findFirst(nums, target) {
+    let left = 0
+    let right = nums.length- 1;
+    let answer = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            answer = mid;
+            right = mid - 1;
+        }
+        else if (nums[mid] < target) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    return answer;
+}
+function findLast(nums, target) {
+    let left = 0;
+    let right = nums.length - 1;
+    let answer = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] === target) {
+            answer = mid;
+            left = mid + 1;
+        }
+            else if (nums[mid] < target) {
+                left = mid + 1;
+            }
+            else { 
+                right = mid - 1;
+            }
+        }
+        return answer;;
+    }
+    console.log(searchRange([5,7,7,8,8,10], 8));
+
+function findPeakElement(nums) {
+    let left = 0;
+    let right = nums.length - 1;
+
+    while (left < right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] > nums[mid + 1]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}    
+console.log(findPeakElement([1,2,3,1]));
+console.log(findPeakElement([1,2,1,3,5,6,4]));
+  
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1;
+//     }
+//     return n * factorial(n-1);
+// }
+// console.log(factorial(5));
+
+// function fibonacci(n) {
+//     if(n <= 1) {
+//         return n;
+//     }
+//     return fibonacci(n-1) + fibonacci(n-2);
+// }
+// console.log(fibonacci(6));
+
+// function power(x,n){
+//     if (n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n - 1);
+// }
+// console.log(power(2,5));
+
+// function printNUmbers(n) {
+//     if (n === 0) {
+//         return;
+//     }
+//     printNumbers(n - 1);
+//     console.log(n);
+// }
+// printNumbers(5);
+
+// function reverseString(str) {
+//     if (str.length === 0) {
+//         return "";
+//     }
+//     return reverseString(str.slice(1) + str[0]);
+// }
+// console.log(reverseString("hello"));
+
+// function subsets(nums) {
+//     let result = [];
+
+//     function backtrack(index, current) {
+//         if (index === nums.length) {
+//             result.push([...current]);
+//             return;
+//         }
+//         backtrack(index + 1,current);
+
+//         current.push(nums[index]);
+
+//         backtrack(index + 1, current);
+//         current.pop();
+//     }
+//     backtrack(0, []);
+//     return result;
+// }
+// console.log(subsets([1, 2, 3]));
+
+// function permute(nums) {
+//     let result = [];
     
-    function backtrack(start) {
-        if (start === nums.length) {
-            result.push([...nums]);
-            return;
-        }
-        for (let i= start; i < nums.length; i++) {
-            [nums[start], nums[i]] = [nums[i], nums[start]];
-            backtrack(start + 1);
+//     function backtrack(start) {
+//         if (start === nums.length) {
+//             result.push([...nums]);
+//             return;
+//         }
+//         for (let i= start; i < nums.length; i++) {
+//             [nums[start], nums[i]] = [nums[i], nums[start]];
+//             backtrack(start + 1);
 
-            [nums[start], nums[i]] = [nums[i], nums[start]];
-        }
-    }
-    backtrack(0);
-    return result;
-}
-console.log(permute([1, 2, 3]));
+//             [nums[start], nums[i]] = [nums[i], nums[start]];
+//         }
+//     }
+//     backtrack(0);
+//     return result;
+// }
+// console.log(permute([1, 2, 3]));
 
-function combination(candidates, target) {
-    let result = [];
+// function combination(candidates, target) {
+//     let result = [];
 
-    function backtrack(start, current, sum) {
-        if (sum === target) {
-            result.push([...current]);
-            return;
-        }
-        if (sum > target) {
-            return;
-        }
-        for (let i = start; i < candidates.length; i++) {
-            current.push(candidates[i]);
-            backtrack(
-                i, 
-                current,
-                sum + candidates[i]
-            );
-            current.pop();
-        }
-    }
-    backtrack(0, [], 0);
-    return result;
-}
-console.log(combination([2,3,6,7], 7));
+//     function backtrack(start, current, sum) {
+//         if (sum === target) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (sum > target) {
+//             return;
+//         }
+//         for (let i = start; i < candidates.length; i++) {
+//             current.push(candidates[i]);
+//             backtrack(
+//                 i, 
+//                 current,
+//                 sum + candidates[i]
+//             );
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, [], 0);
+//     return result;
+// }
+// console.log(combination([2,3,6,7], 7));
 
 
 

@@ -1,7 +1,7 @@
 import { TablePropertiesIcon } from 'lucide-react'
 import{ motion } from 'motion/react'
 import { div } from 'motion/react-client'
-
+ 
 const Animated = ({
     children,
     delay = 0,
