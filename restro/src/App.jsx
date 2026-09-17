@@ -5,6 +5,7 @@ import About from './section/about'
 import Stats from './section/stats'
 import Dishes from './section/dishes'
 import Features from './section/features'
+import Bookingprocess from './section/bookingprocess'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Stats />
       <Dishes />
       <Features />
+      <Bookingprocess />
     </>
   )
 }
