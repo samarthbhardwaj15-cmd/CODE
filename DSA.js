@@ -1,87 +1,71 @@
-function findPeakElement(nums) {
-    let left = 0;
-    let right = nums.length - 1;
-
-    while (left < right) {
-        let mid = Math.floor((left + right) / 2);
-
-        if (nums[mid] > nums[mid + 1]) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
+var sortList = function(head) {
+    if (head === null || head.next === null) {
+        return head;
     }
-    return left;
+    let slow = head;
+    let fast = head.next;
+
+while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
 }
-console.log(findPeakElement([1,2,3,1]));
-console.log(findPeakElement([1,2,1,3,5,6,4]));
+let right = slow.next;
+slow.next = null;
 
-function mysqrt(x) {
-    if (x < 2) {
-        return x;
-    }
-    let left = 1;
-    let right = x;
-    let answer = 0;
+let left = sortList(head);
+right = sortList(right);
 
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
+return merge(left, right);
+};
 
-        if (mid <= Math.floor(x / mid)) {
-            answer = mid;
-            left = mid + 1;
+function merge(left,right){
+    let dummy = new ListNode(0);
+    let current = dummy;
+
+    while (left !== null && right !== null) {
+        if (left.val <= right.val) {
+            current.next = left;
+            left = left.next;
         } else {
-            right = mid - 1;
+            current.next = right;
+            right = right.next;
         }
+        current = current.next;
     }
-    return answer;
-}
-console.log(mySqrt(4));
-console.log(mySqrt(8));
-console.log(mySqrt(16));
-
-function findMin(nums) {
-    let left = 0;
-    let right = nums.length - 1;
-
-    while (left < right) {
-        let mid = Math.floor((left + right) / 2);
-
-        if (nums[mid] > nums[right]) {
-            left = mid + 1;
-        } else {
-            right = mid;
-        }
+    if (left !== null) {
+        current.next = left;
+    } else {
+        current.next = right;
     }
-    return nums[left];
+    return dummy.next;
 }
-console.log(findMin([4,5,6,7,0,1,2]));
-console.log(findmin({3,4,5,1,2}));
 
-function binarySearch(nums, target) {
-    let left = 0;
-    let right = nums.length - 1;
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
 
-    while (left <= right) {
-        let mid = Math.floor((left + right) / 2);
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
 
-        if (nums[mid] === target) {
-            return mid;
-        }
-        if (nums[mid] < target) {
-            left = mid + 1;
-        } else {
-            right = mid - 1;
-        }
-    }
-    return -1;
-}
-console.log(binarySearch([1, 3, 5, 7, 9], 7));
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1,2,3,1]));
+// console.log(findPeakElement([1,2,1,3,5,6,4]));
 
-
-
-
-
+// function mysqrt(x) {
+//     if (x < 2) {
+//         return x;
+//     }
+//     let left = 1;
+//     let right = x;
+//     let answer = 0;
+// 
 
 // function binarySearch(nums, target) {
 //     let left = 0;

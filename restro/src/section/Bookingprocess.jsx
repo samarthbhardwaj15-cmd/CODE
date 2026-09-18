@@ -1,5 +1,5 @@
 import Animated from '../components/Animated'
-import { bookingTestimonial, bookingSteps }  from '../data/data'
+import { bookingSteps, bookingTestimonial }  from '../data/data'
 import { Star } from "lucide-react";
 
 const Bookingprocess = () => {
@@ -29,7 +29,7 @@ const Bookingprocess = () => {
                     </p>
                 </Animated>    
                 <Animated classname="flex items-center justify-center md:justify-start gap-3">
-                    <img src={bookingTestimonial.authorimg} alt={bookingTestimonial.authorName} className='size-12 rounded-full object-cover'/>
+                    <img src={bookingTestimonial.authorImg} alt={bookingTestimonial.authorName} className='size-12 rounded-full object-cover'/>
                     <span className='text-lg'>
                         {bookingTestimonial.authorName}
                     </span>
@@ -37,12 +37,12 @@ const Bookingprocess = () => {
             </div>
             {/* Right Side */}
             <div className='space-y-14 text-left'>
-                {bookingSteps.amp((Step, index)=>(
+                {bookingSteps.map((step, index)=>(
                     <Animated key={index} y={150} delay={index * 0.15} className="flex items-start gap-9">
-                        <span className='text-orange-500 font-medium text-lg shrink-0'>{steps.number}</span>
+                        <span className='text-orange-500 font-medium text-lg shrink-0'>{step.number}</span>
                         <div className='flex flex-col'>
-                            <h3 className='text-xl mb-5'>{steps.title}</h3>
-                            <p className='text-zinc-600'>{steps.description}</p>
+                            <h3 className='text-xl mb-5'>{step.title}</h3>
+                            <p className='text-zinc-600'>{step.description}</p>
                         </div>
                     </Animated>
                 ))}

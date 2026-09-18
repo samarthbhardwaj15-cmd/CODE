@@ -110,7 +110,7 @@ export const bookingTestimonial = {
     authorImg: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&h=200&auto=format&fit=crop"
 };
 
-export const timingData = [
+export const timing = [
     { day: "Monday", hours: "10 AM - 09 PM" },
     { day: "Tuesday", hours: "11 AM - 10 PM" },
     { day: "Wednesday", hours: "10 AM - 09 PM" },
