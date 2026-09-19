@@ -1,3 +1,22 @@
+var insertionSortList = function(head) {
+    let dummy = new ListNode(0);
+    let current = head;
+
+    while (current !== null) {
+        let next = current.next;
+        let prev = dummy;
+
+        while (prev.next !== null && prev.next.val < current.val) {
+            prev = prev.next;
+        }
+        current.next = prev.next;
+        prev.next = current;
+
+        current = next;
+    }
+    return dummy.next;
+};
+ 
 var sortList = function(head) {
     if (head === null || head.next === null) {
         return head;
@@ -5,24 +24,23 @@ var sortList = function(head) {
     let slow = head;
     let fast = head.next;
 
-while (fast !== null && fast.next !== null) {
-    slow = slow.next;
-    fast = fast.next.next;
-}
-let right = slow.next;
-slow.next = null;
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    let right = slow.next;
+    slow.next = null;
 
-let left = sortList(head);
-right = sortList(right);
+    let left = sortList(head);
+    right = sortList(right);
 
-return merge(left, right);
+    return merge(left, right);
 };
+function merge(left, right) {
+    let dummy  = new ListNode(0);
+    let current  = dummy;
 
-function merge(left,right){
-    let dummy = new ListNode(0);
-    let current = dummy;
-
-    while (left !== null && right !== null) {
+    while (left !== null & right !== null) {
         if (left.val <= right.val) {
             current.next = left;
             left = left.next;
@@ -30,15 +48,56 @@ function merge(left,right){
             current.next = right;
             right = right.next;
         }
-        current = current.next;
+        current = current.next
     }
     if (left !== null) {
-        current.next = left;
+        current.next = left;   
     } else {
         current.next = right;
     }
     return dummy.next;
 }
+// var sortList = function(head) {
+//     if (head === null || head.next === null) {
+//         return head;
+//     }
+//     let slow = head;
+//     let fast = head.next;
+
+// while (fast !== null && fast.next !== null) {
+//     slow = slow.next;
+//     fast = fast.next.next;
+// }
+// let right = slow.next;
+// slow.next = null;
+
+// let left = sortList(head);
+// right = sortList(right);
+
+// return merge(left, right);
+// };
+
+// function merge(left,right){
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+
+//     while (left !== null && right !== null) {
+//         if (left.val <= right.val) {
+//             current.next = left;
+//             left = left.next;
+//         } else {
+//             current.next = right;
+//             right = right.next;
+//         }
+//         current = current.next;
+//     }
+//     if (left !== null) {
+//         current.next = left;
+//     } else {
+//         current.next = right;
+//     }
+//     return dummy.next;
+// }
 
 // function findPeakElement(nums) {
 //     let left = 0;
