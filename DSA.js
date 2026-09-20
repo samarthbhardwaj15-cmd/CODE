@@ -1,62 +1,92 @@
-var insertionSortList = function(head) {
-    let dummy = new ListNode(0);
-    let current = head;
-
-    while (current !== null) {
-        let next = current.next;
-        let prev = dummy;
-
-        while (prev.next !== null && prev.next.val < current.val) {
-            prev = prev.next;
-        }
-        current.next = prev.next;
-        prev.next = current;
-
-        current = next;
-    }
-    return dummy.next;
-};
- 
-var sortList = function(head) {
-    if (head === null || head.next === null) {
+var reverseBetween = function(head, left, right) {
+    if (head === null || left === right) {
         return head;
     }
-    let slow = head;
-    let fast = head.next;
+    let dummy = new ListNode(0);
+    dummy.next = head;
 
-    while (fast !== null && fast.next !== null) {
-        slow = slow.next;
-        fast = fast.next.next;
+    let prev = dummy;
+
+    for (let i = 1; i < left; i++) {
+        prev = prev.next;
     }
-    let right = slow.next;
-    slow.next = null;
+    let current = prev.next;
 
-    let left = sortList(head);
-    right = sortList(right);
-
-    return merge(left, right);
-};
-function merge(left, right) {
-    let dummy  = new ListNode(0);
-    let current  = dummy;
-
-    while (left !== null & right !== null) {
-        if (left.val <= right.val) {
-            current.next = left;
-            left = left.next;
-        } else {
-            current.next = right;
-            right = right.next;
-        }
-        current = current.next
-    }
-    if (left !== null) {
-        current.next = left;   
-    } else {
-        current.next = right;
+    for (let i = 0; i < right - left; i++) {
+        let next = current.next;
+        current.next = next.next;
+        next.next = prev.next;
+        prev.next = next;
     }
     return dummy.next;
 }
+
+function sortBy(arr, fn){
+    return arr.sort((a,b) => fn(a) - fn(b));
+}
+    let arr = [5, 4, 1, 2, 3];
+    let result = sortBy(arr, (x) => x);
+
+console.log(result);
+// var insertionSortList = function(head) {
+//     let dummy = new ListNode(0);
+//     let current = head;
+
+//     while (current !== null) {
+//         let next = current.next;
+//         let prev = dummy;
+
+//         while (prev.next !== null && prev.next.val < current.val) {
+//             prev = prev.next;
+//         }
+//         current.next = prev.next;
+//         prev.next = current;
+
+//         current = next;
+//     }
+//     return dummy.next;
+// };
+ 
+// var sortList = function(head) {
+//     if (head === null || head.next === null) {
+//         return head;
+//     }
+//     let slow = head;
+//     let fast = head.next;
+
+//     while (fast !== null && fast.next !== null) {
+//         slow = slow.next;
+//         fast = fast.next.next;
+//     }
+//     let right = slow.next;
+//     slow.next = null;
+
+//     let left = sortList(head);
+//     right = sortList(right);
+
+//     return merge(left, right);
+// };
+// function merge(left, right) {
+//     let dummy  = new ListNode(0);
+//     let current  = dummy;
+
+//     while (left !== null & right !== null) {
+//         if (left.val <= right.val) {
+//             current.next = left;
+//             left = left.next;
+//         } else {
+//             current.next = right;
+//             right = right.next;
+//         }
+//         current = current.next
+//     }
+//     if (left !== null) {
+//         current.next = left;   
+//     } else {
+//         current.next = right;
+//     }
+//     return dummy.next;
+// }
 // var sortList = function(head) {
 //     if (head === null || head.next === null) {
 //         return head;
