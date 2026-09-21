@@ -1,33 +1,65 @@
-var reverseBetween = function(head, left, right) {
-    if (head === null || left === right) {
-        return head;
-    }
-    let dummy = new ListNode(0);
-    dummy.next = head;
-
-    let prev = dummy;
-
-    for (let i = 1; i < left; i++) {
-        prev = prev.next;
-    }
-    let current = prev.next;
-
-    for (let i = 0; i < right - left; i++) {
-        let next = current.next;
-        current.next = next.next;
-        next.next = prev.next;
-        prev.next = next;
-    }
-    return dummy.next;
-}
-
 function sortBy(arr, fn){
-    return arr.sort((a,b) => fn(a) - fn(b));
+    return arr.sort((a,b)=> fn(a)-fn(b));
 }
-    let arr = [5, 4, 1, 2, 3];
-    let result = sortBy(arr, (x) => x);
+let arr = [5, 4, 1, 3, 2];
+let result = sortBy(arr, (x) => x);
 
 console.log(result);
+
+function combinationSum(candidate, target) {
+    let result = [];
+
+    function backtrack(start, current, sum){
+        if (sum === target) {
+            result.push([...current]);
+            return;
+        }
+        if (sum > target) {
+            return;
+        }
+        for (let i = start; i < candidate.length; i++) {
+            current.push(candidate[i]);
+
+            backtrack(i, current, sum + candidate[i]);
+            current.pop();
+        }
+    }
+    backtrack(0, [], 0);
+    return result;
+}
+console.log(combinationSum([2, 3, 6, 7], 7));
+
+// var reverseBetween = function(head, left, right) {
+//     if (head === null || left === right) {
+//         return head;
+//     }
+//     let dummy = new ListNode(0);
+//     dummy.next = head;
+
+//     let prev = dummy;
+
+//     for (let i = 1; i < left; i++) {
+//         prev = prev.next;
+//     }
+//     let current = prev.next;
+
+//     for (let i = 0; i < right - left; i++) {
+//         let next = current.next;
+//         current.next = next.next;
+//         next.next = prev.next;
+//         prev.next = next;
+//     }
+//     return dummy.next;
+// }
+
+// function sortBy(arr, fn){
+//     return arr.sort((a,b) => fn(a) - fn(b));
+// }
+//     let arr = [5, 4, 1, 2, 3];
+//     let result = sortBy(arr, (x) => x);
+
+// console.log(result);
+
 // var insertionSortList = function(head) {
 //     let dummy = new ListNode(0);
 //     let current = head;
