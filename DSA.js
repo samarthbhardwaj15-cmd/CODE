@@ -1,33 +1,50 @@
-function sortBy(arr, fn){
-    return arr.sort((a,b)=> fn(a)-fn(b));
-}
-let arr = [5, 4, 1, 3, 2];
-let result = sortBy(arr, (x) => x);
+function addTwoNumbers(l1, l2) {
+    let dummy = new ListNode(0);
+    let current = dummy;
+    let carry = 0;
+    
+    while (l1 !== null || l2 !== null || carry != 0) {
+        let x = l1 !== null ? l1.val : 0;
+        let y = l2 !== null ? l2.val : 0; 
 
-console.log(result);
+        let sum =  x + y + carry;
+        carry = Math.floor(sum / 10);
 
-function combinationSum(candidate, target) {
-    let result = [];
+        current.next = new ListNode(sum % 10);
+        current = current.next;
 
-    function backtrack(start, current, sum){
-        if (sum === target) {
-            result.push([...current]);
-            return;
+        if (l1 !== null) {
+            l1 = l1.next;
         }
-        if (sum > target) {
-            return;
-        }
-        for (let i = start; i < candidate.length; i++) {
-            current.push(candidate[i]);
-
-            backtrack(i, current, sum + candidate[i]);
-            current.pop();
+        if (l2 !== null) {
+            l2 = l2.next;
         }
     }
-    backtrack(0, [], 0);
-    return result;
+    return dummy.next;
+
 }
-console.log(combinationSum([2, 3, 6, 7], 7));
+// function combinationSum(candidate, target) {
+//     let result = [];
+
+//     function backtrack(start, current, sum){
+//         if (sum === target) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (sum > target) {
+//             return;
+//         }
+//         for (let i = start; i < candidate.length; i++) {
+//             current.push(candidate[i]);
+
+//             backtrack(i, current, sum + candidate[i]);
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, [], 0);
+//     return result;
+// }
+// console.log(combinationSum([2, 3, 6, 7], 7));
 
 // var reverseBetween = function(head, left, right) {
 //     if (head === null || left === right) {
