@@ -1,51 +1,124 @@
-function addTwoNumbers(l1, l2) {
-    let dummy = new ListNode(0);
-    let current = dummy;
-    let carry = 0;
-    
-    while (l1 !== null || l2 !== null || carry != 0) {
-        let x = l1 !== null ? l1.val : 0;
-        let y = l2 !== null ? l2.val : 0; 
+function findMinMax(arr) {
+    let min = arr[0];
+    let max = arr[0];
 
-        let sum =  x + y + carry;
-        carry = Math.floor(sum / 10);
-
-        current.next = new ListNode(sum % 10);
-        current = current.next;
-
-        if (l1 !== null) {
-            l1 = l1.next;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
         }
-        if (l2 !== null) {
-            l2 = l2.next;
+        if (arr[i] > max) {
+            max = arr[i];
         }
     }
-    return dummy.next;
-
-    let dummy = new ListNode(0);
-    let current = dummy;
-    let carry = 0;
-    
-    while (l1 !== null || l2 !== null || carry != 0) {
-        let x = l1 !== null ? l1.val : 0;
-        let y = l2 !== null ? l2.val : 0; 
-
-        let sum =  x + y + carry;
-        carry = Math.floor(sum / 10);
-
-        current.next = new ListNode(sum % 10);
-        current = current.next;
-
-        if (l1 !== null) {
-            l1 = l1.next;
-        }
-        if (l2 !== null) {
-            l2 = l2.next;
-        }
-    }
-    return dummy.next;
-
+    return { min, max };
 }
+console.log(findMinMax([10, 5, 20, 8, 15]));
+
+function secondLargest(arr) {
+    let largest = -Infinity;
+    let second = -Infinity;
+
+    for (let num of arr) {
+        if (num > largest) {
+            second = largest;
+            largest = num;
+        } else if (num > second && num !== largest) {
+            second = num;
+        }
+    }
+    return second;
+}
+console.log(secondLargest([10, 5, 20, 8, 20, 15]));
+
+function reverseArray(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+
+        left++;
+        right--;
+    }
+    return arr;
+}
+console.log(reverseArray([1, 2, 3, 4, 5]));
+
+function removeDuplicates(arr) {
+    if (arr.length === 0) return [];
+
+    let index = 1;
+
+    for (let i =1; i < arr.length; i++) {
+        if (arr[i] !== arr[i - 1]) {
+            arr[index] = arr[i];
+            index++;
+        }
+    }
+    return arr.slice(0, index);
+}
+console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4]));
+
+function missingNumber(arr) {
+    let n = arr.length + 1;
+    let expectedSum = n * (n + 1) / 2;
+    let actualSum = 0;
+
+    for (let num of arr) {
+        actualSum += num;
+    }
+    return expectedSum - actualSum;
+}
+console.log(missingNumber([1, 2, 3, 5]));
+
+// function addTwoNumbers(l1, l2) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     let carry = 0;
+    
+//     while (l1 !== null || l2 !== null || carry != 0) {
+//         let x = l1 !== null ? l1.val : 0;
+//         let y = l2 !== null ? l2.val : 0; 
+
+//         let sum =  x + y + carry;
+//         carry = Math.floor(sum / 10);
+
+//         current.next = new ListNode(sum % 10);
+//         current = current.next;
+
+//         if (l1 !== null) {
+//             l1 = l1.next;
+//         }
+//         if (l2 !== null) {
+//             l2 = l2.next;
+//         }
+//     }
+//     return dummy.next;
+
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     let carry = 0;
+    
+//     while (l1 !== null || l2 !== null || carry != 0) {
+//         let x = l1 !== null ? l1.val : 0;
+//         let y = l2 !== null ? l2.val : 0; 
+
+//         let sum =  x + y + carry;
+//         carry = Math.floor(sum / 10);
+
+//         current.next = new ListNode(sum % 10);
+//         current = current.next;
+
+//         if (l1 !== null) {
+//             l1 = l1.next;
+//         }
+//         if (l2 !== null) {
+//             l2 = l2.next;
+//         }
+//     }
+//     return dummy.next;
+
+// }
 // function combinationSum(candidate, target) {
 //     let result = [];
 
