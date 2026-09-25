@@ -1,75 +1,143 @@
-function findMinMax(arr) {
-    let min = arr[0];
-    let max = arr[0];
+function rotateArray(arr, k) {
+    let n = arr.length;
 
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] < min) {
-            min = arr[i];
-        }
-        if (arr[i] > max) {
-            max = arr[i];
-        }
-    }
-    return { min, max };
+    k = k % n;
+
+    reverse(arr, 0, n - 1);
+    reverse(arr, 0, k - 1);
+    reverse(arr, k, n - 1);
+
+    return arr;
 }
-console.log(findMinMax([10, 5, 20, 8, 15]));
-
-function secondLargest(arr) {
-    let largest = -Infinity;
-    let second = -Infinity;
-
-    for (let num of arr) {
-        if (num > largest) {
-            second = largest;
-            largest = num;
-        } else if (num > second && num !== largest) {
-            second = num;
-        }
-    }
-    return second;
-}
-console.log(secondLargest([10, 5, 20, 8, 20, 15]));
-
-function reverseArray(arr) {
-    let left = 0;
-    let right = arr.length - 1;
-
+function reverse(arr, left, right) {
     while (left < right) {
         [arr[left], arr[right]] = [arr[right], arr[left]];
 
         left++;
         right--;
     }
-    return arr;
 }
-console.log(reverseArray([1, 2, 3, 4, 5]));
+console.log(rotateArray([1, 2, 3, 4, 5], 2));
 
-function removeDuplicates(arr) {
-    if (arr.length === 0) return [];
+function maxSubarraySum(arr) {
+    let currentSum = arr[0];
+    let maxSum = arr[0];
 
-    let index = 1;
+    for (let i = 1; i < arr.length; i++) {
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
 
-    for (let i =1; i < arr.length; i++) {
-        if (arr[i] !== arr[i - 1]) {
-            arr[index] = arr[i];
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, -1, -5, 4]));
+
+function twoSum(arr, target) {
+    let map = new Map();
+
+    for (let i = 0; i < arr.length; i++) {
+        let complement = target - arr[i];
+
+        if (map.has(complement)) {
+            return [map.get(complement), i];
+        }
+        map.set(arr[i], i);
+    }
+    return [];
+}
+console.log(twoSum([2, 7, 11, 15], 9));
+
+function movezeros(arr) {
+    let index = 0;
+     for (let num of arr) {
+        if (num !== 0) {
+            arr[index] = num;
             index++;
         }
-    }
-    return arr.slice(0, index);
+     }
+     while (index < arr.length) {
+        arr[index] = 0;
+        index++;
+     }
+     return arr;
 }
-console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4]));
+console.log(movezeros([0, 1, 0, 3, 12]));
 
-function missingNumber(arr) {
-    let n = arr.length + 1;
-    let expectedSum = n * (n + 1) / 2;
-    let actualSum = 0;
 
-    for (let num of arr) {
-        actualSum += num;
-    }
-    return expectedSum - actualSum;
-}
-console.log(missingNumber([1, 2, 3, 5]));
+
+
+// function findMinMax(arr) {
+//     let min = arr[0];
+//     let max = arr[0];
+
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i] < min) {
+//             min = arr[i];
+//         }
+//         if (arr[i] > max) {
+//             max = arr[i];
+//         }
+//     }
+//     return { min, max };
+// }
+// console.log(findMinMax([10, 5, 20, 8, 15]));
+
+// function secondLargest(arr) {
+//     let largest = -Infinity;
+//     let second = -Infinity;
+
+//     for (let num of arr) {
+//         if (num > largest) {
+//             second = largest;
+//             largest = num;
+//         } else if (num > second && num !== largest) {
+//             second = num;
+//         }
+//     }
+//     return second;
+// }
+// console.log(secondLargest([10, 5, 20, 8, 20, 15]));
+
+// function reverseArray(arr) {
+//     let left = 0;
+//     let right = arr.length - 1;
+
+//     while (left < right) {
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return arr;
+// }
+// console.log(reverseArray([1, 2, 3, 4, 5]));
+
+// function removeDuplicates(arr) {
+//     if (arr.length === 0) return [];
+
+//     let index = 1;
+
+//     for (let i =1; i < arr.length; i++) {
+//         if (arr[i] !== arr[i - 1]) {
+//             arr[index] = arr[i];
+//             index++;
+//         }
+//     }
+//     return arr.slice(0, index);
+// }
+// console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4]));
+
+// function missingNumber(arr) {
+//     let n = arr.length + 1;
+//     let expectedSum = n * (n + 1) / 2;
+//     let actualSum = 0;
+
+//     for (let num of arr) {
+//         actualSum += num;
+//     }
+//     return expectedSum - actualSum;
+// }
+// console.log(missingNumber([1, 2, 3, 5]));
 
 // function addTwoNumbers(l1, l2) {
 //     let dummy = new ListNode(0);
