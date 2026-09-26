@@ -1,67 +1,131 @@
-function rotateArray(arr, k) {
-    let n = arr.length;
-
-    k = k % n;
-
-    reverse(arr, 0, n - 1);
-    reverse(arr, 0, k - 1);
-    reverse(arr, k, n - 1);
-
-    return arr;
+function revrerseString(str) {
+    return str.split("").reverse().join("");
 }
-function reverse(arr, left, right) {
-    while (left < right) {
-        [arr[left], arr[right]] = [arr[right], arr[left]];
+console.log(revrerseString("hello"));
 
-        left++;
-        right--;
+function reverseString(str) {
+    let result = "";
+
+    for(let i = str.length - 1; i >= 0; i--) {
+        result += str[i];
     }
+    return result;
 }
-console.log(rotateArray([1, 2, 3, 4, 5], 2));
+console.log(reverseString("hello"));
 
-function maxSubarraySum(arr) {
-    let currentSum = arr[0];
-    let maxSum = arr[0];
 
-    for (let i = 1; i < arr.length; i++) {
-        currentSum = Math.max(arr[i], currentSum + arr[i]);
-
-        maxSum = Math.max(maxSum, currentSum);
+function areAnagrams(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
     }
-    return maxSum;
-}
-console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, -1, -5, 4]));
+    let count = {};
 
-function twoSum(arr, target) {
-    let map = new Map();
-
-    for (let i = 0; i < arr.length; i++) {
-        let complement = target - arr[i];
-
-        if (map.has(complement)) {
-            return [map.get(complement), i];
+    for (let char of str1) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    for (let char of str2) {
+        if (!count[char]) {
+            return false;
         }
-        map.set(arr[i], i);
+        count[char]--;
     }
-    return [];
+    return true;
 }
-console.log(twoSum([2, 7, 11, 15], 9));
+console.log(areAnagrams("listen", "silent"));
+console.log(areAnagrams("hello", "world"));
 
-function movezeros(arr) {
-    let index = 0;
-     for (let num of arr) {
-        if (num !== 0) {
-            arr[index] = num;
-            index++;
+function firstNonrepating(str) {
+    let count = {};
+
+    for (let char of str) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    for (let char of str) {
+        if (count[char] === 1) {
+            return char;
         }
-     }
-     while (index < arr.length) {
-        arr[index] = 0;
-        index++;
-     }
-     return arr;
+    }
+    return null;
 }
-console.log(movezeros([0, 1, 0, 3, 12]));
+console.log(firstNonrepating("aabbcde"));
+
+function characterFrequency(str) {
+    let count = {};
+
+    for (let char of str) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    return count;
+}
+console.log(characterFrequency('hello'));
+
+
+
+
+// function rotateArray(arr, k) {
+//     let n = arr.length;
+
+//     k = k % n;
+
+//     reverse(arr, 0, n - 1);
+//     reverse(arr, 0, k - 1);
+//     reverse(arr, k, n - 1);
+
+//     return arr;
+// }
+// function reverse(arr, left, right) {
+//     while (left < right) {
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
+
+//         left++;
+//         right--;
+//     }
+// }
+// console.log(rotateArray([1, 2, 3, 4, 5], 2));
+
+// function maxSubarraySum(arr) {
+//     let currentSum = arr[0];
+//     let maxSum = arr[0];
+
+//     for (let i = 1; i < arr.length; i++) {
+//         currentSum = Math.max(arr[i], currentSum + arr[i]);
+
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, -1, -5, 4]));
+
+// function twoSum(arr, target) {
+//     let map = new Map();
+
+//     for (let i = 0; i < arr.length; i++) {
+//         let complement = target - arr[i];
+
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(arr[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function movezeros(arr) {
+//     let index = 0;
+//      for (let num of arr) {
+//         if (num !== 0) {
+//             arr[index] = num;
+//             index++;
+//         }
+//      }
+//      while (index < arr.length) {
+//         arr[index] = 0;
+//         index++;
+//      }
+//      return arr;
+// }
+// console.log(movezeros([0, 1, 0, 3, 12]));
 
 
 
