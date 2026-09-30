@@ -1,3 +1,41 @@
+function firstNonrepating(str) {
+    let count = {};
+
+    for (let char of str) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    for (let char of str) {
+        if (count[char] === 1) {
+            return char;
+        }
+    }
+    return null;
+}
+console.log(firstNonrepating("aabbcde"));
+
+function characterFrequency(str) {
+    let count = {};
+
+    for (let char of str) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    return count;
+}
+console.log(characterFrequency('hello'));
+
+
+function rotateArray(arr, k) {
+    let n = arr.length;
+
+    k = k % n;
+
+    reverse(arr, 0, n - 1);
+    reverse(arr, 0, k - 1);
+    reverse(arr, k, n - 1);
+
+    return arr;
+}
+
 function revrerseString(str) {
     return str.split("").reverse().join("");
 }
