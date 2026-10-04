@@ -51,26 +51,79 @@ function reverseString(str) {
 }
 console.log(reverseString("hello"));
 
+// function firstNonrepating(str) {
+//     let count = {};
 
-function areAnagrams(str1, str2) {
-    if (str1.length !== str2.length) {
-        return false;
-    }
-    let count = {};
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
 
-    for (let char of str1) {
-        count[char] = (count[char] || 0) + 1;
-    }
-    for (let char of str2) {
-        if (!count[char]) {
-            return false;
-        }
-        count[char]--;
-    }
-    return true;
-}
-console.log(areAnagrams("listen", "silent"));
-console.log(areAnagrams("hello", "world"));
+// function characterFrequency(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+// }
+// console.log(characterFrequency('hello'));
+
+
+// function rotateArray(arr, k) {
+//     let n = arr.length;
+
+//     k = k % n;
+
+//     reverse(arr, 0, n - 1);
+//     reverse(arr, 0, k - 1);
+//     reverse(arr, k, n - 1);
+
+//     return arr;
+// }
+
+// function revrerseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(revrerseString("hello"));
+
+// function reverseString(str) {
+//     let result = "";
+
+//     for(let i = str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+// console.log(reverseString("hello"));
+
+
+// function areAnagrams(str1, str2) {
+//     if (str1.length !== str2.length) {
+//         return false;
+//     }
+//     let count = {};
+
+//     for (let char of str1) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str2) {
+//         if (!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// }
+// console.log(areAnagrams("listen", "silent"));
+// console.log(areAnagrams("hello", "world"));
 
 // function firstNonrepating(str) {
 //     let count = {};
