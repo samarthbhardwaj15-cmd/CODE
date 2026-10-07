@@ -1,41 +1,68 @@
-function firstNonrepating(str) {
-    let count = {};
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+console.log(reverseString("hello"));
 
-    for (let char of str) {
-        count[char] = (count[char] || 0) + 1;
+function reverseString(str) {
+    let result = "";
+
+    for (let i =str.length - 1; i >= 0; i--) {
+        result += str[i];
     }
-    for (let char of str) {
-        if (count[char] === 1) {
-            return char;
+    return result;
+}
+console.log(reverseString("hello"));
+
+function palindrome(str) {
+    let left = 0;
+    let right = str.length - 1;
+
+    while (left < right) {
+        if (str[left] !== str[right]) {
+            return false;
         }
+        left++;
+        right--;
     }
-    return null;
+    return true;
 }
-console.log(firstNonrepating("aabbcde"));
+console.log(palindrome("racecar"));
+console.log(palindrome("hello"));
 
-function characterFrequency(str) {
-    let count = {};
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
 
-    for (let char of str) {
-        count[char] = (count[char] || 0) + 1;
-    }
-    return count;
-}
-console.log(characterFrequency('hello'));
-function firstNonrepating(str) {
-    let count = {};
+// function characterFrequency(str) {
+//     let count = {};
 
-    for (let char of str) {
-        count[char] = (count[char] || 0) + 1;
-    }
-    for (let char of str) {
-        if (count[char] === 1) {
-            return char;
-        }
-    }
-    return null;
-}
-console.log(firstNonrepating("aabbcde"));
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+// }
+// console.log(characterFrequency('hello'));
+// function firstNonrepating(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
 
 // function characterFrequency(str) {
 //     let count = {};
