@@ -1,34 +1,63 @@
-
 function reverseString(str) {
-    return str.split("").reverse().join("");
+    return str.split("").reverseString().join("");
 }
 console.log(reverseString("hello"));
 
-function reverseString(str) {
+function reversestring(str) {
     let result = "";
 
     for (let i =str.length - 1; i >= 0; i--) {
         result += str[i];
     }
-    return result;
 }
-console.log(reverseString("hello"));
+console.log(reversestring("hello"));
 
-function palindrome(str) {
-    let left = 0;
-    let right = str.length - 1;
+function findDuplicates(str) {
+    let count = {};
+    let duplictaes = [];
 
-    while (left < right) {
-        if (str[left] !== str[right]) {
-            return false;
-        }
-        left++;
-        right--;
+    for (let char of str) {
+        count[char] = (count[char] || 0) + 1; 
     }
-    return true;
+    for (let char in count) {
+        if (count[char] > 1) {
+            duplictes.push(char);
+        }
+    }
+    return duplicates
 }
-console.log(palindrome("racecar"));
-console.log(palindrome("hello"));
+console.log(findDuplicates("programming"));
+
+// function reverseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(reverseString("hello"));
+
+// function reverseString(str) {
+//     let result = "";
+
+//     for (let i =str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+// console.log(reverseString("hello"));
+
+// function palindrome(str) {
+//     let left = 0;
+//     let right = str.length - 1;
+
+//     while (left < right) {
+//         if (str[left] !== str[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(palindrome("racecar"));
+// console.log(palindrome("hello"));
 
 //         count[char] = (count[char] || 0) + 1;
 //     }
