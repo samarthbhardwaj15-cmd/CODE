@@ -1,32 +1,72 @@
-function reverseString(str) {
-    return str.split("").reverseString().join("");
-}
-console.log(reverseString("hello"));
+function twoSum(nums, target) {
+    const map = new Map();
 
-function reversestring(str) {
-    let result = "";
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
 
-    for (let i =str.length - 1; i >= 0; i--) {
-        result += str[i];
+        if (map.has(complemment)) {
+            return [map.get(complement), i];
+        }
+        map.set(nums[i], i);
     }
+    return [];
 }
-console.log(reversestring("hello"));
+console.log(twoSum([2, 7, 11, 15], 9));
 
-function findDuplicates(str) {
-    let count = {};
-    let duplictaes = [];
+function reverseArray(arr) {
+    let left = 0;
+    let right = arr.length - 1;
 
-    for (let char of str) {
-        count[char] = (count[char] || 0) + 1; 
+    while (left < right)  {
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
     }
-    for (let char in count) {
-        if (count[char] > 1) {
-            duplictes.push(char);
+    return arr;
+}
+console.log(reversseArray([1, 2, 3, 4, 5]));
+
+function moveZeros(arr) {
+    let position = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== 0) {
+            [arr[position], arr[i]] = [arr[i], arr[position]];
+            position++;
         }
     }
-    return duplicates
+    return arr;
 }
-console.log(findDuplicates("programming"));
+console.log(moveZeros([0, 1, 0, 3, 12]));
+// function reverseString(str) {
+//     return str.split("").reverseString().join("");
+// }
+// console.log(reverseString("hello"));
+
+// function reversestring(str) {
+//     let result = "";
+
+//     for (let i =str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+// }
+// console.log(reversestring("hello"));
+
+// function findDuplicates(str) {
+//     let count = {};
+//     let duplictaes = [];
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1; 
+//     }
+//     for (let char in count) {
+//         if (count[char] > 1) {
+//             duplictes.push(char);
+//         }
+//     }
+//     return duplicates
+// }
+// console.log(findDuplicates("programming"));
 
 // function reverseString(str) {
 //     return str.split("").reverse().join("");
