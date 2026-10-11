@@ -1,33 +1,5 @@
-function twoSum(nums, target) {
-    const map = new Map();
-
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-
-        if (map.has(complemment)) {
-            return [map.get(complement), i];
-        }
-        map.set(nums[i], i);
-    }
-    return [];
-}
-console.log(twoSum([2, 7, 11, 15], 9));
-
-function reverseArray(arr) {
-    let left = 0;
-    let right = arr.length - 1;
-
-    while (left < right)  {
-        [arr[left], arr[right]] = [arr[right], arr[left]];
-        left++;
-        right--;
-    }
-    return arr;
-}
-console.log(reversseArray([1, 2, 3, 4, 5]));
-
-function moveZeros(arr) {
-    let position = 0;
+function movezeros(arr) {
+    let position  = 0;
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] !== 0) {
@@ -37,7 +9,70 @@ function moveZeros(arr) {
     }
     return arr;
 }
-console.log(moveZeros([0, 1, 0, 3, 12]));
+console.log(movezeros([0, 1, 0, 3, 12]));
+
+function maxSubarray(arr) {
+    let currentSum = arr[0];
+    let maxSum = arr[0];
+
+    for(let i = 1; i < arr.length; i++) {
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+function findMiddle(head) {
+    let slow = head;
+    let fast = head;
+
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;  
+}
+// function twoSum(nums, target) {
+//     const map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         const complement = target - nums[i];
+
+//         if (map.has(complemment)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function reverseArray(arr) {
+//     let left = 0;
+//     let right = arr.length - 1;
+
+//     while (left < right)  {
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
+//         left++;
+//         right--;
+//     }
+//     return arr;
+// }
+// console.log(reversseArray([1, 2, 3, 4, 5]));
+
+// function moveZeros(arr) {
+//     let position = 0;
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] !== 0) {
+//             [arr[position], arr[i]] = [arr[i], arr[position]];
+//             position++;
+//         }
+//     }
+//     return arr;
+// }
+// console.log(moveZeros([0, 1, 0, 3, 12]));
 // function reverseString(str) {
 //     return str.split("").reverseString().join("");
 // }
