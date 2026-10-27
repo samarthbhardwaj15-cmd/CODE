@@ -1,63 +1,93 @@
-function movezeros(arr) {
-    let position  = 0;
+var twoSum = function(nums, target) {
+    const map = new Map();
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== 0) {
-            [arr[position], arr[i]] = [arr[i], arr[position]];
-            position++;
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+
+        if (map.has(complement)) {
+            return [map.get(complement), i];
         }
+        map.set(nums[i], i);
     }
-    return arr;
 }
-console.log(movezeros([0, 1, 0, 3, 12]));
+nums = [2, 7, 11, 15];
+target = 9;
+console.log(twoSum(nums, target));
 
-function maxSubarray(arr) {
-    let currentSum = arr[0];
-    let maxSum = arr[0];
+var isPalindrome = function(x) {
+    if (x < 0) return false;
+     let original = x;
+     let reversed = 0;
 
-    for(let i = 1; i < arr.length; i++) {
-        currentSum = Math.max(arr[i], currentSum + arr[i]);
-        maxSum = Math.max(maxSum, currentSum);
-    }
-    return maxSum;
-}
-console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+     while (x > 0) {
+        let digit = x % 10
+        reversed = reversed * 10 + digit;
+        x = Math.floor(x / 10);
+     }
+     return original === reversed;
+};
+console.log(isPalindrome(121));  // true
+console.log(isPalindrome(-121)); // false
+// function movezeros(arr) {
+//     let position  = 0;
 
-function movezeros(arr) {
-    let position  = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] !== 0) {
+//             [arr[position], arr[i]] = [arr[i], arr[position]];
+//             position++;
+//         }
+//     }
+//     return arr;
+// }
+// console.log(movezeros([0, 1, 0, 3, 12]));
 
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !== 0) {
-            [arr[position], arr[i]] = [arr[i], arr[position]];
-            position++;
-        }
-    }
-    return arr;
-}
-console.log(movezeros([0, 1, 0, 3, 12]));
+// function maxSubarray(arr) {
+//     let currentSum = arr[0];
+//     let maxSum = arr[0];
 
-function maxSubarray(arr) {
-    let currentSum = arr[0];
-    let maxSum = arr[0];
+//     for(let i = 1; i < arr.length; i++) {
+//         currentSum = Math.max(arr[i], currentSum + arr[i]);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 
-    for(let i = 1; i < arr.length; i++) {
-        currentSum = Math.max(arr[i], currentSum + arr[i]);
-        maxSum = Math.max(maxSum, currentSum);
-    }
-    return maxSum;
-}
-console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+// function movezeros(arr) {
+//     let position  = 0;
 
-function findMiddle(head) {
-    let slow = head;
-    let fast = head;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] !== 0) {
+//             [arr[position], arr[i]] = [arr[i], arr[position]];
+//             position++;
+//         }
+//     }
+//     return arr;
+// }
+// console.log(movezeros([0, 1, 0, 3, 12]));
 
-    while (fast !== null && fast.next !== null) {
-        slow = slow.next;
-        fast = fast.next.next;
-    }
-    return slow;  
-}
+// function maxSubarray(arr) {
+//     let currentSum = arr[0];
+//     let maxSum = arr[0];
+
+//     for(let i = 1; i < arr.length; i++) {
+//         currentSum = Math.max(arr[i], currentSum + arr[i]);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// function findMiddle(head) {
+//     let slow = head;
+//     let fast = head;
+
+//     while (fast !== null && fast.next !== null) {
+//         slow = slow.next;
+//         fast = fast.next.next;
+//     }
+//     return slow;  
+// }
 // function twoSum(nums, target) {
 //     const map = new Map();
 

@@ -1,0 +1,3998 @@
+function movezeros(arr) {
+    let position  = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== 0) {
+            [arr[position], arr[i]] = [arr[i], arr[position]];
+            position++;
+        }
+    }
+    return arr;
+}
+console.log(movezeros([0, 1, 0, 3, 12]));
+
+function maxSubarray(arr) {
+    let currentSum = arr[0];
+    let maxSum = arr[0];
+
+    for(let i = 1; i < arr.length; i++) {
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+function movezeros(arr) {
+    let position  = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== 0) {
+            [arr[position], arr[i]] = [arr[i], arr[position]];
+            position++;
+        }
+    }
+    return arr;
+}
+console.log(movezeros([0, 1, 0, 3, 12]));
+
+function maxSubarray(arr) {
+    let currentSum = arr[0];
+    let maxSum = arr[0];
+
+    for(let i = 1; i < arr.length; i++) {
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
+        maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+}
+console.log(maxSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+function findMiddle(head) {
+    let slow = head;
+    let fast = head;
+
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return slow;  
+}
+// function twoSum(nums, target) {
+//     const map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         const complement = target - nums[i];
+
+//         if (map.has(complemment)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function reverseArray(arr) {
+//     let left = 0;
+//     let right = arr.length - 1;
+
+//     while (left < right)  {
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
+//         left++;
+//         right--;
+//     }
+//     return arr;
+// }
+// console.log(reversseArray([1, 2, 3, 4, 5]));
+
+// function moveZeros(arr) {
+//     let position = 0;
+
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] !== 0) {
+//             [arr[position], arr[i]] = [arr[i], arr[position]];
+//             position++;
+//         }
+//     }
+//     return arr;
+// }
+// console.log(moveZeros([0, 1, 0, 3, 12]));
+// function reverseString(str) {
+//     return str.split("").reverseString().join("");
+// }
+// console.log(reverseString("hello"));
+
+// function reversestring(str) {
+//     let result = "";
+
+//     for (let i =str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+// }
+// console.log(reversestring("hello"));
+
+// function findDuplicates(str) {
+//     let count = {};
+//     let duplictaes = [];
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1; 
+//     }
+//     for (let char in count) {
+//         if (count[char] > 1) {
+//             duplictes.push(char);
+//         }
+//     }
+//     return duplicates
+// }
+// console.log(findDuplicates("programming"));
+
+// function reverseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(reverseString("hello"));
+
+// function reverseString(str) {
+//     let result = "";
+
+//     for (let i =str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+// console.log(reverseString("hello"));
+
+// function palindrome(str) {
+//     let left = 0;
+//     let right = str.length - 1;
+
+//     while (left < right) {
+//         if (str[left] !== str[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(palindrome("racecar"));
+// console.log(palindrome("hello"));
+
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
+
+// function characterFrequency(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+// }
+// console.log(characterFrequency('hello'));
+// function firstNonrepating(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
+
+// function characterFrequency(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+// }
+// console.log(characterFrequency('hello'));
+
+
+// function rotateArray(arr, k) {
+//     let n = arr.length;
+
+//     k = k % n;
+
+//     reverse(arr, 0, n - 1);
+//     reverse(arr, 0, k - 1);
+//     reverse(arr, k, n - 1);
+
+//     return arr;
+// }
+
+// function revrerseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(revrerseString("hello"));
+
+// function reverseString(str) {
+//     let result = "";
+
+//     for(let i = str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+// console.log(reverseString("hello"));
+
+// function firstNonrepating(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
+
+// function characterFrequency(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+// }
+// console.log(characterFrequency('hello'));
+
+
+// function rotateArray(arr, k) {
+//     let n = arr.length;
+
+//     k = k % n;
+
+//     reverse(arr, 0, n - 1);
+//     reverse(arr, 0, k - 1);
+//     reverse(arr, k, n - 1);
+
+//     return arr;
+// }
+
+// function revrerseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(revrerseString("hello"));
+
+// function reverseString(str) {
+//     let result = "";
+
+//     for(let i = str.length - 1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+// console.log(reverseString("hello"));
+
+
+// function areAnagrams(str1, str2) {
+//     if (str1.length !== str2.length) {
+//         return false;
+//     }
+//     let count = {};
+
+//     for (let char of str1) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str2) {
+//         if (!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// }
+// console.log(areAnagrams("listen", "silent"));
+// console.log(areAnagrams("hello", "world"));
+
+// function firstNonrepating(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of str) {
+//         if (count[char] === 1) {
+//             return char;
+//         }
+//     }
+//     return null;
+// }
+// console.log(firstNonrepating("aabbcde"));
+
+// function characterFrequency(str) {
+//     let count = {};
+
+//     for (let char of str) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     return count;
+// }
+// console.log(characterFrequency('hello'));
+
+
+// function rotateArray(arr, k) {
+//     let n = arr.length;
+
+//     k = k % n;
+
+//     reverse(arr, 0, n - 1);
+//     reverse(arr, 0, k - 1);
+//     reverse(arr, k, n - 1);
+
+//     return arr;
+// }
+// function reverse(arr, left, right) {
+//     while (left < right) {
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
+
+//         left++;
+//         right--;
+//     }
+// }
+// console.log(rotateArray([1, 2, 3, 4, 5], 2));
+
+// function maxSubarraySum(arr) {
+//     let currentSum = arr[0];
+//     let maxSum = arr[0];
+
+//     for (let i = 1; i < arr.length; i++) {
+//         currentSum = Math.max(arr[i], currentSum + arr[i]);
+
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubarraySum([-2, 1, -3, 4, -1, 2, -1, -5, 4]));
+
+// function twoSum(arr, target) {
+//     let map = new Map();
+
+//     for (let i = 0; i < arr.length; i++) {
+//         let complement = target - arr[i];
+
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(arr[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function movezeros(arr) {
+//     let index = 0;
+//      for (let num of arr) {
+//         if (num !== 0) {
+//             arr[index] = num;
+//             index++;
+//         }
+//      }
+//      while (index < arr.length) {
+//         arr[index] = 0;
+//         index++;
+//      }
+//      return arr;
+// }
+// console.log(movezeros([0, 1, 0, 3, 12]));
+
+
+
+
+// function findMinMax(arr) {
+//     let min = arr[0];
+//     let max = arr[0];
+
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i] < min) {
+//             min = arr[i];
+//         }
+//         if (arr[i] > max) {
+//             max = arr[i];
+//         }
+//     }
+//     return { min, max };
+// }
+// console.log(findMinMax([10, 5, 20, 8, 15]));
+
+// function secondLargest(arr) {
+//     let largest = -Infinity;
+//     let second = -Infinity;
+
+//     for (let num of arr) {
+//         if (num > largest) {
+//             second = largest;
+//             largest = num;
+//         } else if (num > second && num !== largest) {
+//             second = num;
+//         }
+//     }
+//     return second;
+// }
+// console.log(secondLargest([10, 5, 20, 8, 20, 15]));
+
+// function reverseArray(arr) {
+//     let left = 0;
+//     let right = arr.length - 1;
+
+//     while (left < right) {
+//         [arr[left], arr[right]] = [arr[right], arr[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return arr;
+// }
+// console.log(reverseArray([1, 2, 3, 4, 5]));
+
+// function removeDuplicates(arr) {
+//     if (arr.length === 0) return [];
+
+//     let index = 1;
+
+//     for (let i =1; i < arr.length; i++) {
+//         if (arr[i] !== arr[i - 1]) {
+//             arr[index] = arr[i];
+//             index++;
+//         }
+//     }
+//     return arr.slice(0, index);
+// }
+// console.log(removeDuplicates([1, 1, 2, 2, 3, 4, 4]));
+
+// function missingNumber(arr) {
+//     let n = arr.length + 1;
+//     let expectedSum = n * (n + 1) / 2;
+//     let actualSum = 0;
+
+//     for (let num of arr) {
+//         actualSum += num;
+//     }
+//     return expectedSum - actualSum;
+// }
+// console.log(missingNumber([1, 2, 3, 5]));
+
+// function addTwoNumbers(l1, l2) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     let carry = 0;
+    
+//     while (l1 !== null || l2 !== null || carry != 0) {
+//         let x = l1 !== null ? l1.val : 0;
+//         let y = l2 !== null ? l2.val : 0; 
+
+//         let sum =  x + y + carry;
+//         carry = Math.floor(sum / 10);
+
+//         current.next = new ListNode(sum % 10);
+//         current = current.next;
+
+//         if (l1 !== null) {
+//             l1 = l1.next;
+//         }
+//         if (l2 !== null) {
+//             l2 = l2.next;
+//         }
+//     }
+//     return dummy.next;
+
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+//     let carry = 0;
+    
+//     while (l1 !== null || l2 !== null || carry != 0) {
+//         let x = l1 !== null ? l1.val : 0;
+//         let y = l2 !== null ? l2.val : 0; 
+
+//         let sum =  x + y + carry;
+//         carry = Math.floor(sum / 10);
+
+//         current.next = new ListNode(sum % 10);
+//         current = current.next;
+
+//         if (l1 !== null) {
+//             l1 = l1.next;
+//         }
+//         if (l2 !== null) {
+//             l2 = l2.next;
+//         }
+//     }
+//     return dummy.next;
+
+// }
+// function combinationSum(candidate, target) {
+//     let result = [];
+
+//     function backtrack(start, current, sum){
+//         if (sum === target) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (sum > target) {
+//             return;
+//         }
+//         for (let i = start; i < candidate.length; i++) {
+//             current.push(candidate[i]);
+
+//             backtrack(i, current, sum + candidate[i]);
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, [], 0);
+//     return result;
+// }
+// console.log(combinationSum([2, 3, 6, 7], 7));
+
+// var reverseBetween = function(head, left, right) {
+//     if (head === null || left === right) {
+//         return head;
+//     }
+//     let dummy = new ListNode(0);
+//     dummy.next = head;
+
+//     let prev = dummy;
+
+//     for (let i = 1; i < left; i++) {
+//         prev = prev.next;
+//     }
+//     let current = prev.next;
+
+//     for (let i = 0; i < right - left; i++) {
+//         let next = current.next;
+//         current.next = next.next;
+//         next.next = prev.next;
+//         prev.next = next;
+//     }
+//     return dummy.next;
+// }
+
+// function sortBy(arr, fn){
+//     return arr.sort((a,b) => fn(a) - fn(b));
+// }
+//     let arr = [5, 4, 1, 2, 3];
+//     let result = sortBy(arr, (x) => x);
+
+// console.log(result);
+
+// var insertionSortList = function(head) {
+//     let dummy = new ListNode(0);
+//     let current = head;
+
+//     while (current !== null) {
+//         let next = current.next;
+//         let prev = dummy;
+
+//         while (prev.next !== null && prev.next.val < current.val) {
+//             prev = prev.next;
+//         }
+//         current.next = prev.next;
+//         prev.next = current;
+
+//         current = next;
+//     }
+//     return dummy.next;
+// };
+ 
+// var sortList = function(head) {
+//     if (head === null || head.next === null) {
+//         return head;
+//     }
+//     let slow = head;
+//     let fast = head.next;
+
+//     while (fast !== null && fast.next !== null) {
+//         slow = slow.next;
+//         fast = fast.next.next;
+//     }
+//     let right = slow.next;
+//     slow.next = null;
+
+//     let left = sortList(head);
+//     right = sortList(right);
+
+//     return merge(left, right);
+// };
+// function merge(left, right) {
+//     let dummy  = new ListNode(0);
+//     let current  = dummy;
+
+//     while (left !== null & right !== null) {
+//         if (left.val <= right.val) {
+//             current.next = left;
+//             left = left.next;
+//         } else {
+//             current.next = right;
+//             right = right.next;
+//         }
+//         current = current.next
+//     }
+//     if (left !== null) {
+//         current.next = left;   
+//     } else {
+//         current.next = right;
+//     }
+//     return dummy.next;
+// }
+// var sortList = function(head) {
+//     if (head === null || head.next === null) {
+//         return head;
+//     }
+//     let slow = head;
+//     let fast = head.next;
+
+// while (fast !== null && fast.next !== null) {
+//     slow = slow.next;
+//     fast = fast.next.next;
+// }
+// let right = slow.next;
+// slow.next = null;
+
+// let left = sortList(head);
+// right = sortList(right);
+
+// return merge(left, right);
+// };
+
+// function merge(left,right){
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+
+//     while (left !== null && right !== null) {
+//         if (left.val <= right.val) {
+//             current.next = left;
+//             left = left.next;
+//         } else {
+//             current.next = right;
+//             right = right.next;
+//         }
+//         current = current.next;
+//     }
+//     if (left !== null) {
+//         current.next = left;
+//     } else {
+//         current.next = right;
+//     }
+//     return dummy.next;
+// }
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1,2,3,1]));
+// console.log(findPeakElement([1,2,1,3,5,6,4]));
+
+// function mysqrt(x) {
+//     if (x < 2) {
+//         return x;
+//     }
+//     let left = 1;
+//     let right = x;
+//     let answer = 0;
+// 
+
+// function binarySearch(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left <= right) {
+//         let  mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             return mid;
+//         }
+//         if (nums[mid] < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(binarySearch([1, 3, 5, 7, 9], 7 ));
+
+// function searchInsert(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             return mid;
+//         }
+//         if (nums[mid] < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(searchInsert([1, 3, 5, 6], 5));
+// console.log(searchInsert([1, 3, 5, 6], 2));
+// console.log(searchInsert([1, 3, 5, 6], 7));
+
+// function searchRange(nums, target) {
+//     let first = findFirst(nums, target);
+//     let last = findLast(nums, target);
+
+//     return [first, last];
+// }
+// function findFirst(nums, target) {
+//     let left = 0
+//     let right = nums.length- 1;
+//     let answer = -1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             answer = mid;
+//             right = mid - 1;
+//         }
+//         else if (nums[mid] < target) {
+//             left = mid + 1;
+//         }
+//         else {
+//             right = mid - 1;
+//         }
+//     }
+//     return answer;
+// }
+// function findLast(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
+//     let answer = -1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             answer = mid;
+//             left = mid + 1;
+//         }
+//             else if (nums[mid] < target) {
+//                 left = mid + 1;
+//             }
+//             else { 
+//                 right = mid - 1;
+//             }
+//         }
+//         return answer;;
+//     }
+//     console.log(searchRange([5,7,7,8,8,10], 8));
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }    
+// console.log(findPeakElement([1,2,3,1]));
+// console.log(findPeakElement([1,2,1,3,5,6,4]));
+  
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1;
+//     }
+//     return n * factorial(n-1);
+// }
+// console.log(factorial(5));
+
+// function fibonacci(n) {
+//     if(n <= 1) {
+//         return n;
+//     }
+//     return fibonacci(n-1) + fibonacci(n-2);
+// }
+// console.log(fibonacci(6));
+
+// function power(x,n){
+//     if (n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n - 1);
+// }
+// console.log(power(2,5));
+
+// function printNUmbers(n) {
+//     if (n === 0) {
+//         return;
+//     }
+//     printNumbers(n - 1);
+//     console.log(n);
+// }
+// printNumbers(5);
+
+// function reverseString(str) {
+//     if (str.length === 0) {
+//         return "";
+//     }
+//     return reverseString(str.slice(1) + str[0]);
+// }
+// console.log(reverseString("hello"));
+
+// function subsets(nums) {
+//     let result = [];
+
+//     function backtrack(index, current) {
+//         if (index === nums.length) {
+//             result.push([...current]);
+//             return;
+//         }
+//         backtrack(index + 1,current);
+
+//         current.push(nums[index]);
+
+//         backtrack(index + 1, current);
+//         current.pop();
+//     }
+//     backtrack(0, []);
+//     return result;
+// }
+// console.log(subsets([1, 2, 3]));
+
+// function permute(nums) {
+//     let result = [];
+    
+//     function backtrack(start) {
+//         if (start === nums.length) {
+//             result.push([...nums]);
+//             return;
+//         }
+//         for (let i= start; i < nums.length; i++) {
+//             [nums[start], nums[i]] = [nums[i], nums[start]];
+//             backtrack(start + 1);
+
+//             [nums[start], nums[i]] = [nums[i], nums[start]];
+//         }
+//     }
+//     backtrack(0);
+//     return result;
+// }
+// console.log(permute([1, 2, 3]));
+
+// function combination(candidates, target) {
+//     let result = [];
+
+//     function backtrack(start, current, sum) {
+//         if (sum === target) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (sum > target) {
+//             return;
+//         }
+//         for (let i = start; i < candidates.length; i++) {
+//             current.push(candidates[i]);
+//             backtrack(
+//                 i, 
+//                 current,
+//                 sum + candidates[i]
+//             );
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, [], 0);
+//     return result;
+// }
+// console.log(combination([2,3,6,7], 7));
+
+
+
+
+
+
+
+// function permute(nums) {
+//     let result = [];
+
+//     function backtrack(start) {
+//         if (start === nucdms.length) {
+//             result.push([...nums]);
+//             return;
+//         }
+//         for (let i =start; i < nums.length; i++) {
+//             [nums[start], nums[i] = nums[i], nums[start]];
+
+//             backtrack(start + 1);
+//             [nums[start], nums[i] = nums[i], nums[start]];
+//         }
+//     }
+//     backtrack(0)
+
+//     return result;
+// }
+// console.log(permute([1, 2, 3]));
+
+// function combinationSum(candidates, target) {
+//     let result = [];
+
+//     function backtrack(start, current, sum) {
+
+//         if (sum === target) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (sum > target) {
+//             return;
+//         }
+//         for (let i = start; i < candidates.length; i++) {
+//             current.push(candidates[i]);
+//             backtrack(
+//                 i,
+//                 current,
+//                 sum + candidates[i]
+//             );
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, [], 0);
+//     return result;    
+// }
+// console.log(combinationSum([2, 3, 6, 7], 7))
+
+// function factorial(n) {
+//     if(n === 0 || n === 1) {
+//         return 1;
+//     }
+//     return n * factorial(n - 1);
+// }
+// console.log(factorial(5));
+
+// function fibonacci(n) {
+//     if (n <= 1) {
+//         return n;
+//     }
+//     return fibonacci(n - 1) + fibonacci(n-2);
+// }
+// console.log(fibonacci(6));
+
+// function power(x,n) {
+//     if (n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n - 1);
+// }
+// console.log(power(2,5));
+
+// function printNumbers(n) {
+//     if (n === 0) {
+//         return;
+//     }
+//     printNumbers(n - 1);
+//     console.log(n);
+// }
+// printNumbers(5);
+
+// function reverseString(str) {
+//     if (str.length === 0) {
+//         return "";
+//     }
+//     return reverseString(str.slice(1) + str[0]);
+// }
+// console.log(reverseString("hello"));
+
+// function solveNQueens(n) {
+//     let result = [];
+
+//     let board = Array.from(
+//         { length: n },
+//         () => Array(n).fill(".")
+//     );
+//     function isSafe(row, col) {
+//         for (let i = 0; i < row; i++) {
+//             if (board[i][col] === "Q") {
+//                 return false;
+//             }
+//         }
+//         for ( let i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) 
+//         { if (board[i] [j] === "Q") {
+//             return false;
+//           }
+//         }
+//         for ( 
+//             let i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
+//                 if (board[i][j] === "Q") {
+//                     return false;
+//                 }
+//             }
+//             for ( let i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++ ) {
+
+//             }
+//     }
+// }
+
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1;
+//     }
+//     return n * factorial(n-1);
+// }
+// console.log(factorial(5));
+
+// function fibonacci(n) {
+//     if (n <= 1) {
+//         return n;
+//     }
+//     return fibonacci(n-1) + fibonacci(n-2);
+// }
+// console.log(fibonacci(6));
+
+// function power(x, n) {
+//     if (n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n - 1);
+// }
+// console.log(power(2,5));
+
+// function printNumbers(n) {
+//     if (n === 0) {
+//         return;
+//     }
+//     printNumbers(n - 1);
+//     console.log(n);
+// }
+// printNumbers(5)
+
+
+// function reverseString(str) {
+//     if (str.length === 0) {
+//         return "";
+//     }
+//     return reverseString(str.slice(1)) + str[0];
+// }
+// console.log(reverseString("hello"));
+
+// function power(x, n){
+//     if(n === 0) {
+//         return 1;
+//     }
+//     return x * power(x, n-1);
+// }
+// console.log(power(2, 5));
+
+// function factorial(n) {
+//     if (n === 0 || n === 1) {
+//         return 1; 
+// }
+// return n * factorial(n - 1);
+// }
+// console.log(factorial(5));
+
+// function romanToInt(s) {
+//     let values = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
+//     let result = 0;
+
+//     for (let i = 0; i <s.length; i++) {
+//         if (
+//             i + 1 < s.length &&  values[s[i]] < values[s[i + 1]]
+//         ) {
+//             result -= values[s[i]]
+//         } else {
+//             result += values[s[i]];
+//         }
+//     }
+//     return result;
+// }
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "")
+
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             return false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "car"));
+
+// function reverseWords(s) {
+//     return s
+//         .trim()
+//         .split(/\s+/)
+//         .reverse()
+//         .join("");
+// }
+// console.log(reverseWords("the sky is blue"));
+
+
+
+
+
+
+
+// function romanToInt(s) {
+//     let values = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
+//     let result = 0;
+
+//     for (let i = 0; i <s.length; i++) {
+//         if(
+//             i+1 < s.length && values[s[i]] < values[s[i + 1]]
+//         ) {
+//             result -= values[s[i]];
+//         } else {
+//             result += values[s[i]];
+//         }
+//     }
+//     return result;
+// }
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
+
+// function compress(chars) {
+//     let write = 0;
+//     let read = 0;
+
+//     while (read < chars.length) {
+//         let currentChar = chars[read];
+//         let count = 0;
+
+//         while (
+//             read < chars.length && chars[read] === currentChar
+//         ) {
+//             read++;
+//             count++;
+//         }
+//         chars[write] = currentChar;
+//         write++;
+
+//         if(count > 1) {
+//             let countString = String(count);
+
+//             for (let char of countString) {
+//                 chars[write] = char;
+//                 write++;
+//             }
+//         }
+//     }
+//     return write;
+// }
+// let chars = ["a", "a", "b", "b", "c", "c", "c"];
+// let length = compress(chars);
+// console.log(chars.slice(0, length));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function reverseWords(s) {
+//     return s
+//         .trim()
+//         .split(/\s+/)
+//         .reverse()
+//         .join(" ");
+// }
+// console.log(reverseWords("the sky is blue"));
+
+// function lengthOfLongestSubstring(s) {
+//     let set = new Set();
+
+//     let left = 0;
+//     let maxLength = 0;
+
+//     for (let right = 0; right < s.length; right++) {
+//         while (set.has(s[right])) {
+//             set.delete(s[left]);
+//             left++;
+//         }
+//         set.add(s[right]);
+
+//         maxLength = Math.max(
+//             maxLength,
+//             right - left + 1
+//         );
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+
+// function groupAnagrams(strs) {
+//     let map = new Map();
+
+//     for (let str of strs) {
+//         let key = str.split("").sort().join("");
+
+//         if(!map.has(key)) {
+//             map.set(key, []);
+//         }
+//         map.get(key).push(str);
+//     }
+//     return Array.from(map.values());
+// }
+// console.log(["eat", "tea", "tan", "ate", "nat", "bat"]);
+
+// function longestCommonPrefix(strs) {
+//     if (strs.length === 0) {
+//         return "";
+//     }
+//     let prefix = strs[0];
+
+//     for (let i = 1; i < strs.length; i++) {
+//         while (!strs[i].startsWith(prefix)) {
+//             prefix = prefix.slice(0, -1);
+
+//             if (prefix === "") {
+//                 return "";
+//             }
+//         }
+//     }
+//     return prefix;
+// }
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function groupAnagrams(strs) {
+//     let map = new Map();
+
+//     for (let str of strs) {
+//         let key = str.split("").sort().join("");
+
+//         if (!map.has(key)) {
+//             map.set(key, []);
+//         }
+//         map.get(key).push(str);
+//     }
+//     return Array.from(map.values());
+// }
+// console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+
+// function lengthOfLongestSubstring(s) {
+//     let set = new Set();
+//     let left = 0;
+//     let maxLength = 0;
+
+//     for (let right = 0; right < s.length; right++) {
+//         while (set.has(s[right])) {
+//             set.delete(s[left]);
+//             left++;
+//         }
+//         set.add(s[right]);
+
+//         maxLength = Math.max(
+//             maxLength,
+//             right - left + 1
+//         );
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+// console.log(lengthOfLongestSubstring("bbbbb"));
+
+// function reversewords(s) {
+//     return s
+//         .trim()
+//         .split(/\s+/)
+//         .reverse()
+//         .join(" ");
+// }
+// console.log(reversewords("the sky is blue"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--:
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             retunr false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram","nagaram"));
+// console.log(isAnagram("rat", "car"));
+
+// function firstUniqChar(s) {
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (map[s[i]] === 1) {
+//             return i
+//         }
+
+//     }
+//     return -1;
+// }
+// console.log(firstUniqChar("leetcode"));
+// console.log(firstUniqChar("loveleetcode"));
+
+
+// function longestCommonPrefix(strs) {
+//     if (strs.length === 0) {
+//         return "";
+//     }
+//     let prefix = strs[0];
+//     for (let i = 1; i < strs.length; i++) {
+//         while (!strs[i].startsWith(prefix)) {
+//             prefix = prefix.slice(0, -1);
+
+//             if (prefix === "") {
+//                 return "";
+//             }
+//         }
+//     }
+//     return prefix;
+// }
+// console.log(
+//     longestCommonPrefix(["flower", "flow", "flought"])
+// );
+
+// function firstUniqChar(s) {
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (map[s[i] === 1]) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(firstUniqChar("leetcode"));
+// console.log(firstUniqChar("loveleetcode"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+    
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;    
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};;
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             return false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "cat"));
+
+
+
+
+
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+//         left++;
+//         right--;
+//     }
+//     return s;
+// }
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
+
+// function isPalindrome(s) {
+//     s = s.toLowerCase().replace(/[^a-z0-9]/g, "");
+//     let left = 0;
+//     let right =  s.length - 1;
+
+//     while (left < right) {
+//         if (s[left] !== s[right]) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }
+// console.log(isPalindrome("madam"));
+// console.log(isPalindrome("hello"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let map = {};
+
+//     for (let char of s) {
+//         map[char] = (map[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!map[char]) {
+//             return false;
+//         }
+//         map[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "car"));
+
+
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+// function missingNumber(nums) {
+//     let xor = nums.length;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         xor = xor ^ i ^ nums[i];
+//     }
+//     return xor;
+// }
+// console.log(missingNumber([3, 0, 1]));
+
+// function moveZeroes(nums) {
+//     let j = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if(nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+//     return nums;
+// }
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+
+
+// function productExceptSelf(nums) {
+//     let result = new Array(nums.length).fill(1);
+
+//     let prefix = 1;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         result[i] = prefix;
+//         prefix *= nums[i];
+//     }
+//     let suffix = 1;
+
+//     for (let i = nums.length - 1; i >= 0; i--) {
+//         result[i] *= suffix;
+//         suffix *= nums[i];
+//     }
+//     return result;
+// }
+// console.log(productExceptSelf([1, 2, 3, 4]));
+
+// function containDuplicate(nums) {
+//     let set = new Set();
+
+//     for (let num of nums) {
+//         if (set.has(num)) {
+//             return true;
+//         }
+//         set.add(num);
+//     }
+//     return false;
+// }
+// console.log(containDuplicate([1, 2, 3, 1]));
+// console.log(containDuplicate([1, 2, 3, 4]));
+
+// function missingNumber(nums) {
+//     let xor = nums.length;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         xor = xor ^ i ^ nums[i];
+//     }
+//     return xor;
+// }
+// console.log(missingNumber([3, 0, 1]));
+
+// function majorityElement(nums) {
+//     let candidate = 0;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if (count === 0) {
+//             candidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+// function findPeakElement(nums) {
+//     let left = 0
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+// function maxSubArray(nums) {
+//     let currentSum = nums[0];
+//     let maxSum = nums[0];
+
+//     for (let i = 1; i < nums.length; i++) {
+//         currentSum = Math.max(nums[i], currentSum + nums[i]);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// function rotate(nums,k) {
+//     k = k % nums.length;
+//     nums.reverse();
+
+//     reversePart(nums, 0, k-1);
+//     reversePart(nums, k, nums.length - 1);
+// }
+// function reversePart(nums, left, right) {
+//     while (left < right) {
+//         [nums[left], nums[right]] = [nums[right], nums[left]];
+//         left++;
+//         right--;
+//     }
+// }
+// let arr = [1, 2, 3, 4, 5, 6, 7];
+// rotate(arr, 3);
+// console.log(arr);
+
+// function merge(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while (i >= 0 && j >= 0) {
+//         if (nums1[i] > nums2[j]) {
+//             nums1[k] = nums1[i];
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j]
+//             j--;
+//         }
+//         k--;
+//     }
+//     while (j >= 0) {
+//         nums1[k] = nums2[j];
+//         j--;
+//         k--;
+//     }
+// }
+// let nums1 = [1, 2, 3, 0, 0, 0];
+// let nums2 = [2, 5, 6];
+
+// merge(nums1, 3, nums2, 3);
+// console.log(nums1);
+
+// function twoSum(nums, t) {
+//     let map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let complement = target - nums[i];
+
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for(let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+//     return nums;
+// }
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+
+// function twoSum(nums, target) {
+//     let map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         let complement = target - nums[i];
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+//     return [];
+// }
+// console.log(twoSum([2, 7, 11, 15], 9));
+
+// function maxProfit(prices) {
+//     let minPrice = prices[0];
+//     let maxProfit = 0;
+//     for(let i = 1; i < prices.length; i++) {
+//         minPrice = Math.min(minPrice, prices[i]);
+//         let profit = prices[i] - minPrice;
+//         maxProfit = Math.max(maxProfit, profit);
+//     }
+//     return maxProfit;
+// }
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]));
+//type coercion
+// function solveNQueens(n) {
+
+//     let result = [];
+//     let board = Array.from({length: n}, () => Array(n).fill("."));
+//     let cols = new Set();
+//     let diag1 = new Set();
+//     let diag2 = new Set();
+
+//     function backtrack(row) {
+//         if (row === n) {
+//             result.push(board.map(row => row.join("")));
+//             return;
+//         }
+//         for (let col = 0; col < n; col++) {
+//             if (
+//                 cols.has(col) ||
+//                 diag1.has(row  - col) ||
+//                 diag2.has(row + col)
+//             ) {
+//                 continue;
+//             }
+//             board[row][col] = "Q";
+//             cols.add(col);
+//             diag1.add(row - col);
+//             diag2.add(row + col);
+
+//             backtrack(row + 1);
+//             board[row][col] = ".";
+//             cols.delete(col);
+//             diag1.delete(row - col);
+//             diag2.delete(row + col);
+//         }
+//     }
+//     backtrack(0);
+//     return result;
+// }
+
+//console.log("1"+1);
+//console.log("1"-1);
+
+
+//Accept and print the answer
+//let age = prompt("What is your age?"); 
+//age = Number(age); 
+//console.log(typeof age);
+
+
+//swap two numbers without using a third variable
+//let a = 10;
+//let b = 20;
+//let c;
+
+//c = a;
+//a = b;
+//b = c;
+
+//console.log(a);
+///console.log(b);
+
+//swap two variable
+
+//let x = 5;
+//let y = 10;
+
+//x = x + y;
+//y = x - y;
+//x = x - y;
+
+//console.log(x, y); 
+
+//let w = 10;
+//let e = 20;
+
+//[w, e] = [e, w];
+
+//console.log(w, e);
+
+
+//num
+//let z = 1234;
+//console.log(Math.floor(z/10))
+//console.log(Math.floor(z * 10))
+
+//console.log(Math.round(10.5));
+//console.log(Math.trunc((Math.random()*9000)+1000));
+
+//let d = 89.09854;
+//console.log(d.toFixed(3));
+
+//let q = 5
+//let s = 4
+//let l = 6
+
+//let k = (q + s + l) / 2
+//console.log(k);
+
+//console.log(Math.sqrt(k * (k - q) * (k - s) * (k-l)));
+
+//let r = 12;
+//console.log((2*Math.PI*r).toFixed(2));
+
+//let ans = Number(prompt("what is your age?"));
+//if(isNaN(ans)){
+    //console.log("wrong input");
+//}
+//else if(ans < 18){
+    //console.log("you are not eligible to vote");}
+//else{
+    //console.log("you are eligible to vote");
+//}
+
+//let amount = Number(prompt("Enter your amount"));
+//let dis = 0;
+//if(amount > 0 && amount <= 5000){
+    //dis = 0;}
+//else if(amount > 5000 && amount <= 7000){
+    //dis = 5;}
+//else if(amount > 7000 && amount <= 9000){
+    //dis = 10;} 
+//else if (amount > 9000){
+    //dis = 20;}
+
+//console.log(amount - Math.floor((dis * amount)/100));     
+  
+//let unit = Number(prompt("Enter your unit"));
+//let mount = 0;
+//if(unit>400){
+    //mount = (unit - 400) * 13;
+    //unit = 400;
+//}
+//if(unit > 200 && unit <= 400){
+    //mount += (unit - 200) * 8;
+    //unit = 200;
+//}
+//if(unit>100 && unit <= 200){
+    //mount += (unit - 100) * 6;
+    //unit = 100;
+//}
+//mount += unit * 4;
+
+//console.log(mount);
+
+//let money = 5001;
+//if( money >= 500){
+    //console.log("500 notes : " + Math.floor(money/500));
+    //money = money % 500;
+    //}
+//if( money >= 50){
+    //console.log("50 notes : " + Math.floor(money/50));
+    //money = money % 50;
+//}
+//if( money === 1){
+    //console.log("1 notes : " + (money));
+//}
+
+// ternary operater ?:
+// 12>13 ? console.log("hyeheee") : console.log("huuuuu");
+// console.log(12>13?"hyehhe":"hee");
+
+// // nested ternar operater
+// let num = 10;
+// console.log(num>0?"positive":num<0?"negative":"zero");
+
+// let day = "harsh";
+
+// switch(day){
+//     case "raj":console.log("monday");
+//     break
+
+//     case "harsh":console.log("tuesday");
+//     break
+
+//     default:console.log("invalid");
+// }
+
+// let ay = 3;
+
+// switch (ay) {
+//     case 1:
+//     case 2:
+//     case 3:
+//         console.log("tuesday");
+
+//         break
+
+//     default: console.log("invalid");
+        
+// }
+
+
+
+//   switch (day) {
+//     case 19>13:
+//         console.log("tuesday");
+//         break
+//     case 10 > 9:
+//         console.log("day");
+//         break
+
+//     default: console.log("invalid");
+        
+// }
+
+// let gun = 0.1 + 0.2
+
+// switch(num){
+//     case 0.3: console.log("heloo");
+//     break
+
+//     case 0.5: console.log("hey");
+//     break
+
+//     default: console.log("namaste");
+// }
+
+// var i = 1
+// for(; i<=10; i++){
+//     console.log(i);
+// }
+// console.log(i+" fail");
+
+
+// //var pr = prompt("kaha tak add karwaaoge ?");
+// //var n = n(prompt("kaha tak add karwaaoge ?"));
+
+// //if(pr === null){console.log)("cancelled")};
+
+// //else{var n = number(pr);}
+// //if(isNaN(n)){
+//     //console.log("Invalid input");
+// //}
+// //else{
+//     //if(n>0){
+//         //var sum = 0;
+//         //for(var i = 1; i<=n; i++){
+//             //sum = sum + i;
+//         //}
+//         //var(fact = 1;) for(var i = 1; i<=n; i++){fact = fact * i;}
+//         //console.log(sum);
+        
+//     //}
+//     //else{
+//         //console.log("should be +ve and more than 0");
+//     //}
+// //}
+
+// function isprime(n) {
+//     if(n<=1) return false;
+//     if(n==1) return true;
+//     if(n%2==0) return false
+//     for(let i=3; i<=Math.floor(Math.sqrt(n));i+=2){
+//         if(n%i==0) return false 
+//     }
+//     return true   
+// }
+
+// var n = prompt(n);
+
+// if(isNaN(n)){
+//     console.log("Invalid input");
+// }
+// else{
+//     if(n > 0){
+//         var sum = 0;
+//         while(n>0){
+//             var rem = n%10;
+//             sum = sum + rem;
+//             n =  Math.floor(n/10);
+//         }
+//         console.log((sum));
+//     }
+//     else{
+
+//         console.log("should be +ve and -ve");
+        
+//     }
+// }
+
+
+// var O = prompt(O);
+
+// if(O >0){
+//     var rev = 4;
+//     while(O >0){
+//         var rem = O%10
+//         while(O>0) {
+//             var rem = O%10;
+//             rev = rev*10 + rem;
+//             O = Math.floor(O/10);
+//         }
+//         console.log(rev);
+//     }
+// }
+
+// var as = prompt("kuchh bhi dedo(exit for close)");
+// while(as !== 'exit'){
+//     as = prompt("kuch bhii dedo(exit for close)");
+// } 
+
+// var t = prompt(t);
+// if(t > 0){
+//     var sum = 0;
+//     while(t>0){
+//         var rem = t%10;
+//         sum = sum + rem;
+//         t = Math.floor(n/10);
+//     }
+//     console.log((sum));
+    
+// }
+
+// var x = prompt(x)
+
+// if(x > 0){
+//     var rev = 0;
+//     while(x>0){
+//         var rem = x%10;
+//         rev = rev*10 + rem;
+//         x = Math.floor(x/10);
+//     }
+//     console.log(rev);
+    
+// }
+
+// if(n>0){
+//     var sum = 0;
+//     while(n>0){
+//         var rem = n%10;
+//         var fact = 1;
+//         for(var i = 1; i<=rem; i++){
+//             fact = fact*i
+//         }
+//         sum = sum + fact;
+//         n = Math.floor(n/10);
+//     }
+//     console.log(sum);
+    
+// }
+
+// let random = Math.floor(Math.random()*100) +1
+
+// let guess = -1;
+// while(guess !== random){
+
+//     guess = Number(prompt("Guess the number"))
+//     if(isNaN(guess) || guess<1 || guess>100){
+//         console.log("try again b/w 1-100");
+//         continue
+//     }
+//     if(guess>random){
+//         console.log("too high, try again");
+//     }else if(guess<random){
+//         console.log("too low, try again");
+//     }else{
+//         console.log("Congrats and Number was", guess);
+//     }
+// }
+
+// let a = "hello";
+// console.log(a);
+
+// let prompt = require('prompt-sync') ();
+// let n = Number(prompt("Enter a number "))
+// for(let i=1;i<=n;i++){
+//     for(let j =1;j<=n;j++){
+//         Process.stdout.write("*")
+//     }
+//     console.log();
+    
+// }
+
+
+// let n = Number(prompt("Enter a number "))
+// for(let i=1;i<=n;i++){
+//     let ascii = 65;
+//     for(let j=1;j<=i;j++){
+//         process.stdout.write(j+" ") //(j+" ") (String.fromCharCode(ascii)+" ") 
+//         //ascii++
+//     }
+//     console.log();
+// }
+
+// let n = Number(prompt("Enter a Number"))
+// for(let i=1;i<=n;i++){
+//     for(let j=1;j<=n-i+1;j++){
+//         process.stdout.write("* ")
+//     }
+//     console.log();
+
+// let n = Number(prompt("Enter a Number"))
+// for(let i=1;i<=n;i++){
+//     for(let j=1;j<=n-i+1;j++){
+//         process.stdout.write("_ ")
+//     }
+//     for(let j=1;j<=i;j++){
+//         process.stdout.write("* ")
+//     }
+//     console.log();
+// }
+
+// function twosum(nums, target) {
+//     let map = {};
+    
+//     for (let i=0; i < nums.length; i++) {
+//         let diff = target - nums[i];
+        
+//         if (map[diff] !== undefined) {
+//             return [map[diff], i];
+//         }
+        
+//         map[nums[i]] = i;
+//     }
+// }
+
+// console.log(twosum([2,7,11,15],9));
+
+// function maxSubArray(arr) {
+//     let maxSum = arr[0];
+//     let current = arr[0];
+    
+//     for (let i = 1; i < arr.length; i++) {
+//         current = Math.max(arr[i], current + arr[i]);
+//         maxSum = Math.max(maxSum, current);
+//     }
+//     return maxSum;
+// }
+
+// console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]));
+
+// function merge(arr1, arr2) {
+//     let result = [];
+//     let i = 0, j = 0;
+    
+    
+//     while (i < arr1.length && j < arr2.length) {
+//         if (arr1[i] < arr2[j])
+//             result.push(arr1[i++]);
+//         else 
+//             result.push(arr2[j++]);
+//     }
+    
+//     return result.concat(arr1.slice(i)).concat(arr2.slice(j));
+// }
+// console.log(merge([1,3,5],[2,4,6]));
+
+// function maxProfit(prices) {
+//     let min = prices[0];
+//     let profit = 0;
+    
+//     for (let price of prices) {
+//         if (price < min)
+//             min = price;
+//         else
+//             profit = Math.max(profit, price-min);
+//     }
+//     return profit;
+// }
+// console.log(maxProfit([7,1,5,3,6,4]));
+
+// function merge(arr1, arr2){
+//     let result = [];
+//     let i=0, j=0;
+
+//     while(i < arr1.length && j < arr2.length) {
+//         if (arr[i] < arr[j])
+//             result.push(arr1[i++]);
+//         else
+//             result.push(arr2[j++]);
+//     }
+//     return result.concat(arr1.slice(i).concat(arr2.slice(j)));
+// }
+
+// console.log(merge([1,3,5],[2,4,6]));
+
+// function maxSubArray(arr) {
+//     let maxSum = arr[0];
+//     let currnet = arr[0];
+
+//     for(let i =1; i<arr.length; i++) {
+//         currnet = Math.max(arr[i], currnet + arr[i]);
+//         maxSum =  Math.max(maxSum, currnet);
+//     }
+//     return maxSum;
+// } 
+// console.log(maxSubArray([-2,1-3,4,-1,2,1,-5,4]));
+
+// function reverseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(reverseString("hello"));
+
+// function isPalindrome(str) {
+//     return str === str.split("").reverse().join("");
+// }
+// console.log(isPalindrome("madam"));
+
+// function countVowels(str) {
+//     let count = 0;
+//     const vowels = "aeiouAEIOU";
+    
+//     for (let ch of str) {
+//         if (vowels.includes(ch)) count++;
+//     }
+//     return count;
+// }
+// console.log(countVowels("JavaScript"));
+
+
+// function charCount(str) {
+//     let map = {};
+
+//     for(let ch of str) {
+//         map[ch] = (map[ch] || 0) + 1;
+//     }
+// }
+// function reverseString(str) {
+//     return str.split("").reverse().join("");
+// }
+// console.log(reverseString("hello"));
+
+// function isPalindrome(str) {
+//     return str === str.split("").reverse().join("");
+// }
+// console.log(isPalindrome("madam"));
+
+// function countVowels(str) {
+//     let count = 0;
+//     const vowels = "aeiouAEIOU";
+    
+//     for (let ch of str) {
+//         if (vowels.includes(ch)) count++;
+//     }
+//     return count;
+// }
+// console.log(countVowels("JavaScript"));
+
+// function charCount(str) {
+//     let map = {};
+    
+//     for (let ch of str) {
+//         map[ch] = (map[ch] || 0) + 1;
+//     }
+//     return map;
+// }
+// console.log(charCount("apple"));
+
+// function removeSpaces(str) {
+//     return str.replace(/\s/g, "");
+// }
+// console.log(removeSpaces("Hello World"));
+
+// function firstUnique(str) {
+//     let map = {};
+    
+//     for (let ch of str) {
+//         map[ch] = (map[ch] || 0) + 1;
+//     }
+//     for (let ch of str) {
+//         if (map[ch] === 1) return ch;
+//     }
+//      return null;
+// }
+// console.log(firstUnique("aabbcdde"));
+
+// let arr = [10,, 5, 12, 3]
+// let n = arr.length;
+// for(let i=0;i<n-1;i++){
+//     for (let j = 0; j<n-1; j++){
+//         if(arr[j]>arr[j+1]){
+//             let temp = arr[j]
+//             arr[j] = arr[j+1];
+//             arr[j+1] = temp
+//         }
+//     }
+// }
+
+// let arr = [10, 5, 12, 1 ,3];
+// let n = arr.length;
+// for (let i=0; i<n-1;i++){
+//     let minIndex = i;
+//     for(let j = i+1;j<n; j++){
+//         if(arr[minIndex]>arr[i]) minIndex = j;
+// }
+// if(miinIndex != i){
+//     let temp = arr[minIndex];
+//     arr[minIndex] = arr[i]
+//     arr[i] = temp
+//    }
+// }
+// console.log(arr);
+
+// function isAnagram(a, b) {
+//     return a.split("").sort().join("") ===
+//            b.split("").sort().join("");
+// }
+// console.log(isAnagram("listen", "silent"));
+ // function isAnagram(a, b) {
+
+
+// function longestWord(sentence) {
+//     let words =  sentence.split(" ");
+//     let longest = "";
+    
+//     for (let word of words) {
+//         if (words.length > longest.length)
+//             longest = word;
+//     }
+//     return longest;
+// }
+// console.log(longestWord("I love Javascript programming"));
+// let n = 5;
+// for(let i=0; i<n; i++) {
+//     for(let j=i; j<n; j++) {
+//         console.log(i, j);
+//     }
+// }
+
+// let n =5;
+// for (let i=0; i<n; i++) {
+//     console.log(i);
+// }
+// for(let j=0; j<n; j++) {
+//     console.log(j)
+// }
+
+// let n = 5;    
+// function fun(n){
+//     if(n <= 1) return;
+//     fun(n-1);
+//     fun(n-1);
+//     console.log(n)
+// }    
+
+// function bubbleSort(arr) {
+//     let n = arr.length;
+    
+//     for (let i=0; i<n-1; i++){
+//         let swapped = false;
+        
+//         for (let j=0; j<n-i-1; j++){
+//             if (arr[j] > arr[j+1]) {
+//                 [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+//                 swapped = true;
+//             }
+//         }
+//         if(!swapped) break;
+//     }
+//     return arr;
+// }
+// console.log(bubbleSort([5,2,8,1,4]));
+
+// greet()
+// function greet(){
+// console.log("Good morning pineapple");
+//     enjoy()
+// }
+// function enjoy(){
+//     console.log("enjoy ho rha hai...");
+//     temp()
+// }
+// function temp(){
+//     console.log("kuch kr rhe ho"); 
+// }
+
+// function temp(val){
+//     if(val === 0) return
+    
+//     console.log("hello world");
+// } 
+// temp(0)
+
+// function temp(n){
+//     if(n==0) return
+//     console.log("hello world");
+//     temp(--n);   //temp(n-1);
+// }
+// temp(5)
+
+// function temp(n) {
+//     if(n == 0) return;
+//     console.log(n);
+//     temp(n-1);
+// }
+// temp(10)
+
+// function fact(n){
+//     if(n==1) return n;
+//     return n * fact(n-1);
+// }
+// console.log(fact(6))
+
+// let n = 10;
+// let first = 0 , second = 1;
+// process.stdout.write(first+" "+second+" ")
+
+// for(let i=1;i<=n-2;i++){
+//     let third = first + second;
+//     first = second;
+//     second = third
+//     process.stdout.write(third+" ");
+// }
+
+// function fiboNTerms(n, first, second){
+//     if(n==0) return
+//     let third = first+second;
+//     process.stdout.write(third+" ");
+//     fiboNTerms(n-1,second, third)
+// }
+
+// let n=10;
+// process.stdout.write(0+" "+1+" ");
+// fiboNTerms(n-2, 0, 2)
+
+// function fibo(n){
+//     if(n==0 || n==1) return n;
+//     return fibo(n-1) + fibo(n-2)
+// }
+// let n = 7;
+// console.log(fibo(n));
+
+// function selectionsort(arr) {
+//     let n = arr.length;
+    
+//     for (let i=0; i<n-1; i++) {
+//         let min = i;
+        
+//         for (let j=i+1; j<n; j++) {
+//             if (arr[j] < arr[min]) {
+//                 min = j;
+//             }
+//         }
+        
+//         [arr[i], arr[min]] = [arr[min], arr[i]];
+//     }
+//     return arr;
+// }
+// console.log(selectionsort([64,25,12,22,11]));
+
+// function insertionsort(arr) {
+//     for (let i=1; i<arr.length; i++) {
+//         let key = arr[i];
+//         let j = i-1;
+        
+//         while (j >= 0 && arr[j] > key) {
+//             arr[j+1] = arr[j];
+//             j--;
+//         }
+//         arr[j+1] = key;
+//     }
+//     return arr;
+// }
+// console.log(insertionsort([5,3,8,4,2]));
+
+// let n = 5;
+// for(let i=0; i<n; i++){
+//     console.log(i);
+// }
+// for(let j=0; j<n; j++){
+//     console.log(j);
+// }
+
+// let n = 5;
+// function fun(n){
+//     if(n <= 1) return;
+//     fun(n-1);
+//     fun(n-1);
+// }
+
+// let n = 5;
+// function fun(n){
+//     if(n <= 1) return;
+//     fun(n/2);
+// }
+
+// let a = 32, b = 20;
+
+// while(a != b){
+//     if(a>b) a = a-b;
+//     else b = b-a;
+// }
+// console.log(a);
+
+// function gcd(a , b){
+//     if(a==b) return a;
+//     if(a>b) return gcd(a-b , b)
+//     return gcd(b, b-a)
+// }  
+// let a = 32 , b = 20;
+// console.log(gcd(a, b));
+
+// function gcd(a, b){
+//     if(b==0) return a
+//     return gcd(b, a%b);
+// }
+// console.log(gcd(16, 14));
+
+// let n = 30;
+// for (let i = 1; i<=Math.floor(Math.sqrt(n)); i++){
+//     if(n%i==0) {
+//         process.stdout.write(i + " ")
+//         if (n / i != i) {
+//             process.stdout.write(n / i + " ")
+//         }
+//     }
+// } 
+
+// let n = 100;
+// let arr = new Array(n+1).fill(true)
+
+// for (let i=2; i<=Math.floor(Math.sqrt(n)); i++){
+//     if(arr[i]){
+//         for(let j=i*i;j<=n; j+=i){
+//             arr[j] = false;
+//         }
+//     }
+// }
+// for(let i=2;i<arr.length; i++){
+//     if(arr[i]) process.stdout.write(i+" ")
+// }
+
+// function hanoi(n, source, helper, destination) {
+//     if (n === 1) {
+//         console.log(`${source} -> ${destination}`);
+//         return;
+//     }
+    
+//     hanoi(n - 1, source, destination, helper);
+    
+//     console.log(`${source} -> ${destination}`);
+    
+//     hanoi(n - 1, helper, source, destination);
+// }
+
+// hanoi(3,'A','B','C');
+
+// function permutations(arr, start = 0) {
+//     if (start === arr.length) {
+//         console.log(arr.join(""));
+//         return;
+//     }
+    
+//     for (let i = start; i <arr.length; i++) {
+//         [arr[start], arr[i]] = [arr[i], arr[start]];
+        
+//         permutations(arr, start + 1);
+        
+//         [arr[start], arr[i]] = [arr[i], arr[start]];
+//     }
+// }
+
+// permutations(['A','B','C']);
+
+// function subsets(arr, index = 0, current = []) {
+//     if (index === arr.length) {
+//         console.log(current);
+//         return;
+//     }
+    
+//     subsets(arr, index + 1, current);
+    
+//     current.push(arr[index]);
+//     subsets(arr, index + 1, current);
+    
+//     current.pop();
+// }
+
+// subsets([1,2,3]);
+
+// function removeDuplicates(str, result = "", index=0, set = new Set()) {
+//     if(index === str.length) return result;
+    
+//     if(!set.has(str[index])) {
+//         set.add(str[index]);
+//         result += str[index];
+//     }
+//     return removeDuplicates(str, result, index+1, set);
+// }
+// console.log(removeDuplicates("programming"));
+
+// function lastOccurrence(arr, target, index = arr.length - 1){
+//     if(index < 0) return - 1;
+    
+//     if (arr[index === target])
+//         return index;
+        
+//     return lastOccurrence(arr, target, index - 1);
+// }    
+// console.log(lastOccurrence([2,5,7,5],5));
+
+// function firstOccurrence(arr, target, index = 0) {
+//     if (index === arr.length) return -1;
+
+//     if (arr[index] === target)
+//         return index;
+
+//     return firstOccurrence(arr, target, index + 1);
+// }
+
+// console.log(firstOccurrence([2,5,7,5],5));
+
+// function binarySearch(arr, left, right, target) {
+//     if (left > right) return -1;
+    
+//     let mid = Math.floor((left + right) / 2);
+    
+//     if (arr[mid] === target) return mid;
+    
+//     if(target < arr[mid])
+//       return binarySearch(arr, left, mid-1, target);
+       
+//     return binarySearch(arr, mid+1, right, target);   
+// }
+
+// let arr = [1,2,3,4,5,6,7];
+// console.log(binarySearch(arr,0,arr.length-1,6));
+
+// function countDigits(n) {
+//     if (n === 0) return 0;
+//     return 1 + countDigits(Math.floor(n/10));
+// }
+// console.log(countDigits(12345));
+
+// let arr = [2,5,8,,9,12,18,20,25,67,101,125]
+// let index = binarySearch(arr, 0 , arr)
+
+// let arr = [2,5,8,9,12,18,20,25,67,101,125]
+// let index = binarySearch(arr, 0, arr.length-1 , 67)
+// if(index==-1) console.log("not found");
+// else console.log("target found at " + index+ " index");
+
+// function binarySearch(arr , first , last , target){
+//     while(first<=last){
+//         let mid = Math.floor((first+last)/2)
+//         if(arr[mid] == target) return mid
+//         else if(arr[mid]>target) last = mid-1
+//         else first = mid+1
+//     }
+//     return -1
+// }
+ 
+// function conquor(arr, first, mid, last) {
+//     let temp = new Array(last - first + 1);
+//     let i = first, j = mid+1, k =0;
+//     while (i <= mid && j <= last) {
+//         if (arr[i] < arr[j]) {
+//             temp[k++] = arr[i++]
+//         } else temp[k++] = arr[j++]
+//     }
+//     while (i <= mid) {
+//         temp[k++] = arr[i++]
+//     }
+//     while (j <= last) {
+//         temp[k++] = arr[j++]      
+//     }
+//     let p =0 , t=first;
+//     while(p<temp.length){
+//         arr[t++] = temp[p++]
+//     }
+// }
+// function divide(arr, first, last){
+//     if(first>=last) return
+//     let mid = Math.floor((first+last)/2);
+//     divide(arr, first, mid)
+//     divide(arr, mid+1, last)
+//     conquor(arr, first, mid, last)
+// }
+
+// let arr = [8, 2, 1, 9, 5, 12, 4, 20]
+// divide(arr, 0,  arr.length-1)
+// console.log(arr);
+
+
+// function twoSum(nums, target) {
+//     for(let i= 0; i < nums.length; i++) {
+//         for (let j = i+1; j < nums.length; j++) {
+//             if (nums[i] + nums[j] === target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+// }
+// console.log(twoSum([2,7,11,15], 9));
+
+// function maxArea(height) {
+//     let left = 0;
+//     let right = height.length - 1;
+//     let maxWater = 0;
+
+//     while (left < right) {
+//         const width = right - left;
+//         const currentHeight = Math.min(height[left], height[right]);
+//         const area = width * currentHeight;
+
+//         maxWater = Math.max(maxWater, area);
+
+//         if(height[left] < height[right]) {
+//             left++;
+//         } else {
+//             right--;
+//         }
+//     }
+//     return maxWater;
+// }
+// console.log(maxArea([1,8,6,2,5,4,8,3,7]));
+
+// function findMedianSortedArrays(nums1, nums2) {
+//     let arr = []
+//     let i=0, j=0;
+
+//     while (i < nums1.length && j < nums2.length) {
+//         if (nums1[i] < nums2[j]) {
+//             arr.push(nums1[i++]);
+//         } else {
+//             arr.push(nums2[j++]);
+//         }
+        
+//         while (i < nums1.length) arr.push(nums1[i++]);
+//         while (j < nums2.length) arr.push(nums2[j++]);
+
+//         let n = arr.length;
+
+//         if (n % 2 === 0) {
+//             return (arr[n/2] + arr[n / 2 -1]) / 2;
+//         }
+//         return arr[Math.floor(n/2)];
+    
+// function longestCommonPrefix(strs) {
+//     if (strs.length === 0) return "";
+//     let prefix = strs[0];
+
+//     for(let i=1; i<strs.length; i++) {
+//         while (strs[i].indexOf(prefix) !== 0){
+//             prefix = prefix.slice(0, -1);
+//             if(prefix === "") return "";
+//         }
+//     }
+//     return prefix;
+// }
+
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+
+//           
+
+// function threeSumClosest(nums, target) {
+//     nums.sort((a, b) => a - b);
+
+//     let closestSum = nums[0] + nums[1] + nums[2];
+
+//     for (let i=0; i < nums.length - 2; i++) {
+//         let left = i + 1;
+//         let right = nums.length - 1;
+
+//         while (left < right) {
+//             let currentSum = nums[i] + nums[left] + nums[right];
+//             if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+//                 closestSum = currentSum;
+//             }
+//             if (currentSum < target) {
+//                 left++;
+//             } else if (currentSum > target) {
+//                 right--;
+//             } else {
+//                 return currentSum;
+//             }
+//         }
+//     }
+//     return closestSum;
+// }
+//  let nums = [-1,2,1.-4];
+//  let target = 1;
+
+//  console.log(threeSumClosest(nums, target));
+
+
+//  function threesum(nums) {
+//     nums.sort((a, b) => a - b);
+//     cosnt result = [];
+
+//     for (let i=0; i<nums.length - 2; i++) {
+//         if (i > 0 && nums[i] === nums[i-1]) continue;
+//         let left = i + 1;
+//         let right = nums.length - 1;
+
+//         while (left < right) {
+//             const sum = nums[i] + nums[left] + nums[right];
+//             if (sum === 0) {
+//                 result.push([nums[i], nums[left], nums[right]]);
+//                 while (left < right && nums[left] === nums[left + 1]) {
+//                     left++;
+//                 }
+//                 while (left < right && nums[right] === nums[right - 1]) {
+//                     right--;
+//                 }
+
+//                 left++;
+//                 right--;
+//             } else if (sum < 0) {
+//                 left++;
+//             } else {
+//                 right --;
+//             }
+//         }
+//     }
+//     return result;
+//  }
+
+// function ListNode(val, next = null) {
+//     this.val = val;
+//     this.next = next;
+// } 
+
+// var sortList = function(head) {
+//     if (!head || !head.next) return head;
+
+//     let slow = head;
+//     let fast = head;
+//     let prev = null;
+
+//     while (fast && fast.next) {
+//         prev = slow;
+//         slow = slow.next;
+//         fast = fast.next.next;
+//     }
+//     prev.next = null;
+
+//     let left = sortList(head);
+//     let right = sortList(slow);
+
+//     return merge(left, right);
+// };
+
+// function merge(l1, l2) {
+//     let dummy = new ListNode(0);
+//     let current = dummy;
+
+//     while (l1 && l2) {
+//         if (l1.val < l2.val) {
+//             current.next = l1;
+//             l1 = l1.next;
+//         } else {
+//             current.next = l2;
+//             l2 = l2.next;
+//         }
+//         current = current.next;
+//     }
+//     current.next = l1 || l2;
+//     return dummy.next;
+// }
+
+// function fourSum(nums, target) {
+//     nums.sort((a, b) => a - b);
+//     const result = [];
+//     const n = nums.length;
+
+//     for (let i =0; i < n - 3; i++) {
+//         if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+//         for (let j = i + 1; j < n - 2; j++) {
+//             if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+
+//             let left = j + 1;
+//             let right = n - 1;
+
+//             while (left < right) {
+//                 const sum = nums[i] + nums[j] + nums[left] + nums[right];
+//                 if (sum === target) {
+//                     result.push([nums[i], nums[j], nums[left], nums[right]]);
+
+//                     while (left < right && nums[left] === nums[left + 1]) left++;
+//                     while (left < right && nums[right] === nums[right - 1]) right--;
+
+//                     left++;
+//                     right--;
+//                 } else if (sum < target) {
+//                     left++;
+//                 } else {
+//                     right--;
+//                 }
+//             }
+//         }
+//     }
+//     return result;
+// } 
+
+// function threeSumClosest(nums, target) {
+//     nums.sort((a, b) => a - b);
+
+//     let closestSum = nums[0] + nums[1] + nums[2];
+
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         let left = i + 1;
+//         let right = nums.length - 1;
+        
+//         whhile (left < right) {
+//             let currentSum = nums[i] + nums[left] + nums[right];
+//             if(Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+//                 closestSum = currentSum;
+//             }
+//             if (currentSum < target) {
+//                 left++;
+//             } else if (currentSum < target) {
+//                 right--;
+//             } else {
+//                 return currentSum;
+//             }
+//         }
+//     }
+//     return closestSum;
+// }
+// let nums = [-1, 2, 1, -4];
+// let target = 1;
+// console.log(threeSumClosest(nums,target));
+
+
+// // function removeDuplicates(nums) {
+// //     if (nums.length === 0) return 0;
+// //     let i = 0;
+// //     for (let j = 1; j < nums.length; j++) {
+// //         if (nums[j] !== nums[i]) {
+// //             i++;
+// //             nums[i] = nums[j];
+// //         }
+// //     }
+// //     return i + 1;
+// // }
+
+// // let nums = [1,1,2,2,3,4,4,5];
+// // let length = removeDuplicates(nums);
+// // console.log(length);
+// // console.log(nums.slice(0, length));
+
+// // function removeDuplicates(nums) {
+// //     if (nums.length === 0) return 0;
+// //     let i = 0;
+// //     for (let j = 1; j < nums.length; j++) {
+// //         if (nums[j] !== nums[i]) {
+// //             i++;
+// //             nums[i] = nums[j];
+// //         }
+// //     }
+// //     return i + 1;
+// // }    
+
+// // let nums = [1,1,2,2,3,4,4,5];
+// // let length = removeDuplicates(nums);
+// // console.log(length);
+// // console.log(nums.slice(0, length));
+
+// let nums = [3,2,2,3];
+// let val = 3;
+
+// function removeElement(nums, val) {
+//     let k = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== val) {
+//             nums[k] = nums[i];
+//             k++;
+//         }
+//     }
+//     return k;
+// }
+
+// let nums = {3,2,3,2};
+// let val = 3;
+
+// function removeElement(nums, val) {
+//     let k = 0;
+    
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== val) {
+//             nums[k] = nums[i];
+//             k++;
+//         }
+//     }
+//     return k;
+// }
+
+// let nums = [0,0,1,1,1,2,2,2,3,3,4]
+
+// function removeDuplicates(nums) {
+//     if (nums.length === 0) return 0;
+
+//     let i = 0;
+
+//     for(let j = 1; j < nums.length; j++) {
+//         if (nums[j] !== nums[i]) {
+//             i++;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1;
+// }
+
+// function threeSumClosest(nums, target){
+//     nums.sort((a, b) => a - b);
+
+//     let closestSum = nums[0] + nums[1] + nums[2];
+
+//     for (let i = 0; i < nums.length - 2; i++) {
+//         let left = i + 1;
+//         let right = nums.length - 1;
+
+//         while (left < right) {
+//             let currentSum = nums[i] + nums[left] + nums[right];
+
+//             if (Math.abs(target - currentSum) < Math.abs(target - closestSum)) {
+//                 closestSum = currentSum;
+//             }
+
+//             if (currentSum < target) {
+//                 left++;
+//             } else if (currentSum > target) {
+//                 right--;
+//             } else {
+//                 return currentSum;
+//             }
+//         }
+//     }
+
+//     return closestSum;
+// }
+
+// let nums = [3,2,2,3];
+// let val = 3;
+// function removeElement(nums, val) {
+//     let k = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== val) {
+//             nums[k] = nums[i]
+//             k++;
+//         }
+//     }
+//     return k;
+// }
+
+// function nextPermutation(nums) {
+//     let i = nums.length - 2;
+
+//     while (i >= 0 && nums[i] >= nums[i + 1]) {
+//         i--;
+//     }
+//     if (i >= 0) {
+//         let j = nums.length - 1;
+
+//         while (nums[j] <= nums[i]) {
+//             j--;
+//         }
+//         [nums[i], nums[j]] = [nums[j], nums[i]];
+//     }
+
+//     let left = i + 1;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         [nums[left], nums[right]] = [nums[right], nums[left]];
+//         left++;
+//         right--;
+//     }
+//     return nums;
+// }
+// console.log(nextPermutation([1, 2, 3]));
+// console.log(nextPermutation([2, 3, 1]));
+// console.log(nextPermutation([3, 2, 1]));
+
+
+// let nums = [4,5,6,7,0,1,2];
+// let target = 0;
+
+// function search(nums, target) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             return mid;
+//         }
+
+//         if (nums[left] <= nums[mid]) {
+//             if (target >= nums[left] && target < nums[mid]) {
+//                 right = mid - 1;
+//             } else {
+//                 left = mid + 1;
+//             }
+//         } else { 
+//             if (target > nums[mid] && target <= nums[right]) {
+//                 left = mid - 1;
+//             }
+//         }
+//     }
+//     return - 1;
+// }
+
+// let nums = [2,3,4];
+
+// function twosum(nums, target) {
+//     for(let  i=0; i < nums.length; i++) {
+//         for(let j = i+1; j < nums.length; j++) {
+//             if(nums[i] + nums[j] === target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+// }
+// console.log(twosum([2,7,11,15], 9));
+
+
+// function searchRange(nums, target) {
+//     function findFirst() {
+//         let left = 0;
+//         let right = nums.length - 1;
+//         let ans = -1;
+
+//         while (lefcd t <= right) {
+//             let mid = Math.floor((left + right) / 2);
+
+//             if (nums[mid] === target) {
+//                 ans = mid;
+//                 right = mid - 1;
+//             } else if (nums[mid] < target) {
+//                 left = mid - 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+//     return ans;
+// }
+
+// function findlast() {
+//     let left = 0;
+//     let right = nums.length - 1;
+//     let ans = -1;
+
+//     while (left <= right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] === target) {
+//             ans = mid;
+//             left = mid + 1;
+//         } else if (nums[mid] < target) {
+//             left = mid + 1;
+//         } else {
+//             right = mid - 1;
+//         }
+//     }
+//     return ans;
+// }
+
+// return [findFirst(), findlast()];
+// }
+
+// console.log(searchRange([5,7,7,8,8,10], 8));
+
+// function removeDuplicates(nums) {
+//     if (nums.length === 0) return 0;
+//     let i = 0;
+//     for (let j = 1; j < nums.length; j++) {
+//         if (nums[j] !== nums[i]) {
+//             i++;
+//             nums[i] = nums[j];
+//         }
+//     }
+//     return i + 1;
+// }
+
+// let nums = [1,1,2,2,3,4,4,5];
+// let length = removeDuplicates(nums);
+// console.log(length);
+// console.log(nums.slice(0, length));
+
+// function maxProfit(prices) {
+//     let minPrice = Infinity;
+//     let maxProfit = 0;
+    
+//     for (let price of prices) {
+//         minPrice = Math.min(minPrice, price);
+//         let profit = price - minPrice;
+//         maxProfit = Math.max(maxProfit, profit);
+//     }
+//     return maxProfit;
+// } 
+
+// let prices = [7, 1, 5, 3, 6, 4];
+// console.log(maxProfit(prices));
+
+
+// function maxSubArray(nums) {
+//     let currentSum = nums[0];
+//     let maxSum = nums[0];
+
+//     for (let i = 1; i < nums.length; i++) {
+//         currentSum = Math.max(nums[i], currentSum + nums[i]);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+
+// class ListNode {
+//     constructor(value) {
+//         this.val = value;
+//         this.next = null;
+//     }
+// }
+// let num = [2,4,5,6,1,3];
+
+// let head = new ListNode(num[0]);
+// let current = head;
+
+// for (let i = 1; i < num.length; i++) {
+//     current.next = new ListNode(num[i]);
+//     current = current.next;
+// }
+// function reverseList(head) {
+//     let prev = null;
+//     let current = head;
+
+//     while (current !== null) {
+//         let next = current.next;
+//         current.next = prev;
+//         prev = current;
+//         current = next;
+//     }
+//     return prev;
+// }
+
+// let reversedHead = reverseList(head);
+// current = reversedHead;
+
+// while (current !== null) {
+//     console.log(current.val);
+//     current = current.next;
+    
+// }
+
+// console.log("num");
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+// }
+// let nums = [0, 1, 0, 3, 12];
+// moveZeroes(nums);
+// console.log(nums);
+
+
+// let nums = [1,2,3,4,5];
+// let k = 3;
+// console.log();
+
+// function merge(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while (j >= 0) {
+//         if (i >= 0 && nums1[i] > nums2[j]) {
+//             nums1[k] = nums1[i]
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j];
+//             j--;
+//         }
+//         k--;
+//     }
+// }
+// let nums1 = [1, 2, 3, 0, 0, 0];
+// let nums2 = [2, 5, 6];
+// merge(nums1, 3, nums2, 3)
+// console.log(nums1);
+
+
+// function rotate(nums, k) {
+//     k =  k % nums.length;
+//     reverse(nums, 0, nums.length - 1);
+
+//     reverse(nums, 0, k-1);
+
+//     reverse(nums,  k, nums.length - 1);
+// }
+// function reverse(nums, left, right) {
+//     while (left < right) {
+//         [nums[left], nums[right]] = [nums[right], nums[left]];
+//         left++;
+//         right--;
+//     }
+// }
+// let nums = [1,2,3,4,5]
+// let k = 3;
+// console.log(k);
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if(nums[i] !== 0) {
+//             [nums[i], nums[j]] = [nums[j], nums[i]];
+//             j++;
+//         }
+//     }
+// }
+// let nums = [0,1,0,3,12];
+// moveZeroes(nums);
+// console.log(nums);
+
+// function productExpectSelf(nums) {
+//     let n = nums.length;
+//     let answer = new Array(n).fill(1);
+
+//     let prefix = 1;
+
+//     for (let i = 0; i < n; i++) {
+//         answer[i] = prefix;
+//         prefix *= nums[i];    
+//     }
+//     let suffix = 1;
+
+//     for (let i = n - 1;  i >= 0; i--) {
+//         answer[i] *= suffix;
+//         suffix *= nums[i];
+//     }
+//     return answer;
+// }
+// console.log(productExpectSelf([1, 2, 3, 4]));
+
+// function merge(nums1, m, nums2, n) {
+//     let i = m - 1;
+//     let j = n - 1;
+//     let k = m + n - 1;
+
+//     while (j >= 0) {
+//         if (i >= 0 && nums1[i] > nums[j]) {
+//             nums1[k] = nums2[i];
+//             i--;
+//         } else {
+//             nums1[k] = nums2[j]
+//             j--;
+//         }
+//         k--;
+//     }
+// }
+// let nums1 = [1, 2, 3, 0, 0, 0];
+// let nums2 = [2, 5, 6];
+
+// merge(nums1, 3, nums2, 3);
+
+// console.log(nums1);
+
+
+// function containsDuplicate(nums) {
+//     let set = new Set();
+
+//     for (let num of nums) {
+//         if (set.has(num)) {
+//             return true;
+//         }
+//         set.add(num);
+//     }
+//     return false;
+// }
+
+// function missingnum(nums){
+//     let n = nums.length;
+//     let expectedSum = n * (n + 1) / 2;
+//     let actualSum = 0;
+
+//     for (let num of nums) {
+//         actualSum += num;
+//     }
+//     return expectedSum - actualSum;
+// }
+// console.log(missingnum([3, 0, 1]));
+
+// function majorityElement(nums) {
+//     let candidate = null;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if (count === 0) {
+//             condidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+// console.log(majorityElement([3, 2, 3]));
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while(left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+// function majorityElement(nums) {
+//     let candidate = null;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if(count === 0) {
+//             candidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while(left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+
+//         left++;
+//         right--;
+//     }
+// }
+// let s = ["h", "e", "l", "l", "o"]
+// reverseString(s);
+// console.log(s);
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid =  Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mmid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1
+//         }
+//         return left;
+//     }
+// }
+// console.log(nums);
+
+// function majorityElement(nums) {
+//     let candidate = null;
+//     let count = 0;
+
+//     for (let num of nums) {
+//         if(count === 0) {
+//             candidate = num;
+//         }
+//         if (num === candidate) {
+//             count++;
+//         } else {
+//             count--;
+//         }
+//     }
+//     return candidate;
+// }
+// console.log(majorityElement([3, 2, 3]));
+// console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+// function missingNumber(nums) {
+//     let n = nums.length;
+//     let expectedSum = n * (n + 1) / 2;
+
+//     let actualSum = 0;
+//     for (let num of nums) {
+//         actualSum += num;
+//     }
+//     return expectedSum - actualSum;
+// }
+// console.log(missingNumber([3, 0, 1]));
+
+// function isPalindrome(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         while (left < right && !/[a-zA-Z0-9]/.test(s[left])) {
+//             left++;
+//         }
+//         while (left < right && !/[a-zA-Z0-9]/.test(s[right])) {
+//             right--;
+//         }
+//         if (s[left].toLowerCase() !== s[right].toLowerCase()) {
+//             return false;
+//         }
+//         left++;
+//         right--;
+//     }
+//     return true;
+// }    
+// console.log(isPalindrome("A man, a plan, a canal: Panama"));
+// console.log(isPalindrome("race a car"));
+// console.log(isPalindrome(" "));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let count = {};
+//     for (let char of s) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if (!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// // true
+
+// console.log(isAnagram("rat", "car"));
+// // false
+
+// function firstUniqueChar(s) {
+//     let freq = new Map();
+
+//     for (let char of s) {
+//         freq.set(char, (freq.get(char) || 0) + 1);
+//     }
+//     for (let i = 0; i < s.length; i++) {
+//         if (freq.get(s[i]) === 1) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(firstUniqueChar("leetcode"));
+// console.log(firstUniqueChar("loveleetcode"));
+// console.log(firstUniqueChar("aabb"));
+
+// function isAnagram(s, t) {
+//     if (s.length !== t.length) {
+//         return false;
+//     }
+//     let count = {};
+//     for (let char of s) {
+//         count[char] = (count[char] || 0) + 1;
+//     }
+//     for (let char of t) {
+//         if(!count[char]) {
+//             return false;
+//         }
+//         count[char]--;
+//     }
+//     return true;
+// }
+// console.log(isAnagram("anagram", "nagaram"));
+// console.log(isAnagram("rat", "car"));
+
+// function reverseString(s) {
+//     let left = 0;
+//     let right = s.length - 1;
+
+//     while (left < right) {
+//         [s[left], s[right]] = [s[right], s[left]];
+//         left++;
+//         right--;
+//     }
+// }
+// let s = ["h", "e", "l", "l", "o"];
+// reverseString(s);
+// console.log(s);
+
+// function findPeakElement(nums) {
+//     let left = 0;
+//     let right = nums.length - 1;
+
+//     while (left < right) {
+//         let mid = Math.floor((left + right) / 2);
+
+//         if (nums[mid] > nums[mid + 1]) {
+//             right = mid;
+//         } else {
+//             left = mid + 1;
+//         }
+//     }
+//     return left;
+// }
+// console.log(findPeakElement([1, 2, 3, 1]));
+
+// function groupAnagrams(strs) {
+//     let map = new Map();
+
+//     for (let str of strs) {
+//         let key = str.split("").sort().join("");
+
+//         if (!map.has(key)) {
+//             map.set(key, []);
+//         }
+//         map.get(key).push(str);
+//     }
+//     return Array.from(map.values());
+// }
+// let strs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+// console.log(groupAnagrams(strs));
+
+// function firstUnique(s) {
+//     let freq = new Map();
+
+//     for (let char of s) {
+//         freq.set(char, (freq.get(char) || 0) + 1);
+//     }
+//     for (let i=0; i < s.length; i++) {
+//         if (freq.get(s[i] === 1)) {
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(firstUnique("leetcode"));
+// console.log(firstUnique("loveleetcode"));
+// console.log(firstUnique("aabb"));
+
+// function moveZeroes(nums) {
+//     let j = 0;
+
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== 0) {
+//             [nums[i], nums[j] = [nums[j], nums[i]]];
+//             j++;
+//         }
+//     }    
+// }
+
+// let nums = [0, 1, 0, 3, 12];
+// moveZeroes(nums);
+// console.log(nums);
+
+// function lengthOfLongestSubstring(s) {
+//     let set = new Set();
+//     let left  = 0;
+//     let maxLength  = 0;
+
+//     for (let right = 0; right < s.length; right++) {
+//         while (set.has(s[right])) {
+//             set.delete(s[left]);
+//             left;
+//         }
+//         set.add(s[right]);
+//         maxLength = Math.max(maxLength, right - left + 1);
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring("abcabcbb"));
+// console.log(lengthOfLongestSubstring("bbbbb"));
+// console.log(lengthOfLongestSubstring("pwwkew");
+
+// function compress(chars) {
+//     let write = 0;
+//     let read = 0;
+
+//     while (read < chars.length) {
+//         let currentChar = chars[read];
+//         let count = 0;
+
+//         while (read < chars.length && chars[read] === currentChar) {
+//             read++;
+//             count++;
+//         }
+//         chars[write] = currentChar;
+//         write++;
+
+//         if(count > 1) {
+//             let countStr = count.toString();
+//             for (let digit of countStr) {
+//                 chars[write] = digit;
+//                 write++;
+//             }
+//         }
+//     }
+//     return write;
+// }
+
+// let chars = ["a", "a", "b", "b",  "c", "c", "c"];
+// let length = compress(chars);
+// console.log(length);
+// console.log(chars);
+
+// var reverseWords = function(s) {
+//     return s.trim().split(/\s+/).reverse().join(" ");
+// };
+
+// function romanToInt(s) {
+//     const values = {
+//         I: 1,
+//         V: 5,
+//         X: 10,
+//         L: 50,
+//         C: 100,
+//         D: 500,
+//         M: 1000
+//     };
+//     let result = 0;
+
+//     for (let i = 0; i < s.length; i++) {
+//         if (i + 1 < s.length && values[s[i]] < values[s[i + 1]]) {
+//             result -= values[s[i]];
+//         } else {
+//             result += values[s[i]];
+//         }
+//     }
+//     return result;
+// }
+// console.log(romanToInt("III"));
+// console.log(romanToInt("LVIII"));
+// console.log(romanToInt("MCMXCIV"));
+
+// function fib(n) {
+//     if (n === 0) return 0;
+//     if (n === 1) return 1;
+
+//     return fib(n-1) + fib(n-2);
+// }
+// console.log(fib(6));
+
+// function fib(n) {
+//     let a = 0;
+//     let b = 1;
+
+//     for (let i = 0; i < n; i++) {
+//         let next = a + b;
+//         a = b;
+//         b = next;
+//     }
+//     return a;
+// }
+// console.log(fib(6));
+
+// var isPowerTwo = function(n) {
+//     if (n <= 0) return false;
+
+//     while (n % 2 === 0) {
+//         n = n / 2;
+//     }
+//     return n === 1;
+// }
+// let n = 16;
+// console.log(n);
+
+// function reverseStr(s, k) {
+//     let arr = s.split("");
+
+//     for (let i =0; i < arr.length; i += 2 * k) {
+//         let left = i;
+//         let right = Math.min(i + k-1, arr.length - 1);
+
+//         while (left < right) {
+//             [arr[left], arr[right]] = [arr[right], arr[left]];
+//             left++;
+//             right--;
+//         }
+//     }
+//     return arr.join("");
+// }
+// console.log(reverseStr("abcdefg", 2));
+
+// var isPowerOfTwo = function(n) {
+//     if (n <= 0) return false;
+
+//     while (n % 2 === 0) {
+//         n = n / 2;
+//     }
+//     return n === 1;
+// };
+
+// function subsets(nums) {
+//     let result = [];
+
+//     function backtrack(index, current) {
+//         if (index === nums.length) {
+//             result.push([...current]);
+//             return;
+//         }
+//         backtrack(index + 1, current);
+//         current.push(nums[index]);
+//         backtrack(index + 1, current);
+//         current.pop();
+//     }
+//     backtrack(0, []);
+//     return result;
+// }
+// console.log(subsets([1, 2, 3]));
+
+// function combinationSum(candidates, target) {
+//     let result = [];
+
+//     function backtrack(start, remaining, current) {
+//         if (remaining === 0) {
+//             result.push([...current]);
+//             return;
+//         }
+//         if (remaining < 0) {
+//             return;
+//         }
+//         for (let i = start; i < candidates.length; i++) {
+//             current.push(candidates[i]);
+//             backtrack(i, remaining - candidates[i], current);
+//             current.pop();
+//         }
+//     }
+//     backtrack(0, target, []);
+//     return result;
+// }
+
+// function comnbinationSum(candidates, target) {
+//     let result = [];
+
+//     function backtrack(start, remaining, current) {
+//         result.push([...current]);
+//         return;
+//     }
+//     if (remaining === 0) {
+//         result.push([...current]);
+//         return;
+//     }
+//     if (remaining < 0) {
+//         return;
+//     }
+//     for (let i = start;  i < candidates.length; i++) {
+//         current.push(candidates[i]);
+//         backtrack(i, remaining - candidates[i], current);
+//         current.pop();
+//   
