@@ -1,33 +1,80 @@
-var twoSum = function(nums, target) {
-    const map = new Map();
+var longestPalindrome = function(s) {
+    let start = 0;
+    let end = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-
-        if (map.has(complement)) {
-            return [map.get(complement), i];
+    function expand(left, right) {
+        while(
+            left >= 0 &&
+            right < s.length &&
+            s[left] === s[right]
+        ) {
+            left--;
+            right++;
         }
-        map.set(nums[i], i);
+        return right -left - 1;
     }
+    for (let i = 0; i < s.length; i++) {
+        let len1 = expand(i, 1);
+
+        let len2 = expand(i, i + 1);
+
+        let len = Math.max(len1, len2);
+
+        if (len > end - start + 1) {
+            start = 1 - Math.floor((len - 1) / 2);
+            end = i + Math.flood(len / 2);
+        }
+    }
+    return s.substring(start, end + 1);
 }
-nums = [2, 7, 11, 15];
-target = 9;
-console.log(twoSum(nums, target));
+// function lengthOfLongestSubstring(s) {
+//     let left = 0;
+//     let maxlenght = 0;
+//     const lastSeen = new Map();
 
-var isPalindrome = function(x) {
-    if (x < 0) return false;
-     let original = x;
-     let reversed = 0;
+//     for (let right = 0; right < s.length; right++) {
+//         const char = s[right];   
 
-     while (x > 0) {
-        let digit = x % 10
-        reversed = reversed * 10 + digit;
-        x = Math.floor(x / 10);
-     }
-     return original === reversed;
-};
-console.log(isPalindrome(121));  // true
-console.log(isPalindrome(-121)); // false
+//         if (lastSeen.has(char) && lastSeen.get(char) >= left) {
+//             left = lastSeen.get(char) + 1;
+//         }
+//         lastSeen.set(char, right);
+//         maxlenght = Math.max(maxLength, right - left + 1);
+//     }
+//     return maxLength;
+// }
+// console.log(lengthOfLongestSubstring('abcabcbb'))
+// console.log(lengthOfLongestSubstring('bbbbb'))
+// var twoSum = function(nums, target) {
+//     const map = new Map();
+
+//     for (let i = 0; i < nums.length; i++) {
+//         const complement = target - nums[i];
+
+//         if (map.has(complement)) {
+//             return [map.get(complement), i];
+//         }
+//         map.set(nums[i], i);
+//     }
+// }
+// nums = [2, 7, 11, 15];
+// target = 9;
+// console.log(twoSum(nums, target));
+
+// var isPalindrome = function(x) {
+//     if (x < 0) return false;
+//      let original = x;
+//      let reversed = 0;
+
+//      while (x > 0) {
+//         let digit = x % 10
+//         reversed = reversed * 10 + digit;
+//         x = Math.floor(x / 10);
+//      }
+//      return original === reversed;
+// };
+// console.log(isPalindrome(121));  // true
+// console.log(isPalindrome(-121)); // false
 // function movezeros(arr) {
 //     let position  = 0;
 
