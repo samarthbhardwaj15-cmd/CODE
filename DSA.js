@@ -27,6 +27,21 @@ var longestPalindrome = function(s) {
     }
     return s.substring(start, end + 1);
 }
+var reverse = function(x) {
+    let rev = 0;
+
+    while (x != 0) {
+        let digit = x % 10;
+        x = Math.trunc(x / 10);
+
+        rev = rev * 10 + digit;
+
+        if(rev < -2145 || rev > 2145) {
+            return 0;
+        }
+    }
+    return rev;
+}
 // function lengthOfLongestSubstring(s) {
 //     let left = 0;
 //     let maxlenght = 0;
