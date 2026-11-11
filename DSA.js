@@ -1,32 +1,45 @@
-function longestPlaindrome(s) {
-    let start = 0;
-    let end = 0;
+var reverse = function(x) {
+    let rev = 0;
 
-}
+    while (x != 0) {
+        let digit = x % 10;
+        x =Math.trunc(x / 10);
+        rev = rev * 10 + digit;
+        if (rev < -2147483648 || rev > 2147483647) {
+            return 0;
+        }
+    }     
+    return rev;
+};
+// function longestPlaindrome(s) {
+//     let start = 0;
+//     let end = 0;
 
-   function expand(left, right) {
-    while(
-        left >= 0 &&
-        right < s.length &&
-        s[left] === s[right]
-    ) {
-        left--;
-        right++;
-    }
-    return right - left - 1;
-   }
-   for (let i = 0; i < s.length; i++) {
-    let len1 = expand(i, i);
-    let len2 = expand(i, i + 1);
-    let len = Math.max(len1, len2);
+// }
 
-    if (len > end - start) {
-        start = i - Math.floor((len - 1) / 2);
-        end = i + Math.floor(len / 2); 
-    }
-    return s.substring(start, end + 1); 
-}
-console.log(longestPalindrome("babad"));
+//    function expand(left, right) {
+//     while(
+//         left >= 0 &&
+//         right < s.length &&
+//         s[left] === s[right]
+//     ) {
+//         left--;
+//         right++;
+//     }
+//     return right - left - 1;
+//    }
+//    for (let i = 0; i < s.length; i++) {
+//     let len1 = expand(i, i);
+//     let len2 = expand(i, i + 1);
+//     let len = Math.max(len1, len2);
+
+//     if (len > end - start) {
+//         start = i - Math.floor((len - 1) / 2);
+//         end = i + Math.floor(len / 2); 
+//     }
+//     return s.substring(start, end + 1); 
+// }
+// console.log(longestPalindrome("babad"));
 // var longestPalindrome = function(s) {
 //     let start = 0;
 //     let end = 0;
