@@ -207,4 +207,106 @@ INNER JOIN Dep d
 INNER JOIN SALE s
    ON e.salary = s.salary;
 
+SELECT
+    e1.name AS Emp1,
+    e2.name AS Emp2,
+    e1.Emp_id AS Emp1_ID,
+FROM Emp e1
+JOIN Emp e2
+    ON e1.emp_id = e2.emp_id
+WHERE e1.emp_id < e2.emp_id;
 
+SELECT
+    e1.name AS Emp1,
+    e2.name AS Emp2,
+    e1.emp_id
+FROM Emp e1
+JOIN Emp e2
+    ON e1.emp_id = e2.emp_id
+WHERE e1.emp_id < e2.emp_id;
+
+SELECT MAX(salary) AS Third
+FROM Emp
+WHERE salary < (
+   SELECT MAX(salary)
+   FROM Emp
+   WHERE salary < (
+       SELECT MAX(salary)
+	   FROM Emp
+   )
+);
+
+SELECT DISTINCT salary
+FROM Emp
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+
+SELECT salary
+FROM (
+    SELECT salary,
+	       DENSE_RANK() OVER (
+              ORDER BY salary DESC
+		   ) AS rnk
+    FROM Emp		   
+) AS temp
+WHERE rnk = 2;
+
+SELECT 
+    name,
+	depatment,
+	salary,
+	RANK() OVER(
+        PARTITION BY depatment
+		ORDER BY salary DESC
+	) AS salary_rank
+FROM Emp;	
+
+SELECT *
+FROM (
+    SELECT
+	    emp_id,
+		name,
+		depatment,
+		salary,
+		DENSE_RANK() OVER (
+             PARTITION BY depatment
+			 ORDER BY salary DESC
+		) AS rnk
+	FROM Emp
+) AS temp
+WHERE rnk <= 2;
+
+SELECT 
+    City,
+	COUNT(*) AS total
+FROM SALE
+GROUP BY City
+HAVING COUNT(*) > 1;
+
+DELETE c1
+FROM SALE c1
+JOIN SALE c2
+   ON c1.City = c2.City
+   AND c1.City > c2.City;
+
+SELECT 
+    emp_id,
+	name,
+	salary,
+	SUM(salary) OVER (
+        ORDER BY emp_id
+		ROWS BETWEEN UNBOUNDED PRECEDING
+		AND CURRENT ROW
+	) AS running_total
+FROM Emp;   
+
+SELECT 
+    name,
+	depatment,
+	salary
+FROM Emp e
+WHERE salary > (
+    SELECT AVG(salary)
+	FROM Emp
+	WHERE depatment = e.depatment
+);
